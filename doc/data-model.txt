@@ -7,16 +7,33 @@ first_name
 email
 phone
 password
-?? stories[X] : Story (many-to-many)
+**high_score							# personal high score
+has_and_belongs_to_many :teams			# many-to-many
+has_many :stories, :through => :teams	# For convenience, can access stories directly
+
+Team
+----
+has_and_belongs_to_many :users			# many-to-many
+has_many :stories						# one-to-many
+**high_score							# team high score, based on votes
 
 Story
 -----
-?? users[2] : User  (many-to-many)
-number
-turn
-sentence[6] -- serialized into a YAML text column
-constraint[6] -- same
+belongs_to :team						# many-to-one: Each story has exactly one team
+has_many :users, :through => :teams		# for convenience, can access users directly
+**created_at : datetime					# date story was made
+number : integer						# The sequential story # of this story for this team
+turn : integer							# what turn # it is (1..6)
+**score : integer						# story score, as voted by users
+sentence[6]								# serialized into a YAML text column
+constraint[6]							# same
 
 
 When user enters a game, he is shown the LAST story in the array as an indicator of the current story status in the lobby
 A special rule is if you click on that story and are on sentence #2, then load the previous story first.
+"Game" exists separately since:
+*users can delete a game
+*serves as a "join model" between User and Story
+*can browse old stories in a game
+
+** = future

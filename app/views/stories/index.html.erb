@@ -6,6 +6,9 @@
     <th>Turn</th>
     <th>Sentences</th>
     <th>Constraints</th>
+    <th>First User</th>
+    <th>Second User</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +16,8 @@
 
 <% @stories.each do |story| %>
   <tr>
+    <td><%=  story.users[0] %></td>
+    <td><%=  story.users[1] %></td>
     <td><%= story.number %></td>
     <td><%= story.turn %></td>
     <td><%= story.sentences %></td>

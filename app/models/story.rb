@@ -1,3 +1,4 @@
 class Story < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  belongs_to :team						          # many-to-one: Each story has exactly one team
+  has_many :users, :through => :teams		# for convenience, can access users directly
 end
