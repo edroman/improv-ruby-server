@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number: 1
+  turn: 1
+  sentences: MyText
+  constraints: MyText
+
+two:
+  number: 1
+  turn: 1
+  sentences: MyText
+  constraints: MyText

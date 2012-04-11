@@ -1,0 +1,22 @@
+Data model for Improv Game
+--------------------------
+
+User
+----
+first_name
+email
+phone
+password
+?? stories[X] : Story (many-to-many)
+
+Story
+-----
+?? users[2] : User  (many-to-many)
+number
+turn
+sentence[6] -- serialized into a YAML text column
+constraint[6] -- same
+
+
+When user enters a game, he is shown the LAST story in the array as an indicator of the current story status in the lobby
+A special rule is if you click on that story and are on sentence #2, then load the previous story first.
