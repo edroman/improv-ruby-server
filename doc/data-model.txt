@@ -8,12 +8,12 @@ email
 phone
 password
 **high_score							# personal high score
-has_and_belongs_to_many :teams			# many-to-many
+has_and_belongs_to_many :teams, :join_table => :users_teams			# many-to-many
 has_many :stories, :through => :teams	# For convenience, can access stories directly
 
 Team
 ----
-has_and_belongs_to_many :users			# many-to-many
+has_and_belongs_to_many :users, :join_table => :users_teams			# many-to-many
 has_many :stories						# one-to-many
 **high_score							# team high score, based on votes
 
