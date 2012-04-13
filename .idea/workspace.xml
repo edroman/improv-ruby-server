@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b840f42-7262-4fad-9324-754791573415" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/story.rb" afterPath="$PROJECT_DIR$/app/models/story.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-    </list>
+    <list default="true" id="0b840f42-7262-4fad-9324-754791573415" name="Default" comment="" />
     <ignored path="improv.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teams.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="teams.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/admin/teams.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="17" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
+            <state line="12" column="43" selection-start="175" selection-end="175" vertical-scroll-proportion="0.4496487">
               <folding />
             </state>
           </provider>
@@ -73,16 +70,16 @@
       <file leaf-file-name="stories.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/admin/stories.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+            <state line="12" column="20" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="team.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/team.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="24" selection-start="383" selection-end="383" vertical-scroll-proportion="0.36363637">
+            <state line="10" column="24" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,9 +120,9 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/models/story.rb" />
         <option value="$PROJECT_DIR$/app/admin/users.rb" />
-        <option value="$PROJECT_DIR$/app/admin/teams.rb" />
-        <option value="$PROJECT_DIR$/app/admin/stories.rb" />
         <option value="$PROJECT_DIR$/app/models/team.rb" />
+        <option value="$PROJECT_DIR$/app/admin/stories.rb" />
+        <option value="$PROJECT_DIR$/app/admin/teams.rb" />
       </list>
     </option>
   </component>
@@ -704,23 +701,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/teams.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="17" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/story.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/stories.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -755,7 +738,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/team.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="24" selection-start="383" selection-end="383" vertical-scroll-proportion="0.36363637">
+        <state line="10" column="24" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/stories.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="20" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/teams.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="43" selection-start="175" selection-end="175" vertical-scroll-proportion="0.4496487">
           <folding />
         </state>
       </provider>
