@@ -3,4 +3,11 @@ class Story < ActiveRecord::Base
   has_many :users, :through => :teams		# for convenience, can access users directly
 
   accepts_nested_attributes_for :users, :allow_destroy => true
+
+  def name
+    "Team: #{team.name}, Story: #{number}"
+  end
+
+  def name=(attributes)
+  end
 end
