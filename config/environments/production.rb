@@ -59,5 +59,5 @@ Improv::Application.configure do
   config.active_support.deprecation = :notify
 
   # For ActiveAdmin
-  #config.action_mailer.default_url_options = { :host => 'TODO' }
+  config.action_mailer.default_url_options = { :host => 'http://morning-dawn-3348.herokuapp.com' }
 end
