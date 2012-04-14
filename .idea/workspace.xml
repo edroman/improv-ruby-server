@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0b840f42-7262-4fad-9324-754791573415" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="$PROJECT_DIR$/config/environments/test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="improv.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,7 +55,7 @@
       <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="95" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.82417583">
+            <state line="61" column="63" selection-start="2234" selection-end="2234" vertical-scroll-proportion="0.82417583">
               <folding />
             </state>
           </provider>
@@ -725,7 +725,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="95" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.82417583">
+        <state line="61" column="63" selection-start="2234" selection-end="2234" vertical-scroll-proportion="0.82417583">
           <folding />
         </state>
       </provider>

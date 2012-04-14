@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120411184603) do
     t.integer  "author_id"
     t.string   "author_type"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "namespace"
   end
 
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20120411184603) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(:version => 20120411184603) do
     t.integer  "team_id"
     t.text     "sentences"
     t.text     "constraints"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "teams", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(:version => 20120411184603) do
     t.string   "email"
     t.integer  "phone"
     t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users_teams", :id => false, :force => true do |t|
