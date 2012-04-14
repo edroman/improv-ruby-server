@@ -54,7 +54,7 @@
       <file leaf-file-name="20120411181644_devise_create_admin_users.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="0" selection-start="1371" selection-end="1371" vertical-scroll-proportion="0.46411484">
+            <state line="43" column="0" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.4258373">
               <folding />
             </state>
           </provider>
@@ -715,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1371" selection-end="1371" vertical-scroll-proportion="0.46411484">
+        <state line="43" column="0" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.4258373">
           <folding />
         </state>
       </provider>
