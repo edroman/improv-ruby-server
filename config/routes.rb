@@ -1,8 +1,21 @@
 Improv::Application.routes.draw do
 
+  # The ActiveAdmin routes cause Rails to set up a connection to the
+  # production database, which isn't available during
+  # assets:precompile on Heroku, so the following unless block skips
+  # setting up these routes only when rake assets:precompile is
+  # being run.
+  #
+  # Could be a problem if the assets needed these to be loaded to
+  # compile properly; pretty sure they don't.
+  break if ARGV.join.include? 'assets:precompile'
 
-#  ActiveAdmin.routes(self)
-  ActiveAdmin.routes(self) if (!$ARGV.nil? && $ARGV.find_all { |x| x =~ /migrate|rollback/i}.empty?)
+
+
+  ActiveAdmin.routes(self)
+
+# Seems to break things, don't use:
+#  ActiveAdmin.routes(self) if (!$ARGV.nil? && $ARGV.find_all { |x| x =~ /migrate|rollback/i}.empty?)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
