@@ -4,4 +4,11 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :teams, :allow_destroy => true
   accepts_nested_attributes_for :stories, :allow_destroy => true
+
+  def name
+    first_name
+  end
+
+  def name=(attributes)
+  end
 end

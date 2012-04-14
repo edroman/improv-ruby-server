@@ -5,7 +5,7 @@ class Story < ActiveRecord::Base
   accepts_nested_attributes_for :users, :allow_destroy => true
 
   def name
-    "Team: #{team.name}, Story: #{number}"
+    "Story-#{number}-#{sentences}"
   end
 
   def name=(attributes)

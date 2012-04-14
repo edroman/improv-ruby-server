@@ -8,9 +8,14 @@ class Team < ActiveRecord::Base
   def name
     str = ""
     if (users.size == 0)
-      str = "Empty Team ##{id}"
+      str = "Empty-Team-#{id}"
     else
-      users.each { |user| str += user.first_name + " " }
+      users.each do |user|
+        if (user != users.first)
+          str += "+"
+        end
+        str += user.first_name
+      end
     end
     return str
   end

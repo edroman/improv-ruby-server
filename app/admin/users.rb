@@ -9,12 +9,19 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-#    f.inputs do
-#      f.input :teams # add teams input here
-#    end
 
     f.inputs
 
+    f.inputs do
+      f.input :teams, :as => :check_boxes
+    end
+
+
+=begin
+# failed techniques that don't work'
+#    f.inputs do
+#      f.input :teams # add teams input here
+#    end
 #    f.inputs "Teams" do
       f.has_many :teams do |j|
         j.input :name
@@ -23,7 +30,7 @@ ActiveAdmin.register User do
         end
       end
 #    end
-
+=end
     f.buttons
   end
 
@@ -33,7 +40,16 @@ ActiveAdmin.register User do
       row :email
       row :phone
       row :password
-      user.teams.each { |team| row("Team"){team.name} }   # for each team, create a row with that team's name
+      row :teams do
+        user.teams.collect{|t| t.name}.join(', ')
+      end
+
+=begin
+    # failed techniques that don't work'
+    user.teams.each { |team| row("Team"){team.name} }   # for each team, create a row with that team's name
+    row :teams
+=end
+
     end
     active_admin_comments
   end
