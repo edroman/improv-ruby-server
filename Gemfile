@@ -6,7 +6,7 @@ gem 'rails', '3.1.3'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'rails-dev-tweaks'
+  gem 'rails-dev-tweaks'    # for ActiveAdmin in dev mode to not cause app to be slow
   gem 'sqlite3'
 end
 
@@ -24,7 +24,7 @@ gem 'jquery-rails'
 
 # These lines are required for ActiveAdmin panel
 gem "formtastic", "~> 2.1.1"
-gem 'devise', '~> 1.4.7'          # necessary due to heroku migration issues
+#gem "devise", "~> 1.4.7"          # necessary due to heroku migration issues
 gem "activeadmin", "~> 0.4.3"
 gem 'sass-rails'
 gem 'meta_search', '>= 1.1.0.pre'

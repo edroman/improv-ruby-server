@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b840f42-7262-4fad-9324-754791573415" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/improv.iml" afterPath="$PROJECT_DIR$/.idea/improv.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="improv.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
+            <state line="26" column="1" selection-start="586" selection-end="586" vertical-scroll-proportion="0.57894737">
               <folding />
             </state>
           </provider>
@@ -49,15 +47,6 @@
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="3" column="0" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20120411181644_devise_create_admin_users.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="4" selection-start="1258" selection-end="1274" vertical-scroll-proportion="0.4258373">
               <folding />
             </state>
           </provider>
@@ -135,8 +124,8 @@
         <option value="$PROJECT_DIR$/app/admin/users.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -695,16 +684,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
+        <state line="19" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.45933014">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.45933014">
+        <state line="43" column="4" selection-start="1258" selection-end="1274" vertical-scroll-proportion="0.4258373">
           <folding />
         </state>
       </provider>
@@ -716,9 +705,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="4" selection-start="1258" selection-end="1274" vertical-scroll-proportion="0.4258373">
+        <state line="26" column="1" selection-start="586" selection-end="586" vertical-scroll-proportion="0.57894737">
           <folding />
         </state>
       </provider>
