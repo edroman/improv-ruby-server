@@ -1,7 +1,8 @@
 Improv::Application.routes.draw do
 
 
-  ActiveAdmin.routes(self)
+#  ActiveAdmin.routes(self)
+  ActiveAdmin.routes(self) if (!$ARGV.nil? && $ARGV.find_all { |x| x =~ /migrate|rollback/i}.empty?)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
