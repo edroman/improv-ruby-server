@@ -23,6 +23,8 @@ Improv::Application.routes.draw do
 
   resources :users
 
+  resources :teams
+
   root :to => "admin/dashboard#index"
 
 
