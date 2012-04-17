@@ -1,13 +1,11 @@
 %header#header
   .inner_container
     = link_to root_path, :id => 'logo' do
-      Improv
+      Home
       %menu
         - if current_user
           = current_user.first_name
           &#8226;
           = link_to 'Sign out', :sign_out
         - elsif current_page?(root_path)
-
-        - else
-          = link_to 'Sign up', :sign_up
+        - else link_to 'Sign up', new_user_path
