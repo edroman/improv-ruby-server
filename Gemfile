@@ -11,8 +11,6 @@ group :development do
   gem 'sqlite3'
 end
 
-gem 'pg'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,10 +20,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# PostgresSQL
+gem 'pg'
 
-
-
-
+# HAML support
+gem 'haml'
+# Forces code generators to also use HAML
+gem 'haml-rails'
 
 #  gem 'jquery-rails'
   gem 'jquery-rails', '~> 2.0.0'

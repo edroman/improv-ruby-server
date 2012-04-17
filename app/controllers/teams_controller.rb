@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
     @teams = Team.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @teams }
     end
   end
@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.json { render json: @team }
     end
   end
@@ -27,7 +27,7 @@ class TeamsController < ApplicationController
     @team = Team.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.json { render json: @team }
     end
   end

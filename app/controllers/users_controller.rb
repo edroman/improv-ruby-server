@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml { render xml: @users }
       format.json { render json: @users }
     end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.xml { render xml: @user }
       format.json { render json: @user }
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.xml { render xml: @user }
       format.json { render json: @user }
     end

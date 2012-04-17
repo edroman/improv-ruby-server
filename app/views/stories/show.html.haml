@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %b Number:
+  = @story.number
+%p
+  %b Turn:
+  = @story.turn
+%p
+  %b Sentences:
+  = @story.sentences
+%p
+  %b Constraints:
+  = @story.constraints
+= link_to 'Edit', edit_story_path(@story)
+|
+\#{link_to 'Back', stories_path}

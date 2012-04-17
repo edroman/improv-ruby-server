@@ -1,0 +1,8 @@
+- if resource.errors.any?
+  #error_explanation
+    %h4
+      = pluralize(resource.errors.count, "error")
+      made me cry when I tried to do your bidding:
+    %ul
+      - resource.errors.full_messages.each do |msg|
+        %li= msg

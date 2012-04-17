@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title
+      = yield :title
+      Improv
+    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag yield :font
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %container
+      = render 'layouts/header'
+      %content
+        %content_inner
+          = render :partial => 'layouts/flash', :locals => { :flash => flash }
+          = yield
+
+      = render 'layouts/footer'

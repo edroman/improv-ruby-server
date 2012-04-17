@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
     @stories = Story.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @stories }
     end
   end
@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.json { render json: @story }
     end
   end
@@ -27,7 +27,7 @@ class StoriesController < ApplicationController
     @story = Story.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.json { render json: @story }
     end
   end

@@ -1,0 +1,25 @@
+%h1 Listing stories
+%table
+  %tr
+    %th Number
+    %th Turn
+    %th Sentences
+    %th Constraints
+    %th First User
+    %th Second User
+    %th
+    %th
+    %th
+  - @stories.each do |story|
+    %tr
+      %td= story.users[0]
+      %td= story.users[1]
+      %td= story.number
+      %td= story.turn
+      %td= story.sentences
+      %td= story.constraints
+      %td= link_to 'Show', story
+      %td= link_to 'Edit', edit_story_path(story)
+      %td= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Story', new_story_path
