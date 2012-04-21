@@ -1,23 +1,24 @@
 development:
-  facebook_token: 292130894158710
-  facebook_secret: 8f66bc67685466fc043a751404c4b692
-  twitter_token: 4S6qrVVnp6eC2xlWGG5g
-  twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
-
-staging:
-  facebook_token: 292130894158710
-  facebook_secret: 8f66bc67685466fc043a751404c4b692
-  twitter_token: 4S6qrVVnp6eC2xlWGG5g
-  twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
-
-production:
-  facebook_token: 292130894158710
-  facebook_secret: 8f66bc67685466fc043a751404c4b692
+  facebook_token: 250634021702621
+  facebook_secret: 5132fb812f464e4a2c300fb5c20db10d
   twitter_token: 4S6qrVVnp6eC2xlWGG5g
   twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
 
 test:
-  facebook_token: 292130894158710
-  facebook_secret: 8f66bc67685466fc043a751404c4b692
+  facebook_token: 250634021702621
+  facebook_secret: 5132fb812f464e4a2c300fb5c20db10d
   twitter_token: 4S6qrVVnp6eC2xlWGG5g
   twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
+
+staging:
+  facebook_token: 390389744334816
+  facebook_secret: 0f0ab81b9a8b2d4d0a36b1039d462c32
+  twitter_token: byfX6PBKLK6JXhOloi4Wg
+  twitter_secret: nPmKW4guoEuWVFzsHjFydmyJMkGlmvC3VII8V1ZOWU
+
+production:
+  facebook_token: 390389744334816
+  facebook_secret: 0f0ab81b9a8b2d4d0a36b1039d462c32
+  twitter_token: byfX6PBKLK6JXhOloi4Wg
+  twitter_secret: nPmKW4guoEuWVFzsHjFydmyJMkGlmvC3VII8V1ZOWU
+
