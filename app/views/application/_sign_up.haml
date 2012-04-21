@@ -1,5 +1,22 @@
 %section.sign_up
-  = link_to 'Create account via email', new_user_path
+  = link_to 'Register via email', new_user_path
+  %p
+  Sign-in via email:
+  = form_for :newuser, :url => :manual_login do |f|
+    .field
+      = f.label :email
+      %br/
+      = f.text_field :email
+    .field
+      = f.label :password
+      %br/
+      = f.text_field :password
+    .actions
+      = f.submit 'Login'
+
+
+
+
   %p
   = link_to "/auth/facebook" do
     = image_tag 'sign_up_facebook.png'

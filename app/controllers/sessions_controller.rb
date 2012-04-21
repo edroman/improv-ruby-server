@@ -11,7 +11,11 @@ class SessionsController < ApplicationController
   # 1) Callback function that Facebook calls when user logs in through facebook
   # 2) Screen where user creates a session manually by logging in via email
   # 3) Native iOS interface
+  #
+  # TODO: Convert this all to use Devise -- see rails notes for Railcasts links for this
   def create
+    authenticated = false
+
     # Get the auth stuff passed in from facebook
     auth = get_auth
 
@@ -21,14 +25,24 @@ class SessionsController < ApplicationController
       if !user
         user = User.create_with_omniauth(auth)
       else
-        flash[:notice] = "You've signed in! I rejoice at your return!"
+        authenticated = true
+      end
+    # If we're logging in through a web form, or native iOS, process that via login/pass params submitted via form, which invokes this callback
+    else
+      user = User.find_by_email(params[:newuser][:email])
+      if !user
+        redirect_to root_url, :notice => "Invalid email"
+      elsif params[:newuser][:password] != user.password
+        redirect_to root_url, :notice => "Invalid password"
+      else
+        authenticated = true
       end
     end
 
-    # TODO: If we're logging in through a web form, or native iOS, process that
-
-    session[:user_id] = user.id if user != nil
-    redirect_to root_url, :notice => "You've signed in! I rejoice at your return!"
+    if authenticated
+      session[:user_id] = user.id if user != nil
+      redirect_to root_url, :notice => "You've signed in! I rejoice at your return!"
+    end
 	end
 
 	def destroy

@@ -41,6 +41,11 @@ Improv::Application.routes.draw do
   match "/auth/failure" => "sessions#failure", :as => :authentication_failure
 
   #
+  # Session route - callback for manual authentication
+  #
+  match "/sessions/create" => "sessions#create", :as => :manual_login
+
+  #
   # Main root
   #
   root :to => "main#index"
