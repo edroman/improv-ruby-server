@@ -1,6 +1,8 @@
 %section.sign_up
-  = link_to 'Create user record!', new_user_path
+  = link_to 'Create account via email', new_user_path
+  %p
   = link_to "/auth/facebook" do
     = image_tag 'sign_up_facebook.png'
+  %p
   = link_to "/auth/twitter" do
     = image_tag 'sign_up_twitter.png'

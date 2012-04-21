@@ -1,5 +1,8 @@
 Improv::Application.routes.draw do
 
+  #
+  # ActiveAdmin routes.
+  #
   # The ActiveAdmin routes cause Rails to set up a connection to the
   # production database, which isn't available during
   # assets:precompile on Heroku, so the following unless block skips
@@ -8,9 +11,8 @@ Improv::Application.routes.draw do
   #
   # Could be a problem if the assets needed these to be loaded to
   # compile properly; pretty sure they don't.
+  #
   break if ARGV.join.include? 'assets:precompile'
-
-
 
   ActiveAdmin.routes(self)
 
@@ -19,17 +21,28 @@ Improv::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  #
+  # Generate some default routes for our models
+  #
+
   resources :stories
 
-  resources :users
+  # There can only be one user logged in at once, and he has no need to see other users,
+  # so use a singular "resource" and "user" rather than "resources" and "users"
+  resource :user, :except => [:index, :show]
 
   resources :teams
 
+  #
   # Omniauth routes
+  #
   match "/auth/:provider/callback" => "sessions#create"
   match "/sign_out" => "sessions#destroy", :as => :sign_out
   match "/auth/failure" => "sessions#failure", :as => :authentication_failure
 
+  #
+  # Main root
+  #
   root :to => "main#index"
 
 
