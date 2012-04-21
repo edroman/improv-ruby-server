@@ -1,0 +1,23 @@
+development:
+  facebook_token: 292130894158710
+  facebook_secret: 8f66bc67685466fc043a751404c4b692
+  twitter_token: 4S6qrVVnp6eC2xlWGG5g
+  twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
+
+staging:
+  facebook_token: 292130894158710
+  facebook_secret: 8f66bc67685466fc043a751404c4b692
+  twitter_token: 4S6qrVVnp6eC2xlWGG5g
+  twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
+
+production:
+  facebook_token: 292130894158710
+  facebook_secret: 8f66bc67685466fc043a751404c4b692
+  twitter_token: 4S6qrVVnp6eC2xlWGG5g
+  twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
+
+test:
+  facebook_token: 292130894158710
+  facebook_secret: 8f66bc67685466fc043a751404c4b692
+  twitter_token: 4S6qrVVnp6eC2xlWGG5g
+  twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A

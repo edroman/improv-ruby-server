@@ -23,6 +23,10 @@ end
 # PostgresSQL
 gem 'pg'
 
+# Omniauth
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 # HAML support
 gem 'haml'
 # Forces code generators to also use HAML

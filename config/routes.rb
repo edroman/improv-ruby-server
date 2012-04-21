@@ -25,6 +25,11 @@ Improv::Application.routes.draw do
 
   resources :teams
 
+  # Omniauth routes
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/sign_out" => "sessions#destroy", :as => :sign_out
+  match "/auth/failure" => "sessions#failure", :as => :authentication_failure
+
   root :to => "main#index"
 
 
