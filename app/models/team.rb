@@ -5,6 +5,10 @@ class Team < ActiveRecord::Base
   accepts_nested_attributes_for :stories, :allow_destroy => true
   accepts_nested_attributes_for :users, :allow_destroy => true
 
+  def find_all_by_user(user)
+    user.teams
+  end
+
   def name
     str = ""
     if (users.size == 0)
