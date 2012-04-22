@@ -2,7 +2,7 @@
   = render :partial => "error_messages", :locals => { :resource => @team }
   .field
     = f.label :partner
-    = collection_select nil, nil, User.all, :id, :name
+    = collection_select :partner, nil, User.all, :id, :name
     %br/
   .actions
     = f.submit 'Create'

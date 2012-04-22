@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   # GET /teams/1.json
+=begin
   def show
     @team = Team.find(params[:id])
 
@@ -20,6 +21,7 @@ class TeamsController < ApplicationController
       format.json { render json: @team }
     end
   end
+=end
 
   # GET /teams/new
   # GET /teams/new.json
@@ -33,20 +35,24 @@ class TeamsController < ApplicationController
   end
 
   # GET /teams/1/edit
+=begin
   def edit
     @team = Team.find(params[:id])
   end
+=end
 
   # POST /teams
   # POST /teams.json
   def create
-    params[:team][:users][0] = current_user
-    params[:team][:users][1] = params[:team][:partner]
+    # params[:team][:users][0] = current_user
+    # params[:team][:users][1] = params[:partner]
     @team = Team.new(params[:team])
+    @team.users[0] = current_user
+    @team.users[1] = User.find_by_id(params[:partner])
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.html { redirect_to stories_path, notice: 'Team was successfully created.' }
         format.json { render json: @team, status: :created, location: @team }
       else
         format.html { render action: "new" }
@@ -57,6 +63,7 @@ class TeamsController < ApplicationController
 
   # PUT /teams/1
   # PUT /teams/1.json
+=begin
   def update
     @team = Team.find(params[:id])
 
@@ -70,6 +77,7 @@ class TeamsController < ApplicationController
       end
     end
   end
+=end
 
   # DELETE /teams/1
   # DELETE /teams/1.json
