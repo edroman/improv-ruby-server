@@ -3,3 +3,11 @@
   %h2 ...a game where you tell stories with friends.
   %p
     Currently in beta.
+
+    %ul
+      - if current_user
+        Welcome
+        = current_user.first_name
+        = link_to 'Sign out', :sign_out
+      - elsif current_page?(root_path)
+        = render 'sign_up'
