@@ -1,0 +1,19 @@
+%h1 Your current games
+%table
+  %tr
+    %th Name
+    %th First User
+    %th Second User
+    %th
+    %th
+    %th
+  - @teams.each do |team|
+    %tr
+      %td= team.name
+      %td= team.users[0]
+      %td= team.users[1]
+      %td= link_to 'Show', team
+      %td= link_to 'Edit', edit_team_path(team)
+      %td= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'Start a New Game!', new_team_path

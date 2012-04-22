@@ -1,5 +1,13 @@
 Improv::Application.routes.draw do
 
+  get "invites/new"
+
+  get "invites/create"
+
+  get "invite/new"
+
+  get "invite/create"
+
   #
   # ActiveAdmin routes.
   #

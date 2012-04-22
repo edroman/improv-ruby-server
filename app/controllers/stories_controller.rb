@@ -1,8 +1,10 @@
 class StoriesController < ApplicationController
+  # Shows stories for one particular user only
+
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @stories = Story.find_all_by_team_id(0)  # TODO
 
     respond_to do |format|
       format.html # index.html.haml

@@ -1,12 +1,5 @@
 = form_for(@story) do |f|
-  - if @story.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@story.errors.count, "error")
-        prohibited this story from being saved:
-      %ul
-        - @story.errors.full_messages.each do |msg|
-          %li= msg
+  = render :partial => "error_messages", :locals => { :resource => @story }
   .field
     = f.label :number
     %br/

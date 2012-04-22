@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = current_user.teams
 
     respond_to do |format|
       format.html # index.html.haml
@@ -40,6 +40,8 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
+    params[:team][:users][0] = current_user
+    params[:team][:users][1] = params[:team][:partner]
     @team = Team.new(params[:team])
 
     respond_to do |format|
