@@ -45,6 +45,7 @@ gem 'sass-rails',   '~> 3.2.3'
 
 gem 'meta_search', '>= 1.1.0.pre'
 
+gem 'awesome_print'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418013454) do
+ActiveRecord::Schema.define(:version => 20120422202636) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,19 +46,20 @@ ActiveRecord::Schema.define(:version => 20120418013454) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "constraints", :force => true do |t|
+    t.string   "name"
+    t.string   "grammar"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "stories", :force => true do |t|
     t.integer  "number"
     t.integer  "turn"
-    t.integer  "team_id"
     t.text     "sentences"
     t.text     "constraints"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "teams", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -74,9 +75,9 @@ ActiveRecord::Schema.define(:version => 20120418013454) do
     t.string   "secret"
   end
 
-  create_table "users_teams", :id => false, :force => true do |t|
+  create_table "users_stories", :id => false, :force => true do |t|
     t.integer "user_id"
-    t.integer "team_id"
+    t.integer "story_id"
   end
 
 end

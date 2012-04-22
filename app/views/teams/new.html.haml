@@ -1,9 +1,0 @@
-= form_for @team do |f|
-  = render :partial => "error_messages", :locals => { :resource => @team }
-  .field
-    = f.label :partner
-    = collection_select :partner, nil, User.all, :id, :name
-    %br/
-  .actions
-    = f.submit 'Create'
-

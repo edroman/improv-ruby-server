@@ -41,7 +41,9 @@ class SessionsController < ApplicationController
 
     if authenticated
       session[:user_id] = user.id if user != nil
-      redirect_to root_url, :notice => "You've signed in! I rejoice at your return!"
+      redirect_to "/stories", :notice => "You've signed in! I rejoice at your return!"
+    else
+      redirect_to root_url, :notice => "Error: Could not authenticate!"
     end
 	end
 
