@@ -2,7 +2,7 @@ body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 18px; }
 
 p, ol, ul, td {
@@ -14,8 +14,9 @@ h1  {
   font-size: 30px;
   color: #05E9FF;
   text-align: center;
-  background: -webkit-gradient(linear, center bottom, center top, from(#707070), color-stop(50%,#888888), to(#B8B8B8))
-  -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
+  background: #707070; /*for  non-css3 browsers */
+  background: -webkit-gradient(linear, center bottom, center top, from(#707070), color-stop(50%,#888888), to(#B8B8B8));
+  background: -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -32,10 +33,24 @@ a {
     color: #fff;
     background-color: #000; } }
 
+
+div {
+  &.field{
+    color:purple;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  &.actions{
+
+  }
+}
+/*
 div {
   &.field, &.actions {
-    margin-bottom: 10px; } }
-
+    margin-bottom: 10px;
+  color:purple;
+  } }
+*/
 #notice {
   color: green; }
 
@@ -63,3 +78,8 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+
+
+#flash_messages{
+
+}
