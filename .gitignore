@@ -16,5 +16,6 @@
 
 # Ignore workspace files
 /.idea
+/.idea/*
 /.idea/workspace.xml
 /.idea/improv.iml
