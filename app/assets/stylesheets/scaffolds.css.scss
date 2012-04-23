@@ -11,7 +11,13 @@ p, ol, ul, td {
   line-height: 18px; }
 
 h1  {
+  font-size: 30px;
   color: #05E9FF;
+  text-align: center;
+  background: -webkit-gradient(linear, center bottom, center top, from(#707070), color-stop(50%,#888888), to(#B8B8B8))
+  -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 pre {
   background-color: #eee;
