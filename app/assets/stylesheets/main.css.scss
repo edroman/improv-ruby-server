@@ -17,9 +17,12 @@ h2{
 
 #content{
   padding-left: 22px;
-  padding-bottom: 0;
+  padding-bottom:60px;   /* Height of the footer */
   max-width: 320;
   width:320;
+  .content_inner{
+    padding-left: 22px;
+  }
 }
 
 footer {
