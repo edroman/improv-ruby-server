@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b840f42-7262-4fad-9324-754791573415" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/invites/_form.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/teams/index.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/teams/new.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-<<<<<<< HEAD
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/stories_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/stories_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/teams_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/teams_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/team.rb" afterPath="$PROJECT_DIR$/app/models/team.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/stories/_form.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/users/_form.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb" afterPath="$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb" />
-=======
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
-    </list>
+    <list default="true" id="0b840f42-7262-4fad-9324-754791573415" name="Default" comment="" />
     <ignored path="improv.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,54 +22,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-<<<<<<< HEAD
-      <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/teams/new.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="32" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1335031167000" expanded="true" signature="17:231" placeholder="do ... end" />
-              </folding>
-=======
       <file leaf-file-name="_sign_up.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/application/_sign_up.haml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="44" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
               <folding />
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
       <file leaf-file-name="_header.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.haml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="25" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-      <file leaf-file-name="teams_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/teams_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="767" selection-end="767" vertical-scroll-proportion="0.0">
-=======
-      <file leaf-file-name="_header.haml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="42" selection-start="87" selection-end="87" vertical-scroll-proportion="0.09638554">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="index.html.haml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/teams/index.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="44" selection-start="424" selection-end="424" vertical-scroll-proportion="0.4222874">
-=======
       <file leaf-file-name="scaffolds.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,47 +53,16 @@
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/stories.css.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
-=======
-      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/main/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="63" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
+            <state line="12" column="63" selection-start="305" selection-end="305" vertical-scroll-proportion="0.290469">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="_error_messages.haml" pinned="false" current="true" current-in-tab="true">
-=======
-<<<<<<< HEAD
-      <file leaf-file-name="_form.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="28" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1335028931000" expanded="true" signature="34:417" placeholder="do ... end" />
-              </folding>
-=======
-      <file leaf-file-name="_error_messages.haml" pinned="false" current="false" current-in-tab="false">
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
-        <entry file="file://$PROJECT_DIR$/app/views/application/_error_messages.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="8" selection-start="224" selection-end="224" vertical-scroll-proportion="0.16867469">
-              <folding />
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
             </state>
           </provider>
         </entry>
@@ -156,8 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-<<<<<<< HEAD
-=======
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/config/initializers/omniauth.rb" />
@@ -166,29 +88,14 @@
         <option value="$PROJECT_DIR$/config/config.yml" />
         <option value="$PROJECT_DIR$/app/views/users/edit.html.haml" />
         <option value="$PROJECT_DIR$/app/views/users/new.html.haml" />
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/users/_form.html.haml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_sign_up.haml" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/db/migrate/20120411181644_devise_create_admin_users.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/stories_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/team.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/invite_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/invites/create.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/invites/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/invites/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/users/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/stories/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/teams_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/teams/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/teams/new.html.haml" />
-=======
         <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.haml" />
         <option value="$PROJECT_DIR$/app/views/main/index.html.haml" />
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
       </list>
     </option>
   </component>
@@ -200,10 +107,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="436" />
+    <option name="x" value="45" />
     <option name="y" value="22" />
     <option name="width" value="1054" />
-    <option name="height" value="810" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -276,8 +183,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-<<<<<<< HEAD
-=======
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -348,7 +253,6 @@
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -363,20 +267,18 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-<<<<<<< HEAD
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-=======
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="improv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
+              <option name="myItemId" value="improv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -750,7 +652,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="436" y="22" width="1054" height="810" extended-state="0" />
+    <frame x="45" y="22" width="1054" height="807" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819074" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -759,17 +661,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819074" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29821074" sideWeight="0.67180926" order="0" side_tool="false" content_ui="combo" />
-=======
-<<<<<<< HEAD
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3577586" sideWeight="0.91248393" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.087516084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21551724" sideWeight="0.67180926" order="0" side_tool="false" content_ui="combo" />
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3974359" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819074" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -849,18 +742,13 @@
           <line>53</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/teams_controller.rb</url>
-          <line>42</line>
+          <url>file://$PROJECT_DIR$/app/controllers/users_controller.rb</url>
+          <line>24</line>
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/invites/create.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="87" selection-start="69" selection-end="156" vertical-scroll-proportion="0.108843535">
-=======
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="0" selection-start="525" selection-end="525" vertical-scroll-proportion="0.03539823">
@@ -871,94 +759,38 @@
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/active_admin.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/stories/new.html.haml">
-=======
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_footer.haml">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/application/_error_messages.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-=======
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="40" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/stories/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="73" selection-start="99" selection-end="99" vertical-scroll-proportion="0.03628118">
-=======
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/teams.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="19" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/main/index.html.haml">
-=======
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/stories.css.scss">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/models/team.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="25" selection-start="105" selection-end="128" vertical-scroll-proportion="0.07256236">
-=======
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/users.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="28" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1335028931000" expanded="true" signature="34:417" placeholder="do ... end" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.2-p318@global/gems/actionpack-3.2.1/lib/action_dispatch/middleware/flash.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="39" selection-start="7151" selection-end="7151" vertical-scroll-proportion="0.41133004">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.2-p318@global/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb">
-=======
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="33" selection-start="430" selection-end="430" vertical-scroll-proportion="0.43373495">
@@ -967,7 +799,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="69" selection-start="1401" selection-end="1401" vertical-scroll-proportion="1.0843374">
           <folding />
@@ -976,101 +807,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/_sign_up.haml">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state line="4" column="44" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-        <state line="24" column="0" selection-start="640" selection-end="640" vertical-scroll-proportion="0.33333334">
-=======
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state line="12" column="63" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-        <state line="31" column="0" selection-start="1117" selection-end="1117" vertical-scroll-proportion="0.6371882">
-=======
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="70" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/controllers/teams_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="767" selection-end="767" vertical-scroll-proportion="0.0">
-=======
-    <entry file="file://$PROJECT_DIR$/app/views/application/_sign_up.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="44" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="25" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.2-p318@global/gems/actionpack-3.2.1/lib/action_view/helpers/form_options_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="10" selection-start="8962" selection-end="8962" vertical-scroll-proportion="1.317734">
-=======
-    <entry file="file://$PROJECT_DIR$/app/views/main/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="63" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-=======
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/teams/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="32" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1335031167000" expanded="true" signature="17:231" placeholder="do ... end" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
-=======
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="70" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="40" selection-start="350" selection-end="350" vertical-scroll-proportion="0.14457831">
@@ -1080,18 +842,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/_error_messages.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="8" selection-start="224" selection-end="224" vertical-scroll-proportion="0.16867469">
-=======
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/app/views/teams/index.html.haml">
+        <state line="7" column="42" selection-start="232" selection-end="232" vertical-scroll-proportion="0.16944024">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main/index.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="44" selection-start="424" selection-end="424" vertical-scroll-proportion="0.4222874">
-=======
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="42" selection-start="87" selection-end="87" vertical-scroll-proportion="0.09638554">
->>>>>>> 2182faaac2953d57a266ab32fa8c88c2727e3e35
->>>>>>> 62b70941c583f68c458ec5d0c82bc75b98998e5d
+        <state line="12" column="63" selection-start="305" selection-end="305" vertical-scroll-proportion="0.290469">
           <folding />
         </state>
       </provider>
