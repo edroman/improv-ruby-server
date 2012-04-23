@@ -1,1 +1,6 @@
 -# TODO: Show the user the completed story and playback audio button
+%h1 Here's your finished story!
+%br
+%b= @story.sentences
+%p
+= link_to 'Back', stories_path

@@ -1,24 +1,24 @@
 %section.sign_up
-  %p
-  Sign-in using:
-  %p
-  = link_to "/auth/facebook" do
-    = image_tag 'sign_up_facebook.png'
-  %p
-  = link_to "/auth/twitter" do
-    = image_tag 'sign_up_twitter.png'
-  %p
-  Or, sign-in via email:
+  -#
+    %p
+    Sign-in using:
+    %p
+    = link_to "/auth/facebook" do
+      = image_tag 'sign_up_facebook.png'
+    %p
+    = link_to "/auth/twitter" do
+      = image_tag 'sign_up_twitter.png'
+    %p
   %p
   = form_for :newuser, :url => :manual_login do |f|
     .field
-      = f.label :email
-      %br/
-      = f.text_field :email
+      -#= f.label :email
+      -#%br/
+      = f.text_field :email, :placeholder => "Enter your email address..."
     .field
-      = f.label :password
-      %br/
-      = f.text_field :password
+      -#= f.label :password
+      -#%br/
+      = f.text_field :password, :placeholder => "Enter your password..."
     .actions
       = f.submit 'Login'
   %p

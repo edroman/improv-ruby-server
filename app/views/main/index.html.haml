@@ -4,12 +4,8 @@
 
   %h2 ...a game where you tell stories with friends.
   %p
-  Currently in beta.
-  %p
   - if current_user
     Click #{link_to 'here', stories_url} to view your current games.
-    %p
-    = link_to 'Sign out', :sign_out
     %p
   - elsif current_page?(root_path)
     = render 'sign_up'

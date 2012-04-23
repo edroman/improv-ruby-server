@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ConstraintTest < ActiveSupport::TestCase
+class NounTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
