@@ -63,6 +63,13 @@ class StoriesController < ApplicationController
   # TODO: This is how users play the game -- adding sentences
   def update
     @story = Story.find(params[:id])
+
+    # Check if sentence has constraint inside it. If not, display an error.
+    if (!params[:sentence].upcase.match(@story.curr_constraint.upcase))
+      render action: "edit"
+      return
+    end
+
     @story.add_sentence(params[:sentence])
     @story.save
 

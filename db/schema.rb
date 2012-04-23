@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422205807) do
+ActiveRecord::Schema.define(:version => 20120423043238) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,26 +46,25 @@ ActiveRecord::Schema.define(:version => 20120422205807) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "constraints", :force => true do |t|
-    t.string   "name"
-    t.string   "grammar"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "intros", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "nouns", :force => true do |t|
+    t.text     "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "stories", :force => true do |t|
     t.integer  "number"
-    t.integer  "turn"
+    t.integer  "turn",        :default => 1
     t.text     "sentences"
     t.text     "constraints"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -84,6 +83,12 @@ ActiveRecord::Schema.define(:version => 20120422205807) do
   create_table "users_stories", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "story_id"
+  end
+
+  create_table "verbs", :force => true do |t|
+    t.text     "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

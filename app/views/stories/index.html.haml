@@ -6,7 +6,9 @@
   %br
   = story.sentences
   %br
-  - if story.my_turn?(current_user)
+  - if (story.turn >= 5)
+    = link_to 'View Completed Story', "/stories/#{story.id}"
+  - elsif story.my_turn?(current_user)
     = link_to 'Play', "/stories/#{story.id}/edit"
   - else
     Waiting for partner
