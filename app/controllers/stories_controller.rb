@@ -1,10 +1,10 @@
 class StoriesController < ApplicationController
-  # Shows stories for one particular user only
+  # Manages stories -- creating new ones, adding lines to current ones, deleting, and viewing completed story w/audio
 
   # GET /stories
-  # GET /stories.json
+  # Lobby, showing list of current games
   def index
-    @stories = Story.find_all_by_team_id(0)  # TODO
+    @stories = current_user.stories
 
     respond_to do |format|
       format.html # index.html.haml
@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
   end
 
   # GET /stories/1
-  # GET /stories/1.json
+  # TODO: Show the user the completed story and playback audio button
   def show
     @story = Story.find(params[:id])
 
@@ -24,7 +24,7 @@ class StoriesController < ApplicationController
   end
 
   # GET /stories/new
-  # GET /stories/new.json
+  # Displays a drop-down box where user can select a partner who has already registered, and make a new story.
   def new
     @story = Story.new
 
@@ -40,13 +40,17 @@ class StoriesController < ApplicationController
   end
 
   # POST /stories
-  # POST /stories.json
+  #
+  # Called when user clicks "submit" on the "new story" screen.  Makes an actual story.
   def create
     @story = Story.new(params[:story])
+    @story.users[0] = current_user
+    @story.users[1] = User.find_by_id(params[:partner])
+    success = @story.save
 
     respond_to do |format|
-      if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
+      if success
+        format.html { redirect_to "/stories/#{@story.id}/edit", notice: 'Story was successfully created.' }
         format.json { render json: @story, status: :created, location: @story }
       else
         format.html { render action: "new" }
@@ -56,13 +60,15 @@ class StoriesController < ApplicationController
   end
 
   # PUT /stories/1
-  # PUT /stories/1.json
+  # TODO: This is how users play the game -- adding sentences
   def update
     @story = Story.find(params[:id])
+    @story.add_sentence(params[:sentence])
+    @story.save
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to @story, notice: 'Story was successfully updated.' }
+        format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -72,7 +78,6 @@ class StoriesController < ApplicationController
   end
 
   # DELETE /stories/1
-  # DELETE /stories/1.json
   def destroy
     @story = Story.find(params[:id])
     @story.destroy

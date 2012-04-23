@@ -1,25 +1,12 @@
-%h1 Listing stories
+-# Lobby, showing list of current games
+%h1 Current games
 %table
+- @stories.each do |story|
   %tr
-    %th Number
-    %th Turn
-    %th Sentences
-    %th Constraints
-    %th First User
-    %th Second User
-    %th
-    %th
-    %th
-  - @stories.each do |story|
-    %tr
-      %td= story.users[0]
-      %td= story.users[1]
-      %td= story.number
-      %td= story.turn
-      %td= story.sentences
-      %td= story.constraints
-      %td= link_to 'Show', story
-      %td= link_to 'Edit', edit_story_path(story)
-      %td= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete
+    Game #{story.number} with #{story.users[0].first_name == current_user.name ? story.users[1].first_name : story.users[0].first_name}
+    %td= story.sentences
+    %td= link_to 'Play', "/stories/#{story.id}/edit"
+    %td= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete
+    %p
 %br/
-= link_to 'New Story', new_story_path
+= link_to 'Start a new game', new_story_path

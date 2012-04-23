@@ -39,8 +39,6 @@ Improv::Application.routes.draw do
   # so use a singular "resource" and "user" rather than "resources" and "users"
   resource :user, :except => [:index, :show]
 
-  resources :teams
-
   #
   # Omniauth routes
   #

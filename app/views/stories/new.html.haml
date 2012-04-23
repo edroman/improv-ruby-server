@@ -1,3 +1,11 @@
-%h1 New story
-= render 'form'
-= link_to 'Back', stories_path
+-# When a user creates a new story, they select a partner who is already a member of our game.  This then calls back
+-# to the controller which makes a new game.
+= form_for @story do |f|
+  = render :partial => "error_messages", :locals => { :resource => @story }
+  .field
+    = f.label :partner
+    = collection_select :partner, nil, User.all, :id, :name
+    %br/
+  .actions
+    = f.submit 'Create'
+

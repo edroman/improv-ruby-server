@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   # Note: The routing URLs here have been changed since this is a singular resource
 
   # GET /user/new
-  # GET /user/new.json
   def new
     @user = User.new
 
@@ -20,13 +19,13 @@ class UsersController < ApplicationController
   end
 
   # POST /user
-  # POST /user.json
   def create
     @user = User.new(params[:user])
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_url, notice: 'User was successfully created.' }
+        # TODO: Instead of redirecting to root, figure out how to pass parameters properly to sessions#create
+        format.html { redirect_to root_url, notice: 'User was successfully created.', :newuser => @user }
 # These don't make sense since there's no index/show
 #        format.xml { render xml: @user, status: :created, location: @user }
 #        format.json { render json: @user, status: :created, location: @user }
@@ -40,7 +39,6 @@ class UsersController < ApplicationController
   end
 
   # PUT /user
-  # PUT /user.json
   def update
     @user = current_user
 
@@ -58,7 +56,6 @@ class UsersController < ApplicationController
   end
 
   # DELETE /user
-  # DELETE /user.json
   def destroy
     @user = current_user
     @user.destroy

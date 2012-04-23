@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TeamsControllerTest < ActionController::TestCase
+class ConstraintTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
