@@ -2,3 +2,5 @@
   .inner_container
     = link_to root_path, :id => 'logo' do
       Home
+    -if (current_user)
+      Currently logged in as #{current_user.first_name}

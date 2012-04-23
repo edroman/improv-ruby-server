@@ -4,14 +4,24 @@ class Story < ActiveRecord::Base
 
   accepts_nested_attributes_for :users, :allow_destroy => true
 
-  before_create :setup_intro
-  before_create :setup_constraints
+# TODO: not working for now since initialize() is being called at other random times
+#  validates_presence_of :turn, :number
+#  after_initialize :set_defaults
+
+  before_create :init
+
 
   def name
     "Story-#{number}-#{sentences}"
   end
 
   def name=(attributes)
+  end
+
+  def my_turn?(user)
+    self.turn % 2
+    result = (self.turn % 2 == 1) ? (self.users[0].id == user.id) : (self.users[1].id == user.id)
+    return result
   end
 
   # returns the partner for the user specified of this story
@@ -30,15 +40,18 @@ class Story < ActiveRecord::Base
     if !last_letter.match(/[.?!]/)
       self.sentences += "."
     end
+
+    self.turn += 1
   end
 
   private
-    def setup_intro
+    def init
+      self.turn = 1
+      self.number = 1
+
+      # Select a random intro
       offset = rand(Intro.count)
       self.sentences = Intro.first(:offset => offset).name
     end
 
-    def setup_constraints
-
-    end
 end

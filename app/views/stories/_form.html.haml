@@ -7,8 +7,6 @@ Game #{@story.number} with #{@story.partner(current_user)}
 
 Turn #{@story.turn} of 6
 %p
-= @story.turn
-%p
 = @story.sentences
 
 -#You must use the word '#{@story.constraints[@story.turn]}'.
