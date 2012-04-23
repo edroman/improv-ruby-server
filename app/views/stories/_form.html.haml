@@ -14,9 +14,6 @@ Our story so far:
   = label_tag "Type the next line in the sentence.  You must use the word '#{@story.curr_constraint}'"
   = text_field_tag :sentence, nil, :placeholder => "Complete the sentence here...", :size => "10", :maxlength => 200
   = submit_tag "Add Sentence"
-<<<<<<< HEAD
 
-= render :partial => "error_messages", :locals => { :resource => @story }
-=======
 %b= (@story.turn == 6) ? "Note: This is the last turn!  Now finish the story!" : ""
->>>>>>> d9ad4e82e18f135948aeab5f3eaf7023d7157cae
+
