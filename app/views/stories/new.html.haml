@@ -2,10 +2,15 @@
 -# to the controller which makes a new game.
 = form_for @story do |f|
   = render :partial => "error_messages", :locals => { :resource => @story }
+  %br/
+  %br/
   .field
     = f.label :partner
     = collection_select :partner, nil, User.all, :id, :name
     %br/
+
+  %br/
+  %br/
   .actions
-    = f.submit 'Create'
+    = f.submit 'Create Story'
 

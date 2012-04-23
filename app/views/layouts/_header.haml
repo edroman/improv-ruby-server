@@ -1,6 +1,6 @@
 %header#header
   .inner_container
     = link_to root_path, :id => 'logo' do
-      Home
+      Improv!
     -if (current_user)
-      Currently logged in as #{current_user.first_name}
+      Hello #{current_user.first_name}
