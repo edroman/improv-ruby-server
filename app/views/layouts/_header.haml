@@ -2,6 +2,5 @@
   .inner_container
     = link_to 'Home', root_path
     -if (current_user)
-      Currently logged in as #{current_user.first_name}
+      Hello, #{current_user.first_name}!
       = link_to 'Sign out', :sign_out
-
