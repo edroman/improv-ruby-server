@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :stories, :allow_destroy => true
 
+  validates_presence_of :first_name, :email
+
   def name
     first_name
   end

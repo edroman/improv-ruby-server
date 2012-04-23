@@ -32,8 +32,10 @@ class SessionsController < ApplicationController
       user = User.find_by_email(params[:newuser][:email])
       if !user
         redirect_to root_url, :notice => "Invalid email"
+        return
       elsif params[:newuser][:password] != user.password
         redirect_to root_url, :notice => "Invalid password"
+        return
       else
         authenticated = true
       end
@@ -42,8 +44,10 @@ class SessionsController < ApplicationController
     if authenticated
       session[:user_id] = user.id if user != nil
       redirect_to "/stories", :notice => "You've signed in! I rejoice at your return!"
+      return
     else
       redirect_to root_url, :notice => "Error: Could not authenticate!"
+      return
     end
 	end
 
