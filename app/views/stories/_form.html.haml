@@ -1,10 +1,7 @@
 -# This form is for users to play the game and submit new sentences
 
-= render :partial => "error_messages", :locals => { :resource => @story }
-
 Game #{@story.number} with #{@story.partner(current_user)}
-
-
+%br
 Turn #{@story.turn} of 6
 %br
 %br
@@ -17,3 +14,4 @@ Our story so far:
   = label_tag "Type the next line in the sentence.  You must use the word '#{@story.curr_constraint}'"
   = text_field_tag :sentence, nil, :placeholder => "Complete the sentence here...", :size => "10", :maxlength => 200
   = submit_tag "Add Sentence"
+%b= (@story.turn == 6) ? "Note: This is the last turn!  Now finish the story!" : ""

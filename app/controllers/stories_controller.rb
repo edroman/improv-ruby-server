@@ -66,7 +66,7 @@ class StoriesController < ApplicationController
 
     # Check if sentence has constraint inside it. If not, display an error.
     if (!params[:sentence].upcase.match(@story.curr_constraint.upcase))
-      render action: "edit"
+      redirect_to "/stories/#{@story.id}/edit", :notice => "Error: You didn't use the word #{@story.curr_constraint}!"
       return
     end
 
@@ -78,7 +78,7 @@ class StoriesController < ApplicationController
         format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @story.errors, status: :unprocessable_entity }
       end
     end
