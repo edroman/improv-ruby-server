@@ -1,9 +1,14 @@
+html{
+  height:100%;}
+
 body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 18px;
-  line-height: 18px; }
+  line-height: 18px;
+  min-height:100%;
+  position:relative;}
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -73,6 +78,8 @@ div {
     font-size: 12px;
     list-style: square; } }
 
+content{
+  padding-bottom:60px;   /* Height of the footer */ }
 
 #flash_messages{
 
