@@ -20,7 +20,16 @@ class Story < ActiveRecord::Base
   end
 
   def add_sentence(sentence)
+    last_letter = sentence[sentence.length-1]
+
+    sentence[0] = sentence[0].upcase
+
+    self.sentences += "  "
     self.sentences += sentence
+
+    if !last_letter.match(/[.?!]/)
+      self.sentences += "."
+    end
   end
 
   private

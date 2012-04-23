@@ -63,10 +63,12 @@ class StoriesController < ApplicationController
   # TODO: This is how users play the game -- adding sentences
   def update
     @story = Story.find(params[:id])
+    @story.add_sentence(params[:sentence])
+    @story.save
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to @story, notice: 'Story was successfully updated.' }
+        format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

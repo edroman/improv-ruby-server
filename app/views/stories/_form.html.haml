@@ -1,4 +1,4 @@
--# TODO: This should be where user plays game and submits sentences
+-# This form is for users to play the game and submit new sentences
 
 = render :partial => "error_messages", :locals => { :resource => @story }
 
@@ -13,15 +13,7 @@ Turn #{@story.turn} of 6
 
 -#You must use the word '#{@story.constraints[@story.turn]}'.
 
-= form_tag("/stories/#{@story.id}/update", :method => "put") do
+= form_tag("/stories/#{@story.id}", :method => "put") do
   = label_tag "Type the next line in the sentence."
   = text_field_tag :sentence
   = submit_tag "Add Sentence"
-
-= form_for @story, :url => "stories/#{@story.id}/update" do |f|
-  .field
-    = f.label :sentences
-    %br/
-    = f.text_field :sentences
-  .actions
-    = f.submit
