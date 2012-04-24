@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :email
 
+  # Returns a list of all users other than one
+  scope :all_except, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
+
   def name
     first_name
   end

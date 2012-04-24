@@ -6,7 +6,7 @@
   br/
   .field
     = f.label :partner
-    = collection_select :partner, nil, User.all, :id, :name
+    = collection_select :partner, nil, User.all_except(current_user), :id, :name
     br/
 
   br/
