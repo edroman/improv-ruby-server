@@ -8,6 +8,7 @@ Misc tasks that come up that I haven't estimated
 Bugs/features:
 x	CSS doesn't show up in Heroku
 x	Admin login is busted
+x	Switch HAML to Slim
 	Look into why password reset email is being sent during Admin db:seed on heroku
 	Style errors on homepage and on stories-edit
 	Use render rather than redirect on stories_controller.update() and have it display the error
