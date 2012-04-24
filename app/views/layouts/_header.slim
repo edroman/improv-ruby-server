@@ -1,0 +1,6 @@
+header#header
+  .inner_container
+    = link_to 'Home', root_path
+    -if (current_user)
+      | Hello, #{current_user.first_name}!
+      = link_to 'Sign out', :sign_out

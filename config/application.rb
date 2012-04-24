@@ -46,6 +46,8 @@ module Improv
     config.assets.version = '1.0'
 
     # For ActiveAdmin
+    # Also required by heroku - when it tries to precompile assets at the moment it makes the slug, the app’s
+    # config vars are not present in the environment
     config.assets.initialize_on_precompile = false
   end
 end

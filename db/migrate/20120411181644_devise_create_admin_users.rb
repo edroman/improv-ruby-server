@@ -41,7 +41,7 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration
     end
 
     # Create a default user
-    AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+#    AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
 #    AdminUser.create!(:email => 'edward.w.roman@gmail.com', :password => '', :password_confirmation => 'password')
 
     add_index :admin_users, :email,                :unique => true

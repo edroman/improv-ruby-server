@@ -28,16 +28,18 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 # HAML support
-gem 'haml'
+#gem 'haml'
 # Forces code generators to also use HAML
-gem 'haml-rails'
+#gem 'haml-rails'
+
+gem 'slim'
 
 #  gem 'jquery-rails'
   gem 'jquery-rails', '~> 2.0.0'
 
 # These lines are required for ActiveAdmin panel
 gem "formtastic", "~> 2.1.1"
-#gem "devise", "~> 1.4.7"          # necessary due to heroku migration issues
+#gem "devise", "~> 1.4.7"          # necessary above activeadmin due to heroku migration issues
 gem "activeadmin", "~> 0.4.3"
 
 #gem 'sass-rails'
