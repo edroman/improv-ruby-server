@@ -50,14 +50,6 @@ class Story < ActiveRecord::Base
     self.turn += 1
   end
 
-  private
-    def random(model)
-      count = model.count
-      raise unless count > 0
-      offset = rand(count)
-      return model.first(:offset => offset)
-    end
-
   def init
       self.turn = 1
       self.number = 1
@@ -66,13 +58,19 @@ class Story < ActiveRecord::Base
       # Select a random intro
       self.sentences = random(Intro).name
 
+      #
       # Select random constraints
+      # TODO: optimize this performance, since it loads entire table
+      #
+      nouns = Noun.all.sample(2)
+      verbs = Verb.all.sample(3)
+
       (0..5).each do |n|
         case n
           when 0..1
-            self.constraints[n] = random(Noun).name
+            self.constraints[n] = nouns[n].name
           when 2..4
-            self.constraints[n] = random(Verb).name
+            self.constraints[n] = verbs[n-2].name
           when 5
             self.constraints[n] = self.constraints[0]
         end

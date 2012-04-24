@@ -11,12 +11,12 @@ x	Admin login now allows for proper logins
 x	Switch HAML to Slim
 x	Dont send reset email is being sent during Admin db:seed on heroku
 x	Don't allow user to select himself from drop-down of partners
+x	No repeat words
 	Style errors on homepage and on stories-edit
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Repopulate form when user has line rejected
 	Better error detection on user login
 	Fix Game # listing on /stories and /stories/1/edit
-	No repeat words
 	Push notifications for turns (email, SMS)
 	Invites (email, SMS)
 	Nudge capabilities
