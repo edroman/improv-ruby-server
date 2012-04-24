@@ -1,0 +1,134 @@
+Ed short-term (next 2 weeks):
+Play with Node.js some more
+Help figure out a name for the game (nameboy.com, etc).  Research iPhone game name best practices
+Project management - oversee Pivotal, keep project moving forward, track tasks and prioritizations, keep team up-to-date on things
+Be available for support on git, rails, HAML, etc
+Get 2 people into beta test
+Misc tasks that come up that I haven't estimated
+Bugs/features:
+x	CSS doesn't show up in Heroku
+	Admin login is busted
+	Style errors on homepage and on stories-edit
+	Use render rather than redirect on stories_controller.update() and have it display the error
+	Repopulate form when user has line rejected
+	Don't allow user to select himself from drop-down of partners
+	Better error detection on user login
+	Fix Game # listing on /stories and /stories/1/edit
+	No repeat words
+	Push notifications for turns (email, SMS)
+	Invites (email, SMS)
+	Nudge capabilities
+	Survey user via SurveyMonkey
+	Play audio for story
+	Restarting rails server should cause http://localhost:3000/stories to not crash but fail elegantly
+?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
+		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
+	
+Ed medium-term:
+Supporting Cyrus/Janet on Rails/Git/Node
+Continue to bug fix and add features to server
+	Devise integration for proper user authentication
+	Fix Facebook integration
+	Associate both Twitter + Facebook with single login so you can both FB share and tweet
+	Invites + push notifications via Facebook
+	Give users ability to FB Share + Tweet story
+	Integrate KISSMetrics or roll-our-own metrics
+	Figure out how to code things so that Janet can A/B test emails + SMSes
+	Better validations & tests
+	Add staging environment
+	Alerts in case of issues with server (Airbrake)
+	Continue w/Project Management
+	Facebook payments or other payments
+	TODO: Others based on Cyrus' prototype and Janet's customer feedback
+Reach out to improv community and get feedback + get them to promote in their newsletters, students, etc to be beta customers
+Help recruit a Big Data expert
+Form advisory board
+Handle company formation docs, legal issues, and other misc infrastructure
+
+Ed long-term:
+Continue to bug fix and add features to server:
+	Performance optimizations
+	TODO: Others based on Cyrus' prototype and Janet's customer feedback
+Build-out the tournament system (Ed server, Cyrus client)
+Learn big data to implement that, or work with big data expert we recruit
+Continue w/Project Management
+Oversee fundraising
+Recruiting
+Investor relations, managing board (if we have one)
+
+------------
+
+Cyrus Short-term (next 2 weeks)
+Be available to answer questions from Janet on CSS
+Help figure out a name for the game (nameboy.com, etc).  Research iPhone game name best practices
+Continue to experiment with features in prototype
+Play with hybrid frameworks after Janet finishes research and do a deep-dive on it to see what's usable.
+
+Cyrus Medium-term:
+CSS maintenance & improvements
+Create and maintain all art for game
+Create and maintain all needed jQuery, Ajax, and Javascript for game
+iPhone native app MVP
+Learn either Ruby or Node so you can do basic server-side tasks
+
+Cyrus long-term:
+iPhone complete native app, including all art and programming
+Build-out the tournament system (Ed server, Cyrus client)
+
+------------
+
+Janet Short-term (next 2 weeks):
+Initial version of CSS -- she asks Cyrus for images and specifies descriptions of them, Janet teaches herself CSS.  Cyrus maintains long-term.  Create versions whose resolutions are compatible with iPhone + Web.
+Setup an "invite wall" via Launchrock.com, and put people on a waitlist when they signup.  Setup MailChimp list for invites & integrate w/Launchrock.
+Customer Development, performing weekly 20-minute in-person / phone interviews with a dozen or so customers each week and giving us feedback
+	Week 1: Call up our close friends to play game
+	Week 2: Reach out to our extended network
+Help figure out a name for the game (nameboy.com, etc - ask Ed for list).  Research iPhone game name best practices
+Build dictionaries of words for game - goal is 75 nouns, 75 verbs, 50 adjectives, 50 adverbs, 25 proper nouns
+Research best practices for email invites to get high conversion rates.  Look at how Zynga etc do it.
+A/B test FBShare/Tweet text, email invites, SMS invites, SMS "your turn" notifications, email "your turn" notifications, SMS nudges, email nudges
+Create text for all invites/notifications as listed above
+Email CEO of AppGyver + other competitors these questions to find out if they'll handle ALL our needs:
+	How many customers are live and in production?
+	When do you plan to support all native hooks (file I/O, access your contacts, push notifications, Facebook authentication, native GUI features)?
+	If you don't yet support all native hooks, then will we be dead-in-the-water if we need those features?
+	Can we get access to their source code in case we have problems with your product, and can we compile the product ourselves?
+	How fast is your UI compared to native?  Compared to competitors?
+	How extensive is your docs?
+	Can you give us existing customers we can speak with?
+	What kind of support and priority can you give us?
+	What is the timeline for Android version?
+Generate list of potential advisors (ideal: those who run game companies).  Reach out to top-5 after we agree on who would add value, show them game, get feedback (they are part of 12/week testers).
+Research how to best promote iOS and Facebook games
+
+Janet Medium-term:
+Buy sample A/B testing traffic (e.g. StumbleUpon) & oversee A/B testing for optimzing conversion of users for web version -- Optimizely or Unbounce, look into whether we can do it with dynamic pages, but at least the homepage
+Continue w/Customer Development
+Continue w/A-B Testing
+*Precreate blog content for us
+Line-up people with high klout scores.  Ask them for feedback on the game.  Build relationships with them, so that in the future they promote our game on twitter/Facebook/etc.
+Handle PR -- build relationships with media and get articles written about us
+Create affiliate marketing system and partner with affiliates to promote our game, giving them revenue share if they refer leads to us
+Form partnerships with other game studios for cross-promotion (could be affiliates)	
+Partner with "creative writing" communities
+Setup Facebook / Twitter accounts for us
+Pre-create newsletter content
+Work network (e.g. advisors) to get us a relationship with Apple so that we're featured in the App Store (important!) -- also goto linkedIn and find out who knows Apple people
+Help recruit a Big Data expert
+
+Janet Long-term:
+Continue w/Customer Development
+Continue w/A-B Testing
+Continue to network to get us a relationship with Apple
+Maintain facebook/twitter accounts, keeping them active
+Handle regular newsletters
+Experiment with various marketing campaigns (e.g. TouchArcade ad buy in exchange for coverage)
+Create and manage some sort of viral campaign
+Be the community manager on our tournament site
+Handle customer support, Q&A on our forums
+Run and manage the tournaments
+Handle prize fulfillment
+Pushing out words and replacing with better words based on metrics
+Fundraising
+Become our 'Android expert' -- build product for Android
+
