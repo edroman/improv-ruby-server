@@ -1,12 +1,14 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$width-iphone:320px;
+$padding-iphone: 22px;
 
 #main_home{
-  padding-left: 22px;
+  padding-left: $padding-iphone;
   padding-bottom: 0;
-  max-width: 320;
-  width:320;
+  max-width: $width-iphone;
+  width:$width-iphone;
 }
 
 h2{
@@ -16,20 +18,22 @@ h2{
 }
 
 #content{
-  padding-left: 22px;
+  padding-left: $padding-iphone;
   padding-bottom:60px;   /* Height of the footer */
-  max-width: 320;
-  width:320;
+  max-width: $width-iphone;
+  width: $width-iphone;
   .content_inner{
-    padding-left: 22px;
+    padding-left: $padding-iphone;
   }
 }
 
 footer {
-  padding-left: 22px;
+  font-size: 12px;
+  padding-left: $padding-iphone;
   position:absolute;
   bottom:0;
   width:100%;
   height:60px;   /* Height of the footer */
   background:#fff;
+  max-width: $width-iphone;
 }
