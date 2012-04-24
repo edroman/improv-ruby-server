@@ -1,20 +1,20 @@
 = form_for @user, :url => '/user' do |f|
   = render :partial => "error_messages", :locals => { :resource => @user }
   .field
-    -#= f.label :first_name
-    -#%br/
+    /= f.label :first_name
+    /%br/
     = f.text_field :first_name, :placeholder => "first name"
   .field
-    -#= f.label :email
-    -#%br/
+    /= f.label :email
+    /%br/
     = f.text_field :email, :placeholder => "email"
   .field
-    -#= f.label :phone
-    -#%br/
+    /= f.label :phone
+    /%br/
     = f.text_field :phone, :placeholder => "phone number"
   .field
-    -#= f.label :password*/
-    -#%br/
+    /= f.label :password*/
+    /%br/
     = f.text_field :password, :placeholder => "password"
   .actions
     = f.submit

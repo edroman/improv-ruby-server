@@ -28,9 +28,11 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 # HAML support
-gem 'haml'
+#gem 'haml'
 # Forces code generators to also use HAML
-gem 'haml-rails'
+#gem 'haml-rails'
+
+gem 'slim'
 
 #  gem 'jquery-rails'
   gem 'jquery-rails', '~> 2.0.0'

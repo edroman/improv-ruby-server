@@ -1,0 +1,22 @@
+doctype
+html
+  head
+    meta content="width=(device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1.0;)user-scalable=0;" name="viewport"
+    meta content="yes" name="apple-mobile-web-app-capable"
+    meta content="black-translucent" names="apple-mobile-web-app-status-bar-style"
+    title
+      = yield :title
+      | Improv
+    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag yield :font
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    container
+      = render 'layouts/header'
+      content
+        content_inner
+          = render :partial => 'layouts/flash', :locals => { :flash => flash }
+          = yield
+
+      = render 'layouts/footer'

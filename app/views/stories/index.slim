@@ -1,20 +1,20 @@
--# Lobby, showing list of current games
-%h1 Current games
-%table
+/ Lobby, showing list of current games
+h1 Current games
+table
 - @stories.each do |story|
-  Game #{story.number} with #{story.partner(current_user)}
-  %br
+  | Game #{story.number} with #{story.partner(current_user)}
+  br
   = story.sentences
-  %br
+  br
   - if (story.turn > 6)
     = link_to 'View Completed Story', "/stories/#{story.id}"
   - elsif story.my_turn?(current_user)
     = link_to 'Play', "/stories/#{story.id}/edit"
   - else
-    Waiting for partner
-  %br
+    | Waiting for partner
+  br
   = link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete
-  %p
+  p
 
-%br/
+br/
 = link_to 'Start a new game!', new_story_path
