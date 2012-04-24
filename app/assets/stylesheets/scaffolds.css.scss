@@ -1,3 +1,6 @@
+$width-iphone:320px;
+$padding-iphone: 22px;
+
 html{
   height:100%;}
 
@@ -24,6 +27,7 @@ h1  {
   background: -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
   padding-top: 10px;
   padding-bottom: 10px;
+  max-width: $width-iphone;
 }
 pre {
   background-color: #eee;
