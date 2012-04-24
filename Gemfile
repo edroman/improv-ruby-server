@@ -37,7 +37,7 @@ gem 'haml-rails'
 
 # These lines are required for ActiveAdmin panel
 gem "formtastic", "~> 2.1.1"
-#gem "devise", "~> 1.4.7"          # necessary due to heroku migration issues
+#gem "devise", "~> 1.4.7"          # necessary above activeadmin due to heroku migration issues
 gem "activeadmin", "~> 0.4.3"
 
 #gem 'sass-rails'
