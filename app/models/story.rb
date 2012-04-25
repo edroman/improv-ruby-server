@@ -86,13 +86,27 @@ class Story < ActiveRecord::Base
     end
 
   private
+    def local_ip
+      orig, Socket.do_not_reverse_lookup = Socket.do_not_reverse_lookup, true  # turn off reverse DNS resolution temporarily
+
+      UDPSocket.open do |s|
+        s.connect '64.233.187.99', 1
+        s.addr.last
+      end
+    ensure
+      Socket.do_not_reverse_lookup = orig
+    end
+
     def send_notification
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
 
       # get server hostname
       require 'socket'
-      host = Socket.gethostname
+      # host = Socket.gethostname
+      host = local_ip
+
+
 
       # send an sms
       if curr_waiting_user.phone != ''

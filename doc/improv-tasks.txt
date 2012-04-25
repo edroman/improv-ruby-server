@@ -6,15 +6,15 @@ Be available for support on git, rails, HAML, etc
 Get 2 people into beta test
 Misc tasks that come up that I haven't estimated
 Bugs/features:
-x	CSS doesn't show up in Heroku
+x	New CSS doesn't show up in Heroku
 x	Admin login now allows for proper logins
 x	Switch HAML to Slim
-x	Dont send reset email is being sent during Admin db:seed on heroku
+x	Dont send password reset email when admin users are created in database
 x	Don't allow user to select himself from drop-down of partners
-x	No repeat words
+x	No repeat words for nouns/verbs
 x	Restarting rails server or logging in from new phone browser should cause http://localhost:3000/stories and /stories/1/edit to not crash but fail elegantly
 x	User can't edit story unless its their turn
-	Push notifications for turns (SMS)
+x	Push notifications for turns (SMS)
 	
 	Format phone number validation
 	Toggle SMS notification field
