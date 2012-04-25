@@ -11,7 +11,6 @@ html
     = stylesheet_link_tag yield :font
     = javascript_include_tag "application"
     = csrf_meta_tags
-  body
     container
       = render 'layouts/header'
       content
@@ -20,3 +19,5 @@ html
           = yield
 
       = render 'layouts/footer'
+  javascript:
+    body.onload = function() { window.setTimeout(function() {window.scrollTo(0, 0);}, 100);

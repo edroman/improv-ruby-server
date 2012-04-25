@@ -58,9 +58,11 @@ div {
   color: green; }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: #fff;
-  display: table; }
+  padding: 0px;
+  background-color: purple;
+  border: 1px solid purple;
+  display: table;
+}
 
 #error_explanation {
   width: $width-iphone - 2*$padding-iphone;
@@ -73,9 +75,9 @@ div {
     color: purple;
     text-align: left;
     font-weight: bold;
-    padding: 2px 2px 2px 10px;
+    padding: 2px 2px 2px 2px;
     font-size: 15px;
-    margin: -7px;
+    margin: -2px;
     margin-bottom: 0px;
     background-color: #f0f0f0; }
   ul li {
