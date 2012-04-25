@@ -1,4 +1,5 @@
 require 'test/unit'
+require 'twilio-ruby'
 
 # TODO: Add validation logic for constraints
 class Story < ActiveRecord::Base
@@ -21,9 +22,16 @@ class Story < ActiveRecord::Base
   end
 
   def my_turn?(user)
-    self.turn % 2
     result = (self.turn % 2 == 1) ? (self.users[0].id == user.id) : (self.users[1].id == user.id)
     return result
+  end
+
+  def curr_waiting_user
+    self.users[self.turn % 2]
+  end
+
+  def curr_playing_user
+    self.users[(self.turn+1) % 2]
   end
 
   def curr_constraint
@@ -48,6 +56,8 @@ class Story < ActiveRecord::Base
     end
 
     self.turn += 1
+
+    send_notification
   end
 
   def init
@@ -56,15 +66,13 @@ class Story < ActiveRecord::Base
       self.constraints = Array.new
 
       # Select a random intro
-      self.sentences = random(Intro).name
+      # TODO: optimize this performance, since it loads entire table
+      self.sentences = (Intro).all.sample(1).first.name
 
-      #
       # Select random constraints
       # TODO: optimize this performance, since it loads entire table
-      #
       nouns = Noun.all.sample(2)
       verbs = Verb.all.sample(3)
-
       (0..5).each do |n|
         case n
           when 0..1
@@ -75,6 +83,26 @@ class Story < ActiveRecord::Base
             self.constraints[n] = self.constraints[0]
         end
       end
+    end
+
+  private
+    def send_notification
+      # set up a client to talk to the Twilio REST API
+      @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
+
+      # get server hostname
+      require 'socket'
+      host = Socket.gethostname
+
+      # send an sms
+      if curr_waiting_user.phone != ''
+        @client.account.sms.messages.create(
+          :from => APP_CONFIG['sms_source'],
+          :to => "#{curr_waiting_user.phone}",
+          :body => "#{curr_waiting_user.first_name} has added to your improv story. Your turn! Click here: http://#{host}:#{APP_CONFIG['sms_port']}/stories/#{self.id}/edit"
+        )
+      end
+
     end
 
 end

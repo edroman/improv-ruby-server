@@ -27,12 +27,11 @@ gem 'pg'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
-# HAML support
-#gem 'haml'
-# Forces code generators to also use HAML
-#gem 'haml-rails'
-
+# Slim for views
 gem 'slim'
+
+# Twilio for SMS notifications
+gem 'twilio-ruby'
 
 #  gem 'jquery-rails'
   gem 'jquery-rails', '~> 2.0.0'

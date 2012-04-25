@@ -15,6 +15,12 @@ class UsersController < ApplicationController
 
   # GET /user/edit
   def edit
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @user = current_user
   end
 
@@ -40,6 +46,12 @@ class UsersController < ApplicationController
 
   # PUT /user
   def update
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @user = current_user
 
     respond_to do |format|
@@ -57,6 +69,12 @@ class UsersController < ApplicationController
 
   # DELETE /user
   def destroy
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @user = current_user
     @user.destroy
 

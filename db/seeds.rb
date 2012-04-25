@@ -10,9 +10,17 @@ AdminUser.create(:email => 'admin@example.com', :password => 'password', :passwo
 AdminUser.create(:email => 'edward.w.roman@gmail.com', :password => 'password', :password_confirmation => 'password')
 AdminUser.create(:email => 'janetz@gmail.com', :password => 'password', :password_confirmation => 'password')
 AdminUser.create(:email => 'acylum@gmail.com', :password => 'password', :password_confirmation => 'password')
-User.create(first_name: 'Ed', email: 'edward.w.roman@gmail.com', phone: '123-456-7890', password: '')
-User.create(first_name: 'Janet', email: 'janetz@gmail.com', phone: '123-456-7890', password: '')
-User.create(first_name: 'Cyrus', email: 'acylum@gmail.com', phone: '123-456-7890', password: '')
+
+# Base seed users for testing
+User.create(first_name: 'Ed', email: 'edward.w.roman@gmail.com', phone: '+1 512-773-5555', password: '')
+User.create(first_name: 'Janet', email: 'janetz@gmail.com', phone: '+1 650-766-0778', password: '')
+User.create(first_name: 'Cyrus', email: 'acylum@gmail.com', phone: '+1 512-423-1532', password: '')
+
+# For SMS testing
+User.create(first_name: 'Ed Test Partner', email: 'ed-test', phone: '+1 512-773-5555', password: '')
+User.create(first_name: 'Janet Test Partner', email: 'janet-test', phone: '+1 650-766-0778', password: '')
+User.create(first_name: 'Cyrus Test Partner', email: 'cyrus-test', phone: '+1 512-423-1532', password: '')
+
 Noun.create(name: 'zebra')
 Noun.create(name: 'statue')
 Noun.create(name: 'gladiator')

@@ -4,6 +4,12 @@ class StoriesController < ApplicationController
   # GET /stories
   # Lobby, showing list of current games
   def index
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @stories = current_user.stories
 
     respond_to do |format|
@@ -15,6 +21,12 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # TODO: Show the user the completed story and playback audio button
   def show
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @story = Story.find(params[:id])
 
     respond_to do |format|
@@ -26,6 +38,12 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # Displays a drop-down box where user can select a partner who has already registered, and make a new story.
   def new
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @story = Story.new
 
     respond_to do |format|
@@ -36,13 +54,31 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @story = Story.find(params[:id])
+
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (@story.curr_playing_user.id != current_user.id)
+      redirect_to stories_url
+      return
+    end
   end
 
   # POST /stories
   #
   # Called when user clicks "submit" on the "new story" screen.  Makes an actual story.
   def create
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @story = Story.new(params[:story])
     @story.users[0] = current_user
     @story.users[1] = User.find_by_id(params[:partner])
@@ -60,8 +96,14 @@ class StoriesController < ApplicationController
   end
 
   # PUT /stories/1
-  # TODO: This is how users play the game -- adding sentences
+  # This is how users play the game -- adding sentences
   def update
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @story = Story.find(params[:id])
 
     # Check if sentence has constraint inside it. If not, display an error.
@@ -86,6 +128,12 @@ class StoriesController < ApplicationController
 
   # DELETE /stories/1
   def destroy
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
     @story = Story.find(params[:id])
     @story.destroy
 
