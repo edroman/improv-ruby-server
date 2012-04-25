@@ -103,17 +103,13 @@ class Story < ActiveRecord::Base
 
       # get server hostname
       require 'socket'
-      # host = Socket.gethostname
-      host = local_ip
-
-
 
       # send an sms
       if curr_waiting_user.phone != ''
         @client.account.sms.messages.create(
           :from => APP_CONFIG['sms_source'],
           :to => "#{curr_waiting_user.phone}",
-          :body => "#{curr_waiting_user.first_name} has added to your improv story. Your turn! Click here: http://#{host}:#{APP_CONFIG['sms_port']}/stories/#{self.id}/edit"
+          :body => "#{curr_waiting_user.first_name} has added to your improv story. Your turn! Click here: http://#{APP_CONFIG['sms_host']}:#{APP_CONFIG['sms_port']}/stories/#{self.id}/edit"
         )
       end
 

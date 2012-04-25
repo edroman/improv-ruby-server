@@ -3,6 +3,7 @@ development:
   facebook_secret: 5132fb812f464e4a2c300fb5c20db10d
   twitter_token: 4S6qrVVnp6eC2xlWGG5g
   twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
+  sms_host: localhost
   sms_port: 3000
   sms_source: +1 415-683-7001
   twilio_account_sid: ACb4e49a389d204006b1a4d4addfa4b83f
@@ -13,6 +14,7 @@ test:
   facebook_secret: 5132fb812f464e4a2c300fb5c20db10d
   twitter_token: 4S6qrVVnp6eC2xlWGG5g
   twitter_secret: D92rdJ3v7adGkxNohhx9r7WnFe5Bk3x5Plv1YkUr8A
+  sms_host: localhost
   sms_port: 3000
   sms_source: +1 415-683-7001
   twilio_account_sid: ACb4e49a389d204006b1a4d4addfa4b83f
@@ -23,7 +25,8 @@ staging:
   facebook_secret: 0f0ab81b9a8b2d4d0a36b1039d462c32
   twitter_token: byfX6PBKLK6JXhOloi4Wg
   twitter_secret: nPmKW4guoEuWVFzsHjFydmyJMkGlmvC3VII8V1ZOWU
-  sms_port:
+  sms_host: improv-production.herokuapp.com
+  sms_port: 80
   sms_source: +1 415-683-7001
   twilio_account_sid: ACb4e49a389d204006b1a4d4addfa4b83f
   twilio_auth_token: a5edb8a5c61e37b3e2b052d3a44e025c
@@ -33,7 +36,8 @@ production:
   facebook_secret: 0f0ab81b9a8b2d4d0a36b1039d462c32
   twitter_token: byfX6PBKLK6JXhOloi4Wg
   twitter_secret: nPmKW4guoEuWVFzsHjFydmyJMkGlmvC3VII8V1ZOWU
-  sms_port:
+  sms_host: improv-production.herokuapp.com
+  sms_port: 80
   sms_source: +1 415-683-7001
   twilio_account_sid: ACb4e49a389d204006b1a4d4addfa4b83f
   twilio_auth_token: a5edb8a5c61e37b3e2b052d3a44e025c
