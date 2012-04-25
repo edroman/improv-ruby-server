@@ -2,25 +2,23 @@
 h1 Current games
 
 #main_home
+  br
+  = link_to 'Start a new game!', new_story_path
 
-table
-- @stories.each do |story|
-  tr
-  td
-  | Game #{story.number} with #{story.partner(current_user)}
-  br
-  = story.sentences
-  br
-  td
-  - if (story.turn > 6)
-    = link_to 'View Completed Story', "/stories/#{story.id}"
-  - elsif story.my_turn?(current_user)
-    = link_to 'Play', "/stories/#{story.id}/edit"
-  - else
-    | Waiting
-  br
-  = link_to 'Give Up', story, confirm: 'Are you sure?', method: :delete
-  p
+  table
+  - @stories.each do |story|
+    tr
+      td
+      | Game #{story.number} with #{story.partner(current_user)}
+      br
+      = story.sentences
+      td
+      - if (story.turn > 6)
+        = link_to 'View Completed Story', "/stories/#{story.id}"
+      - elsif story.my_turn?(current_user)
+        = link_to 'Play', "/stories/#{story.id}/edit"
+      - else
+        | Waiting
+      br
+      = link_to 'Give Up', story, confirm: 'Are you sure?', method: :delete
 
-br
-= link_to 'Start a new game!', new_story_path
