@@ -15,6 +15,7 @@ x	No repeat words for nouns/verbs
 x	Restarting rails server or logging in from new phone browser should cause http://localhost:3000/stories and /stories/1/edit to not crash but fail elegantly
 x	User can't edit story unless its their turn
 x	Push notifications for turns (SMS)	
+x	SMS 160 char truncation
 	Format phone number validation
 	Toggle SMS notification field
 	Style errors on homepage and on stories-edit
@@ -32,6 +33,7 @@ x	Push notifications for turns (SMS)
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Use EventMachine or similar to background task sending SMSes
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
 	List archived stories separately from current stories
 	Devise integration for proper user authentication

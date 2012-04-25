@@ -64,7 +64,8 @@ class Story < ActiveRecord::Base
 
       # Select a random intro
       # TODO: optimize this performance, since it loads entire table
-      self.sentences = (Intro).all.sample(1).first.name
+      self.intro = (Intro).all.sample(1).first.name
+      self.sentences = intro
 
       # Select random constraints
       # TODO: optimize this performance, since it loads entire table
@@ -101,14 +102,32 @@ class Story < ActiveRecord::Base
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
 
       # send an sms
+
+      line_ending = " Your turn! #{get_ip}/stories/#{self.id}/edit"
+
+      if turn == 1
+        line = "#{curr_playing_user.first_name} wants to create a story with you!"
+        if line.length + " \"#{self.sentences}\"".length + line_ending.length <= 160
+          line += " \"#{self.sentences}\""
+        elsif line.length + self.intro.length + line_ending.length <= 160
+          line += " \"#{self.intro}\""
+        end
+      else
+        line = "#{curr_playing_user.first_name} added to your story!"
+        if line.length + " \"#{sentence}\"".length + line_ending.length <= 160
+          line += " \"#{sentence}\""
+        end
+      end
+
+      line += line_ending
+
       if curr_waiting_user.phone != ''
         @client.account.sms.messages.create(
           :from => APP_CONFIG['sms_source'],
           :to => "#{curr_waiting_user.phone}",
-          :body => "#{curr_playing_user.first_name} has added to your story!  \"#{sentence}\"  Your turn! Click here: #{get_ip}/stories/#{self.id}/edit"
+          :body => line
         )
       end
-
     end
 
 end
