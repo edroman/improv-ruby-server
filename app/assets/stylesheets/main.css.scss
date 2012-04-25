@@ -6,9 +6,10 @@ $padding-iphone: 22px;
 
 #main_home{
   padding-left: $padding-iphone;
+  padding-right: $padding-iphone;
   padding-bottom: 0;
   max-width: $width-iphone;
-  width:$width-iphone;
+  width: $width-iphone;
 }
 
 h2{
@@ -27,6 +28,12 @@ h2{
   }
 }
 
+header {
+  font-size: 16px;
+  width:100%;
+  width: $width-iphone;
+  max-width: $width-iphone;
+}
 footer {
   font-size: 12px;
   padding-left: $padding-iphone;
@@ -36,4 +43,10 @@ footer {
   height:60px;   /* Height of the footer */
   background:#fff;
   max-width: $width-iphone;
+}
+
+#new_story{
+  padding-left: $padding-iphone;
+  max-width: $width-iphone;
+  padding-right: $padding-iphone;
 }
