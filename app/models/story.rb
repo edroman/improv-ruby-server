@@ -3,6 +3,7 @@ require 'twilio-ruby'
 
 # TODO: Add validation logic for constraints
 class Story < ActiveRecord::Base
+  # users[0] is the person who created the story and adds the first sentence
   has_and_belongs_to_many :users, :join_table => :users_stories    # many-to-many
 
   serialize :constraints
@@ -45,19 +46,15 @@ class Story < ActiveRecord::Base
 
   def add_sentence(sentence)
     last_letter = sentence[sentence.length-1]
-
-    sentence[0] = sentence[0].upcase
+    sentence[0] = sentence[0].upcase if self.turn > 1
+    sentence += "." if !last_letter.match(/[.?!]/)
 
     self.sentences += "  "
     self.sentences += sentence
 
-    if !last_letter.match(/[.?!]/)
-      self.sentences += "."
-    end
-
+    # order matters here
+    send_notification(sentence)
     self.turn += 1
-
-    send_notification
   end
 
   def init
@@ -86,30 +83,29 @@ class Story < ActiveRecord::Base
     end
 
   private
-    def local_ip
-      orig, Socket.do_not_reverse_lookup = Socket.do_not_reverse_lookup, true  # turn off reverse DNS resolution temporarily
 
-      UDPSocket.open do |s|
-        s.connect '64.233.187.99', 1
-        s.addr.last
+    # gets our IP address
+    def get_ip
+      # heroku - code can't get IP since it's a local IP address, so need to hard-code it
+      if Rails.env.production? || Rails.env.staging?
+        return "http://APP_CONFIG['server_host']"
+      # local - can't just hardcode localhost, since other machines on local network can't access this one, so need code
+      else
+        require 'socket'
+        return "http://#{Socket.gethostname}:#{APP_CONFIG['local_port']}"
       end
-    ensure
-      Socket.do_not_reverse_lookup = orig
     end
 
-    def send_notification
+    def send_notification(sentence)
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
-
-      # get server hostname
-      require 'socket'
 
       # send an sms
       if curr_waiting_user.phone != ''
         @client.account.sms.messages.create(
           :from => APP_CONFIG['sms_source'],
           :to => "#{curr_waiting_user.phone}",
-          :body => "#{curr_waiting_user.first_name} has added to your improv story. Your turn! Click here: http://#{APP_CONFIG['sms_host']}:#{APP_CONFIG['sms_port']}/stories/#{self.id}/edit"
+          :body => "#{curr_playing_user.first_name} has added to your story!  \"#{sentence}\"  Your turn! Click here: #{get_ip}/stories/#{self.id}/edit"
         )
       end
 
