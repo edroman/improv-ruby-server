@@ -26,4 +26,12 @@ class User < ActiveRecord::Base
       user.secret = auth["credentials"]["secret"]
     end
   end
+
+  before_validation :downcase_email
+
+  private
+
+  def downcase_email
+    self.email = self.email.downcase if self.email.present?
+  end
 end

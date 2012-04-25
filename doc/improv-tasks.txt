@@ -17,6 +17,7 @@ x	User can't edit story unless its their turn
 x	Push notifications for turns (SMS)	
 x	SMS 160 char truncation
 	Format phone number validation
+	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
 	Style errors on homepage and on stories-edit
 	Use render rather than redirect on stories_controller.update() and have it display the error

@@ -29,11 +29,11 @@ class SessionsController < ApplicationController
       end
     # If we're logging in through a web form, or native iOS, process that via login/pass params submitted via form, which invokes this callback
     else
-      user = User.find_by_email(params[:newuser][:email])
+      user = User.find_by_email(params[:newuser][:email].downcase)
       if !user
         redirect_to root_url, :notice => "Invalid email"
         return
-      elsif params[:newuser][:password] != user.password
+      elsif params[:newuser][:password].downcase != user.password.downcase
         redirect_to root_url, :notice => "Invalid password"
         return
       else
