@@ -14,8 +14,7 @@ x	Don't allow user to select himself from drop-down of partners
 x	No repeat words for nouns/verbs
 x	Restarting rails server or logging in from new phone browser should cause http://localhost:3000/stories and /stories/1/edit to not crash but fail elegantly
 x	User can't edit story unless its their turn
-x	Push notifications for turns (SMS)
-	
+x	Push notifications for turns (SMS)	
 	Format phone number validation
 	Toggle SMS notification field
 	Style errors on homepage and on stories-edit
