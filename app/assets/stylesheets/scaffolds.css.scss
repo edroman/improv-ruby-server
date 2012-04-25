@@ -19,14 +19,14 @@ p, ol, ul, td {
   line-height: 18px; }
 
 h1  {
-  font-size: 30px;
+  font-size: 20px;
   color: #05E9FF;
   text-align: center;
   background: #707070; /*for  non-css3 browsers */
   background: -webkit-gradient(linear, center bottom, center top, from(#707070), color-stop(50%,#888888), to(#B8B8B8));
   background: -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   max-width: $width-iphone;
 }
 pre {
