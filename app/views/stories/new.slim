@@ -1,7 +1,7 @@
 / When a user creates a new story, they select a partner who is already a member of our game.  This then calls back
 / to the controller which makes a new game.
 
-main_home
+#main_home
   = form_for @story do |f|
     = render :partial => "error_messages", :locals => { :resource => @story }
     br
