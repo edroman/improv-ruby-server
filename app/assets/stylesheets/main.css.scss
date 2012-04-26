@@ -15,7 +15,7 @@ $padding-iphone: 20px;
 h2{
   font-size: 20px;
   color: #888888;
-  text-align: center;
+  text-align: left;
 }
 
 content{
@@ -30,9 +30,24 @@ content{
 }
 
 header {
-  font-size: 12px;
-  width: $width-iphone;
+  width: 100%;
+  font-size: 14px;
   max-width: $width-iphone;
+  color: #05E9FF;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: #707070; /*for  non-css3 browsers */
+  background: -webkit-gradient(linear, center bottom, center top, from(#707070), color-stop(50%,#888888), to(#B8B8B8));
+  background: -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
+  a {
+    padding: 0em 2em;
+    color: #05E9FF;
+    &:visited {
+      color: #05E9FF; }
+    &:hover {
+      color: #05E9FF;
+       } }
+
 }
 
 footer {

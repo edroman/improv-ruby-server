@@ -2,9 +2,7 @@
 h1 Current games
 
 #main_home
-  br
   = link_to 'Start a new game!', new_story_path
-
   table
   - @stories.each do |story|
     tr
