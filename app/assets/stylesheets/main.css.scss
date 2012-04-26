@@ -18,8 +18,9 @@ h2{
   text-align: center;
 }
 
-#content{
-  padding-left: $padding-iphone;
+content{
+  height:100%;
+  padding: $padding-iphone;
   padding-bottom:40px;   /* Height of the footer */
   max-width: $width-iphone;
   width: $width-iphone;
@@ -36,13 +37,13 @@ header {
 
 footer {
   font-size: 12px;
-  position:absolute;
-  bottom:0;
-  height:30px;   /* Height of the footer */
-  background:#fff;
-  width: $width-iphone -2*$padding-iphone;
+  position: absolute;
+  bottom: 0;
+  height: 30px;   /* Height of the footer */
+  background: #fff;
+  width: 100%;
   max-width: $width-iphone;
-  padding-left:$padding-iphone;
+  padding-left: $padding-iphone;
 }
 
 #new_story{
