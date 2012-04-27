@@ -16,13 +16,18 @@ x	Restarting rails server or logging in from new phone browser should cause http
 x	User can't edit story unless its their turn
 x	Push notifications for turns (SMS)	
 x	SMS 160 char truncation
-	Format phone number validation
-	Think about how we want to deal with SMS sending errors
-	Toggle SMS notification field
+x	Login/pass case insensitive
+	Migrate the constraints/sentences to separate tables
+	Fix ActiveAdmin for stories/constraints/sentences
 	Style errors on homepage and on stories-edit
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Repopulate form when user has line rejected
-	Better error detection on user login
+	Devise integration for proper user authentication
+		Better error detection on user login
+		Use cookies to remember your login
+		Format phone number validation
+	Think about how we want to deal with SMS sending errors
+	Toggle SMS notification field
 	Push notifications for turns (email)
 	Invites (email, SMS)
 	Nudge capabilities
@@ -37,7 +42,6 @@ Continue to bug fix and add features to server
 	Use EventMachine or similar to background task sending SMSes
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
 	List archived stories separately from current stories
-	Devise integration for proper user authentication
 	Fix Facebook integration
 	Associate both Twitter + Facebook with single login so you can both FB share and tweet
 	Invites + push notifications via Facebook

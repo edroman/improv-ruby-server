@@ -106,17 +106,11 @@ class StoriesController < ApplicationController
 
     @story = Story.find(params[:id])
 
-    # Check if sentence has constraint inside it. If not, display an error.
-    if (!params[:sentence].upcase.match(@story.curr_constraint.upcase))
-      redirect_to "/stories/#{@story.id}/edit", :notice => "Error: You didn't use the word #{@story.curr_constraint}!"
-      return
-    end
-
-    @story.add_sentence(params[:sentence])
-    @story.save
+    success = @story.add_sentence(params[:sentence])
+    @story.save if success
 
     respond_to do |format|
-      if @story.update_attributes(params[:story])
+      if success && @story.update_attributes(params[:story])
         format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
         format.json { head :ok }
       else

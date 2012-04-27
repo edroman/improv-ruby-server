@@ -9,7 +9,7 @@ table
   td
   | Game #{story.number} with #{story.partner(current_user)}
   br
-  = story.sentences
+  = story.all_sentences
   br
   td
   - if (story.turn > 6)
