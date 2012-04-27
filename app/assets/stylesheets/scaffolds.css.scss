@@ -1,32 +1,36 @@
 $width-iphone:320px;
-$padding-iphone: 22px;
+$padding-iphone: 20px;
 
 html{
+  margin:0;
+  padding:0;
   height:100%;}
+
+#container{
+  min-height:100%;
+  position:relative;
+}
 
 body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 18px;
   min-height:100%;
   position:relative;}
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+  font-size: 10px;
+  line-height: 14px; }
 
 h1  {
-  font-size: 30px;
-  color: #05E9FF;
+  font-size: 20px;
   text-align: center;
-  background: #707070; /*for  non-css3 browsers */
-  background: -webkit-gradient(linear, center bottom, center top, from(#707070), color-stop(50%,#888888), to(#B8B8B8));
-  background: -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  color: black;
+  padding-top: 8px;
+  padding-bottom: 8px;
   max-width: $width-iphone;
 }
 pre {
@@ -40,7 +44,7 @@ a {
     color: #666; }
   &:hover {
     color: #05E9FF;
-    background-color: #fff; } }
+    } }
 
 
 div {
@@ -58,29 +62,31 @@ div {
   color: green; }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: #fff;
-  display: table; }
+  padding: 0px;
+  background-color: purple;
+  border: 1px solid purple;
+  display: table;
+}
 
 #error_explanation {
-  width: 450px;
+  max-width: $width-iphone - $padding-iphone;
   border: 2px solid purple;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
+  padding: 1px;
+  padding-bottom: 5;
+  margin-bottom: 10px;
   background-color: #f0f0f0;
   h4 {
     color: purple;
     text-align: left;
     font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 20px;
-    margin: -7px;
+    padding: 2px 2px 2px 2px;
+    font-size: 15px;
+    margin: -2px;
     margin-bottom: 0px;
     background-color: #f0f0f0; }
   ul li {
     color: purple;
-    font-size: 12px;
+    font-size: 10px;
     list-style: square; } }
 
 

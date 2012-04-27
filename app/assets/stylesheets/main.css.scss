@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $width-iphone:320px;
-$padding-iphone: 22px;
+$padding-iphone: 20px;
 
 #main_home{
   padding-left: $padding-iphone;
@@ -15,12 +15,13 @@ $padding-iphone: 22px;
 h2{
   font-size: 20px;
   color: #888888;
-  text-align: center;
+  text-align: left;
 }
 
-#content{
-  padding-left: $padding-iphone;
-  padding-bottom:60px;   /* Height of the footer */
+content{
+  height:100%;
+  padding: $padding-iphone;
+  padding-bottom:40px;   /* Height of the footer */
   max-width: $width-iphone;
   width: $width-iphone;
   .content_inner{
@@ -29,24 +30,33 @@ h2{
 }
 
 header {
-  font-size: 16px;
-  width:100%;
-  width: $width-iphone;
+  width: 100%;
+  font-size: 14px;
   max-width: $width-iphone;
-}
-footer {
-  font-size: 12px;
-  padding-left: $padding-iphone;
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:60px;   /* Height of the footer */
-  background:#fff;
-  max-width: $width-iphone;
+  color: #05E9FF;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: #707070; /*for  non-css3 browsers */
+  background: -webkit-gradient(linear, center bottom, center top, from(#707070), color-stop(50%,#888888), to(#B8B8B8));
+  background: -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
+  a {
+    padding: 0em 2em;
+    color: #05E9FF;
+    &:visited {
+      color: #05E9FF; }
+    &:hover {
+      color: #05E9FF;
+       } }
+
 }
 
-#new_story{
-  padding-left: $padding-iphone;
+footer {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  height: 30px;   /* Height of the footer */
+  background: #fff;
+  width: 100%;
   max-width: $width-iphone;
-  padding-right: $padding-iphone;
+  padding-left: $padding-iphone;
 }

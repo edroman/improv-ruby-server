@@ -1,8 +1,9 @@
 - if resource.errors.any?
   #error_explanation
     h4
+      'Uh oh! There's
       = pluralize(resource.errors.count, "error")
-      |  made me cry when I tried to do your bidding:
+      |  to fix:
     ul
       - resource.errors.full_messages.each do |msg|
         li= msg
