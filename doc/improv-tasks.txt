@@ -17,9 +17,10 @@ x	User can't edit story unless its their turn
 x	Push notifications for turns (SMS)	
 x	SMS 160 char truncation
 x	Login/pass case insensitive
-	Migrate the constraints/sentences to separate tables
+x	Migrate the constraints/sentences to separate tables
+x	Style errors on stories-edit
+	Style errors on homepage
 	Fix ActiveAdmin for stories/constraints/sentences
-	Style errors on homepage and on stories-edit
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Repopulate form when user has line rejected
 	Devise integration for proper user authentication
@@ -39,6 +40,7 @@ x	Login/pass case insensitive
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Confirm the paradigm I'm using for dealing with sentence errors is correct by asking the SourceNinja guys
 	Use EventMachine or similar to background task sending SMSes
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
 	List archived stories separately from current stories
