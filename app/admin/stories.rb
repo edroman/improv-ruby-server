@@ -5,7 +5,6 @@ ActiveAdmin.register Story do
       f.input :users, :as => :check_boxes
       f.input :turn
       f.input :sentences
-      f.input :constraints
     end
     f.buttons
   end
@@ -15,7 +14,6 @@ ActiveAdmin.register Story do
     column :number
     column :turn
     column :sentences
-    column :constraints
     column :created_at
     column :updated_at
     default_actions
@@ -26,7 +24,6 @@ ActiveAdmin.register Story do
       row :number
       row :turn
       row :sentences
-      row :constraints
       row :users do
         story.users.collect{|t| t.name}.join(', ')
       end
