@@ -1,15 +1,15 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$width-iphone:320px;
+$width-iphone: 320px;
 $padding-iphone: 20px;
+$interior-iphone:$width-iphone - 2*$padding-iphone;
 
 #main_home{
   padding-left: $padding-iphone;
   padding-right: $padding-iphone;
   padding-bottom: 0;
-  max-width: $width-iphone;
-  width: $width-iphone;
+  max-width: $interior-iphone;
 }
 
 h2{

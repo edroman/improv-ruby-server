@@ -1,5 +1,6 @@
 $width-iphone:320px;
 $padding-iphone: 20px;
+$interior-iphone:$width-iphone - 2*$padding-iphone;
 
 html{
   margin:0;
