@@ -20,5 +20,7 @@ html
           = yield
 
       = render 'layouts/footer'
-  script
-    |  $(body.onload) = function() { window.setTimeout(function() {window.scrollTo(0, 0);}, 100);
+  javascript:
+      window.addEventListener("load",function() {
+        setTimeout(function(){ window.scrollTo(0, 1);}, 0);
+      });
