@@ -20,10 +20,10 @@ html
           = yield
 
       = render 'layouts/footer'
-  javascript:
-      window.addEventListener("load",function() {
-        setTimeout(function(){ window.scrollTo(0, 0);}, 100);
-      });
-      window.addEventListener("orientationchange",function() {
-        setTimeout(function(){ window.scrollTo(0, 0);}, 100);
-      });
+javascript:
+  window.addEventListener("load",function() {
+    setTimeout(function(){ window.scrollTo(0, 0);}, 100);
+    });
+  window.addEventListener("orientationchange",function() {
+    setTimeout(function(){ window.scrollTo(0, 0);}, 100);
+    });
