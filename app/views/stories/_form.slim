@@ -15,7 +15,9 @@ p
 = form_tag("/stories/#{@story.id}", :method => "put") do
   = label_tag "Type the next line in the sentence.  You must use the word '#{@story.curr_sentence.constraint}'"
   br
-  = text_field_tag :sentence, nil, :placeholder => "Complete the sentence here...", :size => "10", :maxlength => 200
+  br
+  = text_area_tag :sentence, nil, :placeholder => "Complete the sentence here...", :size => "30x3", :maxlength => 200
+  br
   br
   = submit_tag "Add Sentence"
 
