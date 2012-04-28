@@ -1,7 +1,6 @@
 require 'test/unit'
 require 'twilio-ruby'
 
-# TODO: A sentence should be a separate object that has a constraint and text.  Then each sentence should run its own validation logic on itself.
 class Story < ActiveRecord::Base
   # users[0] is the person who created the story and adds the first sentence
   has_and_belongs_to_many :users, :join_table => :users_stories    # many-to-many
@@ -69,7 +68,7 @@ class Story < ActiveRecord::Base
     end
 
     # Increment turn and send SMS -- order matters here
-    send_notification(sentence.body)
+    send_turn_notification(sentence.body)
     self.turn += 1
     return true
   end
@@ -92,6 +91,7 @@ class Story < ActiveRecord::Base
     # TODO: optimize this performance, since it loads entire table
     nouns = Noun.all.sample(2)
     verbs = Verb.all.sample(3)
+    initial_constraint = nil
     (1..6).each do |n|
       sentence = Sentence.new
       sentence.story_id = self.id
@@ -101,8 +101,7 @@ class Story < ActiveRecord::Base
       case n
         when 1..2
           sentence.constraint = nouns[n-1].name
-        when 1
-          initial_constraint = nouns[n-1].name
+          initial_constraint = nouns[n-1].name if (n == 1)
         when 3..5
           sentence.constraint = verbs[n-1-2].name
         when 6
@@ -110,6 +109,12 @@ class Story < ActiveRecord::Base
       end
       sentence.save
     end
+  end
+
+  def nudge_partner
+    send_sms "#{curr_playing_user.first_name} has nudged you to help finish your story! #{get_ip}/stories/#{self.id}/edit"
+
+    # TODO: Other types of notifications
   end
 
   private
@@ -126,11 +131,20 @@ class Story < ActiveRecord::Base
       end
     end
 
-    def send_notification(sentence)
+    def send_sms(body)
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
 
-      # send an sms
+      if curr_waiting_user.phone != ''
+        @client.account.sms.messages.create(
+            :from => APP_CONFIG['sms_source'],
+            :to => "#{curr_waiting_user.phone}",
+            :body => body
+        )
+      end
+    end
+
+    def send_turn_notification(sentence)
 
       line_ending = " Your turn! #{get_ip}/stories/#{self.id}/edit"
 
@@ -150,13 +164,9 @@ class Story < ActiveRecord::Base
 
       line += line_ending
 
-      if curr_waiting_user.phone != ''
-        @client.account.sms.messages.create(
-          :from => APP_CONFIG['sms_source'],
-          :to => "#{curr_waiting_user.phone}",
-          :body => line
-        )
-      end
+      send_sms(line)
+
+      # TODO: Other types of notifications
     end
 
 end

@@ -13,12 +13,16 @@ h1 Current games
       td
       br
       - if (story.turn > 6)
-        = link_to 'View Completed Story', "/stories/#{story.id}"
+        = link_to 'View Completed Story', story
+        br
+        = link_to 'Delete', story, confirm: 'Are you sure?', method: :delete
       - elsif story.my_turn?(current_user)
-        = link_to 'Play', "/stories/#{story.id}/edit"
+        = link_to 'Play', edit_story_path(story)
+        br
+        = link_to 'Give Up', story, confirm: 'Are you sure?', method: :delete
       - else
         | Waiting
-      br
-      = link_to 'Give Up', story, confirm: 'Are you sure?', method: :delete
+        br
+        = link_to "Nudge #{story.partner(current_user)}", nudge_partner_story_path(story), confirm: 'Are you sure?', :method => :get
       br
       br

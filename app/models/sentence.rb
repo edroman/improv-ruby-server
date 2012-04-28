@@ -1,5 +1,6 @@
 class Sentence < ActiveRecord::Base
 
+  belongs_to :story
   validate :validate_sentence
 
   def validate_sentence

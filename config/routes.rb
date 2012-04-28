@@ -33,7 +33,10 @@ Improv::Application.routes.draw do
   # Generate some default routes for our models
   #
 
-  resources :stories
+  resources :stories do
+    get 'nudge_partner', :on => :member
+  end
+#  match "/stories/:id/nudge_partner" => "stories#nudge_partner"
 
   # There can only be one user logged in at once, and he has no need to see other users,
   # so use a singular "resource" and "user" rather than "resources" and "users"

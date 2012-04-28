@@ -136,4 +136,12 @@ class StoriesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # GET /stories/1/nudge_partner
+  def nudge_partner
+    @story = Story.find(params[:id])
+    @story.nudge_partner
+    flash[:notice] = "You nudged your partner!"
+    redirect_to stories_path
+  end
 end
