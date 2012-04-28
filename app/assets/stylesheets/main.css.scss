@@ -20,7 +20,7 @@ h2{
 
 content{
   height:100%;
-  padding-bottom: 30px;   /* Height of the footer */
+  padding-bottom: 20px;   /* Height of the footer */
   max-width: $width-iphone;
   width: $width-iphone;
 }
@@ -49,11 +49,10 @@ header {
 footer {
   font-size: 12px;
   clear: both;
-  text-align: center;
   position: relative;
   bottom: 0;
-  height: 30px;   /* Height of the footer */
-  margin-top: 10px;
+  height: 20px;   /* Height of the footer */
   background: #fff;
   max-width: $width-iphone;
+  padding-left: $padding-iphone;
 }
