@@ -13,20 +13,16 @@ $interior-iphone:$width-iphone - 2*$padding-iphone;
 }
 
 h2{
-  font-size: 18px;
+  font-size: 17px;
   color: #888888;
   text-align: left;
 }
 
 content{
   height:100%;
-  padding: $padding-iphone;
-  padding-bottom:40px;   /* Height of the footer */
+  padding-bottom: 30px;   /* Height of the footer */
   max-width: $width-iphone;
   width: $width-iphone;
-  .content_inner{
-    padding-left: $padding-iphone;
-  }
 }
 
 header {
@@ -52,11 +48,12 @@ header {
 
 footer {
   font-size: 12px;
-  position: absolute;
+  clear: both;
+  text-align: center;
+  position: relative;
   bottom: 0;
   height: 30px;   /* Height of the footer */
+  margin-top: 10px;
   background: #fff;
-  width: 100%;
   max-width: $width-iphone;
-  padding-left: $padding-iphone;
 }
