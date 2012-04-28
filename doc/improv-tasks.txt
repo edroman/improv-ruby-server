@@ -19,8 +19,9 @@ x	SMS 160 char truncation
 x	Login/pass case insensitive
 x	Migrate the constraints/sentences to separate tables
 x	Style errors on stories-edit
+x	Nudge capabilities
+x	Fix ActiveAdmin for stories/constraints/sentences
 	Style errors on homepage
-	Fix ActiveAdmin for stories/constraints/sentences
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Repopulate form when user has line rejected
 	Devise integration for proper user authentication
@@ -31,7 +32,6 @@ x	Style errors on stories-edit
 	Toggle SMS notification field
 	Push notifications for turns (email)
 	Invites (email, SMS)
-	Nudge capabilities
 	Survey user via SurveyMonkey
 	Play audio for story
 ?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet

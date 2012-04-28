@@ -6,7 +6,7 @@ class Story < ActiveRecord::Base
   has_and_belongs_to_many :users, :join_table => :users_stories    # many-to-many
   accepts_nested_attributes_for :users, :allow_destroy => true
 
-  has_many :sentences
+  has_many :sentences, :dependent => :destroy
   accepts_nested_attributes_for :sentences, :allow_destroy => true
 
 # TODO: not working for now since initialize() is being called at other random times
@@ -17,7 +17,7 @@ class Story < ActiveRecord::Base
   after_create :init_after_save
 
   def name
-    "Story-#{number}-#{sentences}"
+    "Story \##{number} [#{self.users[0].first_name} + #{self.users[1].first_name}] #{self.all_sentences}"
   end
 
   def name=(attributes)

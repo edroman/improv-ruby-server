@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :stories, :join_table => :users_stories			# many-to-many
+  has_and_belongs_to_many :stories, :join_table => :users_stories			# many-to-many.  TODO: figure out how to do cascading delete with HABTM
 
   accepts_nested_attributes_for :stories, :allow_destroy => true
 
