@@ -111,8 +111,9 @@ class Story < ActiveRecord::Base
     end
   end
 
+  # This is sent AFTER the story is persisted, so it is sent FROM curr_waiting_user TO curr_playing_user
   def nudge_partner
-    send_sms "#{curr_playing_user.first_name} has nudged you to help finish your story! #{get_ip}/stories/#{self.id}/edit"
+    send_sms "#{curr_waiting_user.first_name} has nudged you to help finish your story! #{get_ip}/stories/#{self.id}/edit", curr_playing_user.phone
 
     # TODO: Other types of notifications
   end
@@ -131,19 +132,20 @@ class Story < ActiveRecord::Base
       end
     end
 
-    def send_sms(body)
+    def send_sms(body, phone)
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
 
-      if curr_waiting_user.phone != ''
+      if phone != ''
         @client.account.sms.messages.create(
             :from => APP_CONFIG['sms_source'],
-            :to => "#{curr_waiting_user.phone}",
+            :to => "#{phone}",
             :body => body
         )
       end
     end
 
+    # This is sent BEFORE the add_sentence is persisted, so it comes FROM curr_playing_user TO curr_waiting_user
     def send_turn_notification(sentence)
 
       line_ending = " Your turn! #{get_ip}/stories/#{self.id}/edit"
@@ -164,7 +166,7 @@ class Story < ActiveRecord::Base
 
       line += line_ending
 
-      send_sms(line)
+      send_sms(line, curr_waiting_user.phone)
 
       # TODO: Other types of notifications
     end

@@ -23,6 +23,6 @@ h1 Current games
       - else
         | Waiting
         br
-        = link_to "Nudge #{story.partner(current_user)}", nudge_partner_story_path(story), confirm: 'Are you sure?', :method => :get
+        = link_to "Nudge #{story.partner(current_user)}", nudge_partner_story_path(story), :method => :get
       br
       br

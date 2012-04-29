@@ -21,13 +21,16 @@ x	Migrate the constraints/sentences to separate tables
 x	Style errors on stories-edit
 x	Nudge capabilities
 x	Fix ActiveAdmin for stories/constraints/sentences
-	Style errors on homepage
-	Use render rather than redirect on stories_controller.update() and have it display the error
-	Repopulate form when user has line rejected
+x	Nudges no longer require confirm dialog box
+x	Look into Cyrus bug - wrong person being sent SMS
 	Devise integration for proper user authentication
 		Better error detection on user login
 		Use cookies to remember your login
 		Format phone number validation
+	Can't edit stories by visiting URL directly unless you are authorized (i.e. its your turn)
+	Style errors on homepage
+	Use render rather than redirect on stories_controller.update() and have it display the error
+	Repopulate form when user has line rejected
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
 	Push notifications for turns (email)
