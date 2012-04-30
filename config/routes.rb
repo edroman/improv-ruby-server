@@ -35,6 +35,7 @@ Improv::Application.routes.draw do
 
   resources :stories do
     get 'nudge_partner', :on => :member
+    get 'show_archived', :on => :member
   end
 #  match "/stories/:id/nudge_partner" => "stories#nudge_partner"
 

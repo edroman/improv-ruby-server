@@ -16,6 +16,17 @@ class Story < ActiveRecord::Base
   before_create :init_before_save
   after_create :init_after_save
 
+  # finds the unfinished story currently being worked on by a certain team of users
+  def Story.find_unfinished_by_partner(user, partner_id)
+    user.stories.each do |my_story|
+      if (my_story.partner(user).id == partner_id && !my_story.finished)
+        return my_story
+      end
+    end
+
+    return nil
+  end
+
   def name
     "Story \##{number} [#{self.users[0].first_name} + #{self.users[1].first_name}] #{self.all_sentences}"
   end
@@ -34,6 +45,10 @@ class Story < ActiveRecord::Base
 
   def curr_playing_user
     self.users[(self.turn+1) % 2]
+  end
+
+  def finished
+    return self.turn > 6
   end
 
   # Note: this does a database lookup, and doesn't use any 'in-memory' sentences objects, since all
@@ -67,7 +82,9 @@ class Story < ActiveRecord::Base
       return false
     end
 
+    #
     # Increment turn and send SMS -- order matters here
+    #
     send_turn_notification(sentence.body)
     self.turn += 1
     return true
@@ -75,7 +92,7 @@ class Story < ActiveRecord::Base
 
   # returns the partner for the user specified of this story
   def partner(user)
-    users[0].first_name == user.name ? users[1].first_name : users[0].first_name
+    users[0].email == user.email ? users[1] : users[0]
   end
 
   # Finish initializing this object
@@ -137,27 +154,38 @@ class Story < ActiveRecord::Base
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
 
       if phone != ''
-        @client.account.sms.messages.create(
-            :from => APP_CONFIG['sms_source'],
-            :to => "#{phone}",
-            :body => body
-        )
+        @client.account.sms.messages.create(:from => APP_CONFIG['sms_source'], :to => "#{phone}", :body => body)
       end
     end
 
     # This is sent BEFORE the add_sentence is persisted, so it comes FROM curr_playing_user TO curr_waiting_user
     def send_turn_notification(sentence)
 
-      line_ending = " Your turn! #{get_ip}/stories/#{self.id}/edit"
+      if (turn == 6)
+        line_ending = " #{get_ip}/stories/#{self.id}/show_archived"
+      else
+        line_ending = " Your turn! #{get_ip}/stories/#{self.id}/edit"
+      end
 
       if turn == 1
-        line = "#{curr_playing_user.first_name} wants to create a story with you!"
+        # Send an SMS that 'I created a new story' if its turn 1
+        line = "#{curr_playing_user.first_name} wants to make a story with you!"
         if line.length + " \"#{self.all_sentences}\"".length + line_ending.length <= 160
           line += " \"#{self.all_sentences}\""
         elsif line.length + self.intro.length + line_ending.length <= 160
           line += " \"#{self.intro}\""
         end
+        # Special SMS for last sentence.
+        # Note: Could modify such that it doesn't do this for turn 6, since we viral loop a new story SMS,
+        # so it sends 2 SMSes.  But it could cause issues since what if he never starts a new story?  Then user will never
+        # be notified of completing previous one.
+      elsif turn == 6
+        line = "#{curr_playing_user.first_name} completed your story!"
+        if line.length + " \"#{sentence}\"".length + line_ending.length <= 160
+          line += " \"#{sentence}\""
+        end
       else
+        # Send an SMS that 'I added to your story' otherwise.
         line = "#{curr_playing_user.first_name} added to your story!"
         if line.length + " \"#{sentence}\"".length + line_ending.length <= 160
           line += " \"#{sentence}\""
@@ -170,5 +198,4 @@ class Story < ActiveRecord::Base
 
       # TODO: Other types of notifications
     end
-
 end

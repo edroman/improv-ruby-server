@@ -22,7 +22,11 @@ x	Style errors on stories-edit
 x	Nudge capabilities
 x	Fix ActiveAdmin for stories/constraints/sentences
 x	Nudges no longer require confirm dialog box
-x	Look into Cyrus bug - wrong person being sent SMS
+x	Wrong person being sent SMSes
+x	Next story begins when previous story ends
+x	Disallow 2 stories simlutaneously with 1 person - necessary since we don't have a team concept, and since we want higher virality (must make games with multiple others)
+x	If story is finished, the 'edit' dialog should show something different
+x	When a new game is made from previous game, 2nd player's show-screen doesn't have a button to create a new game but rather continues with next game
 	Devise integration for proper user authentication
 		Better error detection on user login
 		Use cookies to remember your login
@@ -43,6 +47,9 @@ x	Look into Cyrus bug - wrong person being sent SMS
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	"Edit" screen is disabled when inactive player tries to Edit after turn 6 but before active player starts new game
+	Don't let users pick other users from list if they've started a story already
+	Reminder notifications in case people haven't finished their story in a few days (toggle-able)
 	Confirm the paradigm I'm using for dealing with sentence errors is correct by asking the SourceNinja guys
 	Use EventMachine or similar to background task sending SMSes
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?

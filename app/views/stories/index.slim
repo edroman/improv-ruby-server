@@ -7,13 +7,13 @@ h1 Current games
   - @stories.each do |story|
     tr
       td
-      | Game #{story.number} with #{story.partner(current_user)}
+      | Game #{story.number} with #{story.partner(current_user).first_name}
       br
       = story.all_sentences
       td
       br
-      - if (story.turn > 6)
-        = link_to 'View Completed Story', story
+      - if story.finished
+        = link_to 'View Completed Story', show_archived_story_path(story)
         br
         = link_to 'Delete', story, confirm: 'Are you sure?', method: :delete
       - elsif story.my_turn?(current_user)
@@ -23,6 +23,6 @@ h1 Current games
       - else
         | Waiting
         br
-        = link_to "Nudge #{story.partner(current_user)}", nudge_partner_story_path(story), :method => :get
+        = link_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => :get
       br
       br

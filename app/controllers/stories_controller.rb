@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
     @stories = current_user.stories
 
     respond_to do |format|
-      format.html # index.html.haml
+      format.html # index.slim
       format.json { render json: @stories }
     end
   end
@@ -30,7 +30,24 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.haml
+      format.html # show.slim
+      format.json { render json: @story }
+    end
+  end
+
+  # GET /stories/1/show_archived
+  # TODO: Show the user the completed story and playback audio button
+  def show_archived
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
+    @story = Story.find(params[:id])
+
+    respond_to do |format|
+      format.html # show_archived.slim
       format.json { render json: @story }
     end
   end
@@ -47,7 +64,7 @@ class StoriesController < ApplicationController
     @story = Story.new
 
     respond_to do |format|
-      format.html # new.html.haml
+      format.html # new.slim
       format.json { render json: @story }
     end
   end
@@ -61,6 +78,11 @@ class StoriesController < ApplicationController
     end
 
     @story = Story.find(params[:id])
+
+    if (@story.finished)
+      # TODO: json
+      render "show"
+    end
 
     # TODO: should this use "render" instead, and how do we respond via JSON?
     if (@story.curr_playing_user.id != current_user.id)
@@ -76,6 +98,14 @@ class StoriesController < ApplicationController
     # TODO: should this use "render" instead, and how do we respond via JSON?
     if (!current_user)
       redirect_to root_url
+      return
+    end
+
+    # if a story already exists for this team, then create an error
+    # TODO: move to model for validation
+    # TODO: respond_to json too, and optimize this better
+    if Story.find_unfinished_by_partner(current_user, params[:partner][0].to_i)
+      redirect_to stories_path, :notice => "You already have an unfinished story with that partner -- finish that one first!"
       return
     end
 
@@ -111,8 +141,21 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if success && @story.update_attributes(params[:story])
-        format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
-        format.json { head :ok }
+        if @story.finished
+          # Make new story
+          # TODO: Do we check success of save?
+          #new_story = Story.new(params[:story])
+          #new_story.users[0] = current_user
+          #new_story.users[1] = @story.partner(current_user)
+          #new_story.save
+          # TODO: json
+          #format.html { redirect_to "/stories/#{new_story.id}/edit", notice: 'Here is your next story!' }
+
+          format.html { redirect_to story_path(@story) }
+        else
+          format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
+          format.json { head :ok }
+        end
       else
         format.html { render "edit" }
         format.json { render json: @story.errors, status: :unprocessable_entity }
