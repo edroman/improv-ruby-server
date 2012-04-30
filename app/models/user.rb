@@ -28,10 +28,18 @@ class User < ActiveRecord::Base
   end
 
   before_validation :downcase_email
+  before_validation :format_phone
 
   private
 
   def downcase_email
     self.email = self.email.downcase if self.email.present?
+  end
+
+  def format_phone
+    return if !self.phone
+    return if self.phone.length == 0
+
+    self.phone = "+1 " + self.phone if (self.phone[0] != '+')
   end
 end

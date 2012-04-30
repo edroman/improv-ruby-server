@@ -27,11 +27,12 @@ x	Next story begins when previous story ends
 x	Disallow 2 stories simlutaneously with 1 person - necessary since we don't have a team concept, and since we want higher virality (must make games with multiple others)
 x	If story is finished, the 'edit' dialog should show something different
 x	When a new game is made from previous game, 2nd player's show-screen doesn't have a button to create a new game but rather continues with next game
+x	Can't edit stories by visiting URL directly unless you are authorized (i.e. its your turn)
+x	Basic format phone number validation
 	Devise integration for proper user authentication
 		Better error detection on user login
 		Use cookies to remember your login
-		Format phone number validation
-	Can't edit stories by visiting URL directly unless you are authorized (i.e. its your turn)
+		Better format phone # validation
 	Style errors on homepage
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Repopulate form when user has line rejected
