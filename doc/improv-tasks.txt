@@ -34,6 +34,7 @@ x	Password is stored encrypted
 x	User have a form to reset a forgotten password via clicking a link and verifying their email address
 x	Passwords can't be blank (all seed users have password 'admin')
 x	Users can now auto-login if they previously were logged in
+x	Fix Facebook integration + omniauth to devise
 	Style errors on homepage
 	Repopulate form when user has line rejected
 	Use render rather than redirect on stories_controller.update() and have it display the error
@@ -59,7 +60,6 @@ Continue to bug fix and add features to server
 	When user signs in, they go directly to the game they had a link from
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
 	List archived stories separately from current stories
-	Fix Facebook integration + omniauth to devise
 	Associate both Twitter + Facebook with single login so you can both FB share and tweet
 	Invites + push notifications via Facebook
 	Give users ability to FB Share + Tweet story
