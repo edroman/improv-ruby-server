@@ -33,6 +33,7 @@ x	Password is stored encrypted
 x	User can receive forgotten password via email (needs testing)
 x	Devise integration for proper user authentication
 x	Passwords can't be blank (all seed users have password 'admin')
+x	Users can now auto-login if they previously were logged in
 	Style errors on homepage
 	Repopulate form when user has line rejected
 	Use render rather than redirect on stories_controller.update() and have it display the error

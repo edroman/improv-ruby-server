@@ -59,5 +59,5 @@ Improv::Application.configure do
   config.active_support.deprecation = :notify
 
   # For ActiveAdmin
-  config.action_mailer.default_url_options = { :host => 'http://improv-production.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'improv-production.herokuapp.com' }
 end
