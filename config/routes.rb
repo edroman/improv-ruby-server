@@ -33,7 +33,7 @@ Improv::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "user_omniauth_callbacks" }
 
   authenticated :user do
     root to: 'stories#index'
