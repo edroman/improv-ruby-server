@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable, :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model (devise)
+  attr_accessible :first_name, :phone, :email, :password, :password_confirmation, :remember_me
+
   has_and_belongs_to_many :stories, :join_table => :users_stories			# many-to-many.  TODO: figure out how to do cascading delete with HABTM
 
   accepts_nested_attributes_for :stories, :allow_destroy => true

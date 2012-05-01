@@ -28,14 +28,14 @@ x	Disallow 2 stories simlutaneously with 1 person - necessary since we don't hav
 x	If story is finished, the 'edit' dialog should show something different
 x	When a new game is made from previous game, 2nd player's show-screen doesn't have a button to create a new game but rather continues with next game
 x	Can't edit stories by visiting URL directly unless you are authorized (i.e. its your turn)
-x	Basic format phone number validation
-	Devise integration for proper user authentication
-		Better error detection on user login
-		Use cookies to remember your login
-		Better format phone # validation
+x	Basic format phone number, email validation
+x	Password is stored encrypted
+x	User can receive forgotten password via email (needs testing)
+x	Devise integration for proper user authentication
+x	Passwords can't be blank (all seed users have password 'admin')
 	Style errors on homepage
-	Use render rather than redirect on stories_controller.update() and have it display the error
 	Repopulate form when user has line rejected
+	Use render rather than redirect on stories_controller.update() and have it display the error
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
 	Push notifications for turns (email)
@@ -53,9 +53,10 @@ Continue to bug fix and add features to server
 	Reminder notifications in case people haven't finished their story in a few days (toggle-able)
 	Confirm the paradigm I'm using for dealing with sentence errors is correct by asking the SourceNinja guys
 	Use EventMachine or similar to background task sending SMSes
+	When user signs in, they go directly to the game they had a link from
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
 	List archived stories separately from current stories
-	Fix Facebook integration
+	Fix Facebook integration + omniauth to devise
 	Associate both Twitter + Facebook with single login so you can both FB share and tweet
 	Invites + push notifications via Facebook
 	Give users ability to FB Share + Tweet story
@@ -67,6 +68,8 @@ Continue to bug fix and add features to server
 	Continue w/Project Management
 	Facebook payments or other payments
 	TODO: Others based on Cyrus' prototype and Janet's customer feedback
+	Highlight words that opponent used
+	Improv tournaments should let you compare to friends on scores
 Reach out to improv community and get feedback + get them to promote in their newsletters, students, etc to be beta customers
 Help recruit a Big Data expert
 Form advisory board

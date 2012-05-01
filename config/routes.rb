@@ -27,7 +27,21 @@ Improv::Application.routes.draw do
 # Seems to break things, don't use:
 #  ActiveAdmin.routes(self) if (!$ARGV.nil? && $ARGV.find_all { |x| x =~ /migrate|rollback/i}.empty?)
 
+  #
+  # Devise routes
+  #
+
   devise_for :admin_users, ActiveAdmin::Devise.config
+
+  devise_for :users
+
+  authenticated :user do
+    root to: 'stories#index'
+  end
+
+  # There can only be one user logged in at once, and he has no need to see other users,
+  # so use a singular "resource" and "user" rather than "resources" and "users"
+  # resource :user, :except => [:index, :show]
 
   #
   # Generate some default routes for our models
@@ -39,21 +53,12 @@ Improv::Application.routes.draw do
   end
 #  match "/stories/:id/nudge_partner" => "stories#nudge_partner"
 
-  # There can only be one user logged in at once, and he has no need to see other users,
-  # so use a singular "resource" and "user" rather than "resources" and "users"
-  resource :user, :except => [:index, :show]
-
   #
   # Omniauth routes
   #
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/sign_out" => "sessions#destroy", :as => :sign_out
-  match "/auth/failure" => "sessions#failure", :as => :authentication_failure
-
-  #
-  # Session route - callback for manual authentication
-  #
-  match "/sessions/create" => "sessions#create", :as => :manual_login
+  # match "/auth/:provider/callback" => "sessions#create"
+  # match "/sign_out" => "sessions#destroy", :as => :sign_out
+  # match "/auth/failure" => "sessions#failure", :as => :authentication_failure
 
   #
   # Main root
