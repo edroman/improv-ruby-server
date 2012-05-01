@@ -30,8 +30,8 @@ x	When a new game is made from previous game, 2nd player's show-screen doesn't h
 x	Can't edit stories by visiting URL directly unless you are authorized (i.e. its your turn)
 x	Basic format phone number, email validation
 x	Password is stored encrypted
-x	User can receive forgotten password via email (needs testing)
-x	Devise integration for proper user authentication
+x	User have a form to reset a forgotten password via clicking a link and verifying their email address
+x	New login integration via Devise for proper user authentication -- database has been reset to reflect this
 x	Passwords can't be blank (all seed users have password 'admin')
 x	Users can now auto-login if they previously were logged in
 	Style errors on homepage
@@ -49,6 +49,7 @@ x	Users can now auto-login if they previously were logged in
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Reset password should take you to homepage not custom sign-in form
 	"Edit" screen is disabled when inactive player tries to Edit after turn 6 but before active player starts new game
 	Don't let users pick other users from list if they've started a story already
 	Reminder notifications in case people haven't finished their story in a few days (toggle-able)

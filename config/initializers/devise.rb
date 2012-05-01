@@ -164,7 +164,7 @@ Devise.setup do |config|
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
-  config.reset_password_within = 6.hours
+  config.reset_password_within = 48.hours
 
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use
@@ -210,7 +210,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  # config.omniauth :facebook, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :facebook, Rails.configuration.facebook_token, Rails.configuration.facebook_secret
+  config.omniauth :twitter, Rails.configuration.twitter_token, Rails.configuration.twitter_secret
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
