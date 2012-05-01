@@ -28,10 +28,10 @@ x	Disallow 2 stories simlutaneously with 1 person - necessary since we don't hav
 x	If story is finished, the 'edit' dialog should show something different
 x	When a new game is made from previous game, 2nd player's show-screen doesn't have a button to create a new game but rather continues with next game
 x	Can't edit stories by visiting URL directly unless you are authorized (i.e. its your turn)
+x	New login integration via Devise for proper user authentication -- database has been reset to reflect this
 x	Basic format phone number, email validation
 x	Password is stored encrypted
 x	User have a form to reset a forgotten password via clicking a link and verifying their email address
-x	New login integration via Devise for proper user authentication -- database has been reset to reflect this
 x	Passwords can't be blank (all seed users have password 'admin')
 x	Users can now auto-login if they previously were logged in
 	Style errors on homepage
@@ -49,6 +49,7 @@ x	Users can now auto-login if they previously were logged in
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Use basis for twitter authentication to associate twitter account with current account so you can tweet stories
 	Reset password should take you to homepage not custom sign-in form
 	"Edit" screen is disabled when inactive player tries to Edit after turn 6 but before active player starts new game
 	Don't let users pick other users from list if they've started a story already
