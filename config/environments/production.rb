@@ -59,5 +59,11 @@ Improv::Application.configure do
   config.active_support.deprecation = :notify
 
   # For ActiveAdmin
-  config.action_mailer.default_url_options = { :host => 'http://improv-production.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'improv-production.herokuapp.com' }
+
+  # For Devise OmniAuth
+  config.facebook_token = '390389744334816'
+  config.facebook_secret = '0f0ab81b9a8b2d4d0a36b1039d462c32'
+  config.twitter_token = 'byfX6PBKLK6JXhOloi4Wg'
+  config.twitter_secret = 'nPmKW4guoEuWVFzsHjFydmyJMkGlmvC3VII8V1ZOWU'
 end

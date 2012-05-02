@@ -8,7 +8,7 @@ h1 Welcome to Word Up!
   h2 And enjoy the story at the end!
   br
   p
-  - if current_user
+  - if user_signed_in?
     | Click #{link_to 'here', stories_url} to view your current games.
     p
   - elsif current_page?(root_path)

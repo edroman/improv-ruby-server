@@ -21,13 +21,27 @@ x	Migrate the constraints/sentences to separate tables
 x	Style errors on stories-edit
 x	Nudge capabilities
 x	Fix ActiveAdmin for stories/constraints/sentences
+x	Nudges no longer require confirm dialog box
+x	Wrong person being sent SMSes
+x	Next story begins when previous story ends
+x	Disallow 2 stories simlutaneously with 1 person - necessary since we don't have a team concept, and since we want higher virality (must make games with multiple others)
+x	If story is finished, the 'edit' dialog should show something different
+x	When a new game is made from previous game, 2nd player's show-screen doesn't have a button to create a new game but rather continues with next game
+x	Can't edit stories by visiting URL directly unless you are authorized (i.e. its your turn)
+x	New login integration via Devise for proper user authentication -- database has been reset to reflect this
+x	Basic format phone number, email validation
+x	Password is stored encrypted
+x	User have a form to reset a forgotten password via clicking a link and verifying their email address
+x	Passwords can't be blank (all seed users have password 'admin')
+x	Users can now auto-login if they previously were logged in
+x	Fix Facebook integration + omniauth to devise
+	push notifications via Facebook
+	invites via Facebook
+	Give users ability to FB Share + Tweet story
+	Add phone number after user logs in
 	Style errors on homepage
-	Use render rather than redirect on stories_controller.update() and have it display the error
 	Repopulate form when user has line rejected
-	Devise integration for proper user authentication
-		Better error detection on user login
-		Use cookies to remember your login
-		Format phone number validation
+	Use render rather than redirect on stories_controller.update() and have it display the error
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
 	Push notifications for turns (email)
@@ -40,15 +54,20 @@ x	Fix ActiveAdmin for stories/constraints/sentences
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Use basis for twitter authentication to associate twitter account with current account so you can tweet stories
+	Reset password should take you to homepage not custom sign-in form
+	"Edit" screen is disabled when inactive player tries to Edit after turn 6 but before active player starts new game
+	Don't let users pick other users from list if they've started a story already
+	Reminder notifications in case people haven't finished their story in a few days (toggle-able)
 	Confirm the paradigm I'm using for dealing with sentence errors is correct by asking the SourceNinja guys
 	Use EventMachine or similar to background task sending SMSes
+	When user signs in, they go directly to the game they had a link from
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
 	List archived stories separately from current stories
-	Fix Facebook integration
-	Associate both Twitter + Facebook with single login so you can both FB share and tweet
-	Invites + push notifications via Facebook
-	Give users ability to FB Share + Tweet story
 	Integrate KISSMetrics or roll-our-own metrics
+	Change out JavaScript Facebook invite system to use our own system
+		facebook_user = FbGraph::User.new('me', :access_token => access_token['credentials']['token']).fetch
+		facebook_user.friends
 	Figure out how to code things so that Janet can A/B test emails + SMSes
 	Better validations & tests
 	Add staging environment
@@ -56,6 +75,8 @@ Continue to bug fix and add features to server
 	Continue w/Project Management
 	Facebook payments or other payments
 	TODO: Others based on Cyrus' prototype and Janet's customer feedback
+	Highlight words that opponent used
+	Improv tournaments should let you compare to friends on scores
 Reach out to improv community and get feedback + get them to promote in their newsletters, students, etc to be beta customers
 Help recruit a Big Data expert
 Form advisory board

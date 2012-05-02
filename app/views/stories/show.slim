@@ -5,4 +5,10 @@ h1 Your finished story!
     br
     b= @story.all_sentences
     p
-    = link_to 'Back', stories_path
+    - unfinished_story = Story.find_unfinished_by_partner(current_user, @story.partner(current_user).id)
+    - if unfinished_story
+      / When partner views story, the next story has already been made, so present a simple Continue button
+      = link_to 'Continue', edit_story_path(unfinished_story)
+    - else
+      / When user who completes the story clicks Continue, it should create the next story
+      = button_to 'Continue', :action => 'create', :partner => @story.partner(current_user).id

@@ -121,7 +121,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length. Default is 6..128.
-  # config.password_length = 6..128
+  config.password_length = 0..128
 
   # Email regex used to validate email formats. It simply asserts that
   # an one (and only one) @ exists in the given string. This is mainly
@@ -164,7 +164,7 @@ Devise.setup do |config|
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
-  config.reset_password_within = 6.hours
+  config.reset_password_within = 48.hours
 
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use
@@ -182,7 +182,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -210,7 +210,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :facebook, Rails.configuration.facebook_token, Rails.configuration.facebook_secret, # :display => 'page',
+                  :scope => 'email,offline_access,publish_stream,read_friendlists'
+  config.omniauth :twitter, Rails.configuration.twitter_token, Rails.configuration.twitter_secret
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -220,4 +222,7 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  config.warden do |manager|
+    manager.failure_app = CustomFailure
+  end
 end
