@@ -3,7 +3,7 @@ section.sign_up
   = link_to omniauth_authorize_path(resource_name, "facebook") do
     = image_tag 'facebook.png'
   p
-  p Or, sign in via email:
+  p Or sign in via email:
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     = devise_error_messages!
     .field
@@ -11,7 +11,7 @@ section.sign_up
     .field
       = f.password_field :password, :placeholder => "password"
     .field
-      = f.check_box :remember_me, {checked: true}
+      =' f.check_box :remember_me, {checked: true}
       = f.label :remember_me
     .actions
       = f.submit 'Login'

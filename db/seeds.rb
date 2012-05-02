@@ -17,9 +17,9 @@ User.create(first_name: 'Janet', email: 'janetz@gmail.com', phone: '+1 650-766-0
 User.create(first_name: 'Cyrus', email: 'acylum@gmail.com', phone: '+1 512-423-1532', password: 'admin')
 
 # For SMS testing
-User.create(first_name: 'Ed Test Partner', email: 'ed-test', phone: '+1 512-773-5555', password: 'admin')
-User.create(first_name: 'Janet Test Partner', email: 'janet-test', phone: '+1 650-766-0778', password: 'admin')
-User.create(first_name: 'Cyrus Test Partner', email: 'cyrus-test', phone: '+1 512-423-1532', password: 'admin')
+User.create(first_name: 'Ed Test Partner', email: 'ed-test@gmail.com', phone: '+1 512-773-5555', password: 'admin')
+User.create(first_name: 'Janet Test Partner', email: 'janet-test@gmail.com', phone: '+1 650-766-0778', password: 'admin')
+User.create(first_name: 'Cyrus Test Partner', email: 'cyrus-test@gmail.com', phone: '+1 512-423-1532', password: 'admin')
 
 Noun.create(name: 'zebra')
 Noun.create(name: 'Obama')
