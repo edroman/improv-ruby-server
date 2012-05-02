@@ -7,9 +7,9 @@ section.sign_up
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     = devise_error_messages!
     .field
-      = f.email_field :email, :placeholder => "email address"
+      = f.email_field :email, :placeholder => "email address", :class => "input"
     .field
-      = f.password_field :password, :placeholder => "password"
+      = f.password_field :password, :placeholder => "password", :class => "input"
     .field
       =' f.check_box :remember_me, {checked: true}
       = f.label :remember_me

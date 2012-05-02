@@ -16,7 +16,7 @@ p
   = label_tag "Type the next line in the story.  You must use the word '#{@story.curr_sentence.constraint}'"
   br
   br
-  = text_field_tag :sentence, nil, :placeholder => "Complete the sentence here...", :size => "50x3", :maxlength => 200, :class => "story_input"
+  = text_area_tag :sentence, nil, :placeholder => "Complete the sentence here...", :rows => 3, :maxlength => 200
   br
   br
   = submit_tag "Add Sentence"

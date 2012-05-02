@@ -1,17 +1,19 @@
-h2 Sign up
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  /= render :partial => "error_messages", :locals => { :resource => @user }
-  = devise_error_messages!
-  .field
-    = f.text_field :first_name, :placeholder => "first name"
-  .field
-    = f.email_field :email, :placeholder => "email"
-  .field
-    = f.phone_field :phone, :placeholder => "phone number"
-  .field
-    = f.password_field :password, :placeholder => "password"
-  .field
-    = f.password_field :password_confirmation, :placeholder => "confirm password"
-  .actions
-    = f.submit "Sign up"
-/= render "links"
+#main_home
+
+  h2 Sign up
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    /= render :partial => "error_messages", :locals => { :resource => @user }
+    = devise_error_messages!
+    .field
+      = f.text_field :first_name, :placeholder => "first name"
+    .field
+      = f.email_field :email, :placeholder => "email"
+    .field
+      = f.phone_field :phone, :placeholder => "phone number"
+    .field
+      = f.password_field :password, :placeholder => "password"
+    .field
+      = f.password_field :password_confirmation, :placeholder => "confirm password"
+    .actions
+      = f.submit "Sign up"
+  /= render "links"
