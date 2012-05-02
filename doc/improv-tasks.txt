@@ -35,6 +35,10 @@ x	User have a form to reset a forgotten password via clicking a link and verifyi
 x	Passwords can't be blank (all seed users have password 'admin')
 x	Users can now auto-login if they previously were logged in
 x	Fix Facebook integration + omniauth to devise
+	push notifications via Facebook
+	invites via Facebook
+	Give users ability to FB Share + Tweet story
+	Add phone number after user logs in
 	Style errors on homepage
 	Repopulate form when user has line rejected
 	Use render rather than redirect on stories_controller.update() and have it display the error
@@ -60,10 +64,10 @@ Continue to bug fix and add features to server
 	When user signs in, they go directly to the game they had a link from
 	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
 	List archived stories separately from current stories
-	Associate both Twitter + Facebook with single login so you can both FB share and tweet
-	Invites + push notifications via Facebook
-	Give users ability to FB Share + Tweet story
 	Integrate KISSMetrics or roll-our-own metrics
+	Change out JavaScript Facebook invite system to use our own system
+		facebook_user = FbGraph::User.new('me', :access_token => access_token['credentials']['token']).fetch
+		facebook_user.friends
 	Figure out how to code things so that Janet can A/B test emails + SMSes
 	Better validations & tests
 	Add staging environment
