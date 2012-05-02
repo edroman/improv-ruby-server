@@ -1,6 +1,6 @@
 #main_home
 
-  h2 Sign up
+  h1 Sign up
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
     /= render :partial => "error_messages", :locals => { :resource => @user }
     = devise_error_messages!

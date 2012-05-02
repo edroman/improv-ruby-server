@@ -2,7 +2,8 @@
 h1 Current games
 
 #main_home
-  = link_to 'Start a new game!', new_story_path
+  = link_to 'Start a new game!', new_story_path, :class => 'button'
+
   table
   - @stories.each do |story|
     tr

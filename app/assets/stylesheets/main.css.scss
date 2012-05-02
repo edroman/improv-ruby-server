@@ -61,7 +61,13 @@ footer {
   width: $interior-iphone;
 }
 
-//input{
-//  width: $interior-iphone;
-//  height: 30px;
-//}
+.button{
+  width: $interior-iphone - 30px;
+  text-align: center;
+  a{
+
+    &:hover{
+      color: #05E9FF;
+    }
+  }
+}
