@@ -7,7 +7,7 @@ html
 
     title
       = yield :title
-      | Word Up
+      | Write On!
     = stylesheet_link_tag    "application"
     = stylesheet_link_tag yield :font
     = javascript_include_tag "application"
@@ -16,8 +16,9 @@ html
       = render 'layouts/header'
       content
         content_inner
-          = render :partial => 'layouts/flash', :locals => { :flash => flash }
           = yield
+          = render :partial => 'layouts/flash', :locals => { :flash => flash }
+
 
     = render 'layouts/footer'
 javascript:

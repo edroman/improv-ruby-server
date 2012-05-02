@@ -12,14 +12,14 @@ section.sign_up
       = f.password_field :password, :placeholder => "password", :class => "input"
     .field
       =' f.check_box :remember_me, {checked: true}
-      = f.label :remember_me
+      =' f.label :remember_me
     .actions
       = f.submit 'Login'
   p
   | Don't have an account? #{link_to 'Register', new_user_registration_path}
-  p
-  = link_to "Forgot your password?", new_password_path(resource_name)
   br
+  =' link_to "Forgot your password?", new_password_path(resource_name)
+  p
 
 
 
