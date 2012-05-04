@@ -68,7 +68,7 @@ class Story < ActiveRecord::Base
   end
 
   def all_sentences_preview
-    all_sentences.gsub(/['"]/, '').truncate(100) + '...'
+    smart_truncate(all_sentences.gsub(/['"]/, ''), { :words => 20 } ) + '...'
   end
 
   def add_sentence(sentence_text)
@@ -143,7 +143,17 @@ class Story < ActiveRecord::Base
 
   private
 
-    # gets our IP address
+    def smart_truncate(s, opts = {})
+      opts = {:words => 12}.merge(opts)
+      if opts[:sentences]
+        return s.split(/\.(\s|$)+/)[0, opts[:sentences]].map{|s| s.strip}.join('. ') + '.'
+      end
+      a = s.split(/\s/) # or /[ ]+/ to only split on spaces
+      n = opts[:words]
+      a[0...n].join(' ') + (a.size > n ? '...' : '')
+    end
+
+  # gets our IP address
     def get_ip
       # heroku - code can't get IP since it's a local IP address, so need to hard-code it
       if Rails.env.production? || Rails.env.staging?
