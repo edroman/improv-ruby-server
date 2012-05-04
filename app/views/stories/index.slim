@@ -1,17 +1,20 @@
 / Lobby, showing list of current games
-h1 Current games
 
 #main_home
+  p
   = link_to 'Start a new game!', new_story_path, :class => 'button'
+  p
+  h1 Current games
 
   table
   - @stories.each do |story|
     tr
-      td
+
       | Game #{story.number} with #{story.partner(current_user).first_name}
       br
+
       = story.all_sentences
-      td
+
       br
       - if story.finished
         = link_to 'View Completed Story', show_archived_story_path(story)
