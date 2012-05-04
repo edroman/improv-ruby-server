@@ -50,9 +50,9 @@ a {
 
 div {
   &.field{
-    color:purple;
     font-size: 16px;
     margin-bottom: 10px;
+    width: $width-iphone;
   }
   &.actions{
 
@@ -92,5 +92,10 @@ div {
 
 
 #flash_messages{
-
+  color: purple;
+  padding-left: $padding-iphone;
+  padding-right: $padding-iphone;
+  padding-bottom: 0;
+  max-width: $interior-iphone;
+  font-size: 12px;
 }
