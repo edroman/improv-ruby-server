@@ -130,7 +130,9 @@ class Story < ActiveRecord::Base
 
   # This is sent AFTER the story is persisted, so it is sent FROM curr_waiting_user TO curr_playing_user
   def nudge_partner
-    send_sms "#{curr_waiting_user.first_name} has nudged you to help finish your story! #{get_ip}/stories/#{self.id}/edit", curr_playing_user.phone
+
+    send_facebook_notification(curr_waiting_user, curr_playing_user, "#{curr_waiting_user.first_name} has nudged you to help finish your story!")
+    send_sms "#{curr_waiting_user.first_name} has nudged you to help finish your story! #{get_ip}/stories/#{self.id}/edit", curr_playing_user
 
     # TODO: Other types of notifications
   end
@@ -149,13 +151,22 @@ class Story < ActiveRecord::Base
       end
     end
 
-    def send_sms(body, phone)
+    def send_sms(body, user)
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
 
-      if phone != ''
-        @client.account.sms.messages.create(:from => APP_CONFIG['sms_source'], :to => "#{phone}", :body => body)
+      if user.phone != nil && user.phone != ''
+        @client.account.sms.messages.create(:from => APP_CONFIG['sms_source'], :to => "#{user.phone}", :body => body)
       end
+    end
+
+    def send_facebook_notification(from_user, to_user, msg)
+      return if !to_user.token
+
+      # user = FbGraph::User.new('me', :access_token => session[:omniauth]["credentials"]["token"])
+      # user.fetch
+      # facebook_user = FbGraph::User.new('me', :access_token => from_user.token).fetch
+      # facebook_user.friends
     end
 
     # This is sent BEFORE the add_sentence is persisted, so it comes FROM curr_playing_user TO curr_waiting_user
@@ -194,7 +205,7 @@ class Story < ActiveRecord::Base
 
       line += line_ending
 
-      send_sms(line, curr_waiting_user.phone)
+      send_sms(line, curr_waiting_user)
 
       # TODO: Other types of notifications
     end

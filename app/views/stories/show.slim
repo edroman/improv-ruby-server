@@ -10,5 +10,63 @@ h1 Your finished story!
       / When partner views story, the next story has already been made, so present a simple Continue button
       = link_to 'Continue', edit_story_path(unfinished_story)
     - else
+      br
+      = link_to "Post on your Facebook wall", '#', :id => :post_wall
+      br
+      br
       / When user who completes the story clicks Continue, it should create the next story
-      = button_to 'Continue', :action => 'create', :partner => @story.partner(current_user).id
+      = button_to 'Continue to next story', :action => 'create', :partner => @story.partner(current_user).id
+
+#fb-root
+
+javascript:
+
+  // Initialize Facbook
+  window.fbAsyncInit = function() {
+      FB.init({
+          appId: '#{Rails.configuration.facebook_token}',
+          status: true,
+          cookie: false,
+          channelUrl: '//localhost:3000/channel.html',
+          oauth: true
+      });
+      FB.Event.subscribe('auth.statusChange', handleStatusChange);
+  };
+
+  // Load the SDK Asynchronously
+  (function(d) {
+      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+  // For debugging - once we are logged in and authorized
+  function handleStatusChange(response) {
+      document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+      if (response.authResponse) {
+          // Could theoretically use this for debugging
+      }
+  }
+
+  // All API calls go here
+  $(document).ready(function () {
+
+      // Post to your wall
+      $('#post_wall').click(function () {
+          FB.ui({
+              method: 'feed',
+              link: 'http://apps.facebook.com/#{Rails.configuration.facebook_token}/',
+              // picture: 'http://cdn1.iconfinder.com/data/icons/softwaredemo/PNG/256x256/User1.png',
+              name: 'An epic story has been created!',
+              caption: 'A story I created with #{@story.partner(current_user).name} on http://improv-production.herokuapp.com',
+              description: '#{@story.all_sentences}',
+              display: 'popup'
+          });
+          return false;
+      });
+
+  });
+

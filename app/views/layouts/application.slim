@@ -9,7 +9,9 @@ html
       = yield :title
       | Word Up
     = stylesheet_link_tag    "application"
-    = stylesheet_link_tag yield :font
+    /= stylesheet_link_tag yield :font
+    = yield :font
+    /= include_gon
     = javascript_include_tag "application"
     = csrf_meta_tags
     container

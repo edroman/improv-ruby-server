@@ -1,10 +1,10 @@
 Ed short-term (next 2 weeks):
-Play with Node.js some more
-Help figure out a name for the game (nameboy.com, etc).  Research iPhone game name best practices
+x Play with Node.js some more
+x Help figure out a name for the game (nameboy.com, etc).  Research iPhone game name best practices
+x Be available for support on git, rails, HAML, etc
+x Get 2 people into beta test
+x Misc tasks that come up that I haven't estimated
 Project management - oversee Pivotal, keep project moving forward, track tasks and prioritizations, keep team up-to-date on things
-Be available for support on git, rails, HAML, etc
-Get 2 people into beta test
-Misc tasks that come up that I haven't estimated
 Bugs/features:
 x	New CSS doesn't show up in Heroku
 x	Admin login now allows for proper logins
@@ -35,19 +35,20 @@ x	User have a form to reset a forgotten password via clicking a link and verifyi
 x	Passwords can't be blank (all seed users have password 'admin')
 x	Users can now auto-login if they previously were logged in
 x	Fix Facebook integration + omniauth to devise
+x	invites via Facebook
+x	Give users ability to FB Share
+	Survey user in-game
+	Play audio for story
 	push notifications via Facebook
-	invites via Facebook
-	Give users ability to FB Share + Tweet story
+	Give users ability to Tweet story
+	Push notifications for turns (email)
+	Invites (email, SMS)
 	Add phone number after user logs in
 	Style errors on homepage
 	Repopulate form when user has line rejected
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
-	Push notifications for turns (email)
-	Invites (email, SMS)
-	Survey user via SurveyMonkey
-	Play audio for story
 ?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
 		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
 	
