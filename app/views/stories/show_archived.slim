@@ -56,7 +56,7 @@ javascript:
               // picture: 'http://cdn1.iconfinder.com/data/icons/softwaredemo/PNG/256x256/User1.png',
               name: 'An epic story has been created!',
               caption: 'A story I created with #{@story.partner(current_user).name} on http://improv-production.herokuapp.com',
-              description: '#{@story.all_sentences.gsub(/['"]/, '')}',
+              description: '#{@story.all_sentences_preview}',
               display: 'popup'
           });
           return false;

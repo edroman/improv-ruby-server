@@ -67,6 +67,10 @@ class Story < ActiveRecord::Base
     return body_text
   end
 
+  def all_sentences_preview
+    all_sentences.gsub(/['"]/, '').truncate(100) + '...'
+  end
+
   def add_sentence(sentence_text)
     # Add punctuation to last word in sentence
     sentence_text[0] = sentence_text[0].upcase if sentence_text.length > 0 && self.turn > 1
