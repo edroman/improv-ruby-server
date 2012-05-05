@@ -49,6 +49,7 @@ x	Give users ability to FB Share
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
+	Fix facebook chrome javascript stuff
 ?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
 		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
 	
