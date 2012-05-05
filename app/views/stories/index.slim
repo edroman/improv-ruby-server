@@ -7,26 +7,27 @@
   h1 Current games
 
   table
-  - @stories.each do |story|
     tr
-
-      | Game #{story.number} with #{story.partner(current_user).first_name}
-      br
-
-      = story.all_sentences
-
-      br
-      - if story.finished
-        = link_to 'View Completed Story', show_archived_story_path(story)
-        br
-        = link_to 'Delete', story, confirm: 'Are you sure?', method: :delete
-      - elsif story.my_turn?(current_user)
-        = link_to 'Play', edit_story_path(story)
-        br
-        = link_to 'Give Up', story, confirm: 'Are you sure?', method: :delete
-      - else
-        | Waiting
-        br
-        = link_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => :get
-      br
-      br
+      th
+      th
+    - @stories.each do |story|
+      tr
+        td
+          b Game #{story.number} with #{story.partner(current_user).first_name}
+          br
+          = story.all_sentences
+        td
+          - if story.finished
+            = link_to 'View Completed Story', show_archived_story_path(story)
+            br
+            = link_to 'Delete', story, confirm: 'Are you sure?', method: :delete
+          - elsif story.my_turn?(current_user)
+            = link_to 'Play', edit_story_path(story)
+            br
+            = link_to 'Give Up', story, confirm: 'Are you sure?', method: :delete
+          - else
+            | Waiting
+            br
+            = link_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => :get
+          br
+          br
