@@ -26,6 +26,7 @@ gem 'pg'
 # Omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'fb_graph'
 
 # Slim for views
 gem 'slim'
@@ -34,7 +35,10 @@ gem 'slim'
 gem 'twilio-ruby'
 
 #  gem 'jquery-rails'
-  gem 'jquery-rails', '~> 2.0.0'
+gem 'jquery-rails', '~> 2.0.0'
+
+# For passing parameters from controllers to JavaScript (cleanest way)
+# gem 'gon'
 
 # These lines are required for ActiveAdmin panel
 gem "formtastic", "~> 2.1.1"
