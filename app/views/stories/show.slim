@@ -5,17 +5,19 @@ h1 Your finished story!
     br
     b= @story.all_sentences
     p
-    - unfinished_story = Story.find_unfinished_by_partner(current_user, @story.partner(current_user).id)
-    - if unfinished_story
-      / When partner views story, the next story has already been made, so present a simple Continue button
-      = link_to 'Continue', edit_story_path(unfinished_story)
-    - else
+
+    = form_tag("/stories/#{@story.id}/survey", :method => "get") do
+      = label_tag "How much fun was that?"
       br
-      = link_to "Post on your Facebook wall", '#', :id => :post_wall
+      = select(@story, :survey_rating, (1..10).to_a)
+      p
       br
+      = label_tag "Feedback to developer (optional):"
       br
-      / When user who completes the story clicks Continue, it should create the next story
-      = button_to 'Continue to next story', :action => 'create', :partner => @story.partner(current_user).id
+      = text_area_tag :survey_comments, nil
+      p
+      br
+      = submit_tag "Continue"
 
 #fb-root
 

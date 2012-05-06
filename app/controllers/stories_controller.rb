@@ -142,4 +142,22 @@ class StoriesController < ApplicationController
     flash[:notice] = "You nudged your partner!"
     redirect_to stories_path
   end
+
+  # GET /stories/1/survey
+  def survey
+    @story = Story.find(params[:id])
+    @story.survey_comments = params[:survey_comments]
+    @story.survey_rating = params[:survey_rating]
+    @story.save
+
+    unfinished_story = Story.find_unfinished_by_partner(current_user, @story.partner(current_user).id)
+    if unfinished_story
+      # When partner views story, the next story has already been made
+      redirect_to edit_story_path(unfinished_story)
+    else
+      # When user who completes the story, it should create the next story
+      params[:partner] = @story.partner(current_user).id
+      redirect_to create_story_path
+    end
+  end
 end
