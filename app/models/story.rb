@@ -199,7 +199,7 @@ class Story < ActiveRecord::Base
         line = "#{curr_playing_user.first_name} wants to make a story with you!"
         if line.length + " \"#{self.all_sentences}\"".length + line_ending.length <= 160
           line += " \"#{self.all_sentences}\""
-        elsif line.length + self.intro.length + line_ending.length <= 160
+        elsif line.length + " \"#{self.intro}\"".length + line_ending.length <= 160
           line += " \"#{self.intro}\""
         end
         # Special SMS for last sentence.
@@ -220,7 +220,7 @@ class Story < ActiveRecord::Base
       end
 
       line += line_ending
-
+      puts "SENDING SMS: \'#{line}\'"
       send_sms(line, curr_waiting_user)
 
       # TODO: Other types of notifications

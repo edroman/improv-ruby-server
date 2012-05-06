@@ -56,6 +56,7 @@ x	Survey user in-game
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Auto-create current games with anyone you're Facebook friends with or perhaps you invited to the game
 	Use basis for twitter authentication to associate twitter account with current account so you can tweet stories
 	Reset password should take you to homepage not custom sign-in form
 	"Edit" screen is disabled when inactive player tries to Edit after turn 6 but before active player starts new game
