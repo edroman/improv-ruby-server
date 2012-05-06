@@ -39,6 +39,7 @@ x	invites via Facebook
 x	Give users ability to FB Share
 x	Survey user in-game
 x	Give users ability to Tweet story
+	Facebook share link in view goes to the archived URL
 	push notifications via Facebook
 	Push notifications for turns (email)
 	Invites (email, SMS)
