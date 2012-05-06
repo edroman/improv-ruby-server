@@ -26,6 +26,7 @@ class UserOmniauthCallbacksController < Devise::OmniauthCallbacksController
       config.oauth_token = current_user.twitter_token
       config.oauth_token_secret = current_user.twitter_secret
     end
+    puts "TWEETING " + session[:data]
     Twitter.update(session[:data])
 
     flash[:notice] = "Tweet sent successfully!"
