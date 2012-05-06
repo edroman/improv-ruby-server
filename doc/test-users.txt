@@ -1,0 +1,31 @@
+Test Facebook Accounts for improv-development (uses localhost appID):
+	Bobdev Localhost:
+	{"id":"100003798817693",
+	"access_token":"AAADj80fVC90BAP3PqonGwnYNMYLjYDHYvALQcl5YCXRXXfNw4FVgBTFZC8eXzZCXNC50Ur4UAE0bVc936VMusaRm1c81aZCrZBUNG6z0LGakVjTpZCuVT",
+	"login_url":"https:\/\/www.facebook.com\/platform\/test_account_login.php?user_id=100003798817693&n=Sk0yEGIcn6vXSHM",
+	"email":"edwardwroman@gmail.com",
+	"password":"improv"}
+	
+	Tomdev Localhost:
+	{"id":"100003817718116",
+	"access_token":"AAADj80fVC90BADyw1epIOf3Pr4ZAqjX1sOEA6l4Sax4ZCyYypX7biAN4zzZBZAiQlS74tUjv76ZA688P6rgzopKaivNX2qz9CCXZBiAZBG0sUwx9PFqf2ZB6",
+	"login_url":"https:\/\/www.facebook.com\/platform\/test_account_login.php?user_id=100003817718116&n=ZuULuz5vjtXc8ob",
+	"email":"e.dwardwroman@gmail.com",
+	"password":"improv"}
+
+Test Facebook Accounts for improv-production (uses heroku appID):
+	
+	Bobpro Live:
+	{"id":"100003803411928",
+	"access_token":"AAAFjDrII9ZBABAMxpBIGAZCvJgMZBoUMYAsHBnhZCE3dgvDk8gByD5fkoUiuPSkCos1T5sIKBrFyDUUBHX3EMvmczPsM8cVOoM92jUwtx5LjwrZBea0zZC",
+	"login_url":"https:\/\/www.facebook.com\/platform\/test_account_login.php?user_id=100003803411928&n=4kLseaWBddhuvYg",
+	"email":"ed.wardwroman@gmail.com",
+	"password":"improv"}
+
+	Tompro Live:
+	{"id":"100003813282240",
+	"access_token":"AAAFjDrII9ZBABANd9Gw7noykraOEaSrEtdXphLgc2qNLLZAk5TRTkEKQBPpVqrRHOrFThZBbcNMCAnTKhKE9Rp9ZCzY6IZAHHRw96BQ56BjGf7c2h7jPV",
+	"login_url":"https:\/\/www.facebook.com\/platform\/test_account_login.php?user_id=100003813282240&n=1ZzM6SYGePvHRG0",
+	"email":"edw.ardwroman@gmail.com",
+	"password":"improv"}
+

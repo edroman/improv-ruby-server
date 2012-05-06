@@ -48,6 +48,7 @@ Improv::Application.routes.draw do
   #
 
   resources :stories do
+    get 'survey', :on => :member
     get 'nudge_partner', :on => :member
     get 'show_archived', :on => :member
   end
