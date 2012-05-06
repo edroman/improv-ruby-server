@@ -37,7 +37,7 @@ x	Users can now auto-login if they previously were logged in
 x	Fix Facebook integration + omniauth to devise
 x	invites via Facebook
 x	Give users ability to FB Share
-	Survey user in-game
+x	Survey user in-game
 	Play audio for story
 	push notifications via Facebook
 	Give users ability to Tweet story
