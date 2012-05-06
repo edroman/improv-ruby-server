@@ -2,7 +2,7 @@
 class StoriesController < ApplicationController
 
   # Make sure the user is logged in via Devise before doing any operation
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show_archived]
 
   # GET /stories
   # Lobby, showing list of current games
