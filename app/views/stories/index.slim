@@ -4,9 +4,9 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
 
 #main_home
   p
-  = link_to 'Start a new game!', new_story_path, :class => 'button'
+  = button_to 'Start a new game!', new_story_path, :class => 'button'
   p
-  = link_to "Invite friends to play with you!", '#', :id => :invite_friends, :class => 'button'
+  = button_to "Invite friends to play with you!", '#', :id => :invite_friends, :class => 'button'
   p
 
   h1 Current games
@@ -24,15 +24,15 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
             = story.all_sentences_preview
           td.action
             - if story.my_turn?(current_user)
-              = link_to 'Play', edit_story_path(story)
+              = button_to 'Play', edit_story_path(story), :class => 'button blue'
               br
-              = link_to 'Give Up', story, confirm: 'Are you sure?', method: :delete
+              = button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
             - else
-              | Waiting
+              /= button_to 'Waiting'
+              = button_to 'Nudge', nudge_partner_story_path(story), :method => :get, :class => 'button blue'
+              /= button_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => :get
               br
-              = link_to "Nudge", nudge_partner_story_path(story), :method => :get
-              /= link_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => :get
-            br
+              = button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
 
   h1 Finished games
 
@@ -49,9 +49,9 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
             = story.all_sentences_preview
           td.action
             - if story.finished
-              = link_to 'View Completed Story', show_archived_story_path(story)
+              = button_to 'View Story', show_archived_story_path(story)
               br
-              = link_to 'Delete', story, confirm: 'Are you sure?', method: :delete
+              = button_to 'Delete', story, confirm: 'Are you sure?', method: :delete
             br
 
 #fb-root

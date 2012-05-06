@@ -40,11 +40,14 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000;
+  color: white;
+  text-decoration: none;
   &:visited {
-    color: #666; }
+    color: white;
+    text-decoration: none;}
   &:hover {
-    color: #05E9FF;
+    color: #0095cd;
+    text-decoration: none;
     } }
 
 
