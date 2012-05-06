@@ -147,10 +147,11 @@ class Story < ActiveRecord::Base
       opts = {:words => 12}.merge(opts)
       if opts[:sentences]
         return s.split(/\.(\s|$)+/)[0, opts[:sentences]].map{|s| s.strip}.join('. ') + '.'
+      else
+        a = s.split(/\s/) # or /[ ]+/ to only split on spaces
+        n = opts[:words]
+        return a[0...n].join(' ')
       end
-      a = s.split(/\s/) # or /[ ]+/ to only split on spaces
-      n = opts[:words]
-      a[0...n].join(' ') + (a.size > n ? '...' : '')
     end
 
   # gets our IP address
