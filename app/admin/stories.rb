@@ -17,8 +17,10 @@ ActiveAdmin.register Story do
     column :number
     column :turn
     column :sentences do |story|
-      story.all_sentences
+      story.all_sentences_preview
     end
+    column :survey_comments
+    column :survey_rating
     column :curr_playing_user
     column :curr_waiting_user
     column :created_at
@@ -36,6 +38,8 @@ ActiveAdmin.register Story do
       row :users do
         story.users.collect{|t| t.name}.join(', ')
       end
+      row :survey_comments
+      row :survey_rating
       row :curr_playing_user
       row :curr_waiting_user
     end
