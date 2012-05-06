@@ -26,7 +26,10 @@ gem 'pg'
 # Omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+
+# Social media sharing
 gem 'fb_graph'
+gem 'twitter'
 
 # Slim for views
 gem 'slim'

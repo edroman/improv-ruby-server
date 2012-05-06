@@ -27,6 +27,10 @@ Improv::Application.routes.draw do
 # Seems to break things, don't use:
 #  ActiveAdmin.routes(self) if (!$ARGV.nil? && $ARGV.find_all { |x| x =~ /migrate|rollback/i}.empty?)
 
+
+  # For capturing when users signin via twitter/facebook so we can prepare (e.g. store current URL)
+  match "/store_and_redirect" => "application#store_and_redirect", :as => :store_and_redirect
+
   #
   # Devise routes
   #
@@ -65,7 +69,6 @@ Improv::Application.routes.draw do
   # Main root
   #
   root :to => "main#index"
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

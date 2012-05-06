@@ -38,9 +38,8 @@ x	Fix Facebook integration + omniauth to devise
 x	invites via Facebook
 x	Give users ability to FB Share
 x	Survey user in-game
-	Play audio for story
+x	Give users ability to Tweet story
 	push notifications via Facebook
-	Give users ability to Tweet story
 	Push notifications for turns (email)
 	Invites (email, SMS)
 	Add phone number after user logs in
@@ -56,6 +55,8 @@ x	Survey user in-game
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Tweeting stories should direct viewers to our website where they can view story -- anyone should be able to view even if not signed in
+	Play audio for story
 	Auto-create current games with anyone you're Facebook friends with or perhaps you invited to the game
 	Use basis for twitter authentication to associate twitter account with current account so you can tweet stories
 	Reset password should take you to homepage not custom sign-in form

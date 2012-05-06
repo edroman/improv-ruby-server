@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
   def name=(attributes)
   end
 
-  def self.find_for_oauth(access_token, signed_in_resource=nil)
-    data = access_token.extra.raw_info
+  def self.find_for_oauth(auth, signed_in_resource=nil)
+    data = auth.extra.raw_info
     if user = self.find_by_email(data.email)
       user
     else # Create a user with a stub password.

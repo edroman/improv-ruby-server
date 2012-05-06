@@ -7,7 +7,11 @@ h1 Your finished story!
     b= @story.all_sentences
     p
     = link_to "Post on your Facebook wall", '#', :id => :post_wall
+    p
     br
+    = link_to omniauth_authorize_path(resource_name, "twitter") do
+      = image_tag 'twitter.png'
+    p
     br
     = link_to 'Back', stories_path
 
