@@ -30,8 +30,8 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
           - else
             | Waiting
             br
-            = link_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => :get
-          br
+            = link_to "Nudge", nudge_partner_story_path(story), :method => :get
+            /= link_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => :get
           br
 
   = link_to "Invite your friends to play with you!", '#', :id => :invite_friends
