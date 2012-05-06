@@ -9,7 +9,7 @@ h1 Your finished story!
     = link_to "Post on your Facebook wall", '#', :id => :post_wall
     p
     br
-    = link_to omniauth_authorize_path(resource_name, "twitter") do
+    = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{show_archived_story_path(@story)}") do
       = image_tag 'twitter.png'
     p
     br
