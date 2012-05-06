@@ -14,11 +14,11 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
       th
     - @stories.each do |story|
       tr
-        td
+        td.sentence
           b Game #{story.number} with #{story.partner(current_user).first_name}
           br
           = story.all_sentences
-        td
+        td.action
           - if story.finished
             = link_to 'View Completed Story', show_archived_story_path(story)
             br
