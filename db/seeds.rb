@@ -17,22 +17,16 @@ User.create(first_name: 'Janet', email: 'janetz@gmail.com', phone: '+1 650-766-0
 User.create(first_name: 'Cyrus', email: 'acylum@gmail.com', phone: '+1 512-423-1532', password: 'admin')
 
 # For SMS testing
-<<<<<<< HEAD
-User.create(first_name: 'Ed Test Partner', email: 'ed@ghostfiregames.com', phone: '+1 512-773-5555', password: 'admin')
-User.create(first_name: 'Janet Test Partner', email: 'janet@improvtest.com', phone: '+1 650-766-0778', password: 'admin')
-User.create(first_name: 'Cyrus Test Partner', email: 'cyrus@improvtest.com', phone: '+1 512-423-1532', password: 'admin')
-=======
-User.create(first_name: 'Ed Test Partner', email: 'ed-test@gmail.com', phone: '+1 512-773-5555', password: 'admin')
-User.create(first_name: 'Janet Test Partner', email: 'janet-test@gmail.com', phone: '+1 650-766-0778', password: 'admin')
-User.create(first_name: 'Cyrus Test Partner', email: 'cyrus-test@gmail.com', phone: '+1 512-423-1532', password: 'admin')
->>>>>>> 3a3c80017899a76b8cd5b3a91a7aaa0490be0b51
+User.create(first_name: 'Ed Test', email: 'ed@ghostfiregames.com', phone: '+1 512-773-5555', password: 'admin')
+User.create(first_name: 'Janet Test', email: 'janet@improvtest.com', phone: '+1 650-766-0778', password: 'admin')
+User.create(first_name: 'Cyrus Test', email: 'cyrus@improvtest.com', phone: '+1 512-423-1532', password: 'admin')
 
 Noun.create(name: 'zebra')
 Noun.create(name: 'Obama')
 Noun.create(name: 'gladiator')
 Noun.create(name: 'grandma')
 Noun.create(name: 'penguin')
-Noun.create(name: 'doggy')
+Noun.create(name: 'pickle')
 Noun.create(name: 'goldfish')
 Noun.create(name: 'Bob')
 Noun.create(name: 'entrepreneur')
