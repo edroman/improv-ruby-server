@@ -2,12 +2,12 @@
 h1 Your finished story!
 
 #main_home
-    br
-    b= @story.all_sentences
+
+    = @story.all_sentences
     p
 
     = form_tag("/stories/#{@story.id}/survey", :method => "get") do
-      = label_tag "How much fun was that?"
+      = label_tag "If 1 is bleh and 10 is hilarious, how much fun was that?"
       br
       = select(@story, :survey_rating, (1..10).to_a)
       p
@@ -19,10 +19,8 @@ h1 Your finished story!
       br
       = submit_tag "Continue"
     p
-    br
     = link_to "Post on your Facebook wall", '#', :id => :post_wall
     p
-    br
     = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{show_archived_story_path(@story)}") do
       = image_tag 'twitter.png'
 
