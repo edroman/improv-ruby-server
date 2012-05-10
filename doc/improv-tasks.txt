@@ -39,11 +39,31 @@ x	invites via Facebook
 x	Give users ability to FB Share
 x	Survey user in-game
 x	Give users ability to Tweet story
+	Bugfix: Senences are being added to beginning of story rather than end
+	Bugfix: 500 error when Janet logs in -- waiting on her
+	Bugfix: Invitation dialog box doesn't work and turns white
+	Ability to play with random opponent
 	Facebook share link in view goes to the archived URL
-	push notifications via Facebook
+	Proper push notifications via Facebook
+		Note that after people are registered, we will STILL need some sort of notification system.
+		It looks like you need to be a Canvas app in order to issue a Request.
+		This means we can ONLY use Facebook credits as our exclusive payment system.
+		It also means that we'll likely encounter issues because Apple might yank our application from the AppStore because they aren't receiving any revenue.
+		Note: Draw Something doesn't do invites, instead they have people post on each others' walls as invites, one-at-a-time
+		This is likely because it's not a canvas app -- only canvas apps can do Facebook invites.
+		Look into whether we can get their email or phone number and invite that way, so we can have an 'invite all' button
+		Highlight uses your iPhone contact list and not Facebook.
+		There's nothing wrong with being a Canvas app temporarily for growth, then switching.
+		Note: If we make a Hybrid app, we'll have the choice of issuing Requests through a native interface or web interface.
+		Big questions (assuming we use a Canvas app):
+			Can we create an HTML5 website but have it look appropriate on a native iOS screen (i.e. not cluttered with the Facebook banner, etc)?
+			Can we issue Requests from an HTML5 website? (yes)
+			Can we issue Requests from a native app?
+	"Share" button (shares this game on Facebook wall, see Draw Something)
 	Push notifications for turns (email)
 	Invites (email, SMS)
 	Add phone number after user logs in
+		Not necessary in final product - can grab number from native interface and/or use regular push notifications
 	Style errors on homepage
 	Repopulate form when user has line rejected
 	Use render rather than redirect on stories_controller.update() and have it display the error
@@ -120,13 +140,13 @@ Build-out the tournament system (Ed server, Cyrus client)
 ------------
 
 Janet Short-term (next 2 weeks):
-Initial version of CSS -- she asks Cyrus for images and specifies descriptions of them, Janet teaches herself CSS.  Cyrus maintains long-term.  Create versions whose resolutions are compatible with iPhone + Web.
+X Initial version of CSS -- she asks Cyrus for images and specifies descriptions of them, Janet teaches herself CSS.  Cyrus maintains long-term.  Create versions whose resolutions are compatible with iPhone + Web.
 Setup an "invite wall" via Launchrock.com, and put people on a waitlist when they signup.  Setup MailChimp list for invites & integrate w/Launchrock.
 Customer Development, performing weekly 20-minute in-person / phone interviews with a dozen or so customers each week and giving us feedback
 	Week 1: Call up our close friends to play game
 	Week 2: Reach out to our extended network
-Help figure out a name for the game (nameboy.com, etc - ask Ed for list).  Research iPhone game name best practices
-Build dictionaries of words for game - goal is 75 nouns, 75 verbs, 50 adjectives, 50 adverbs, 25 proper nouns
+X Help figure out a name for the game (nameboy.com, etc - ask Ed for list).  Research iPhone game name best practices
+X Build dictionaries of words for game - goal is 75 nouns, 75 verbs, 50 adjectives, 50 adverbs, 25 proper nouns
 Research best practices for email invites to get high conversion rates.  Look at how Zynga etc do it.
 A/B test FBShare/Tweet text, email invites, SMS invites, SMS "your turn" notifications, email "your turn" notifications, SMS nudges, email nudges
 Create text for all invites/notifications as listed above
