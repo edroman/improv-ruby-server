@@ -1,8 +1,9 @@
 / This form is for users to play the game and submit new sentences
 
 h1 Game #{@story.number} with #{@story.partner(current_user).first_name}
-br
-| Turn #{@story.turn} of 6
+
+div id="typewriter"
+  ' Turn #{@story.turn} of 6
 br
 table
   td
@@ -14,14 +15,16 @@ table
 = render :partial => "error_messages", :locals => { :resource => @story }
 
 = form_tag("/stories/#{@story.id}", :method => "put") do
-  = label_tag "Type the next line in the story.  You must use the word '#{@story.curr_sentence.constraint}'."
+  = label_tag "Type the next line in the story. You must use the word '#{@story.curr_sentence.constraint}'."
   br
-  b= (@story.turn == 6) ? "Note: This is the last turn!  Now finish the story!" : ""
+  b= (@story.turn == 6) ? "Note: This is the last turn so finish the story!" : ""
   br
   = text_area_tag :sentence, nil, :placeholder => "Complete the sentence here...", :rows => 3, :maxlength => 200
   br
   br
   = submit_tag "Add Sentence"
 
-
+javascript:
+  new TypingText(document.getElementById("typewriter"));
+  TypingText.runAll();
 

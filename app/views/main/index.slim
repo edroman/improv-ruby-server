@@ -1,10 +1,15 @@
 #main_home
 
   br
-  h2 Create a fun short story,
-  h2 taking turns with a friend.
-  h2 Use the keywords we provide,
-  h2 And enjoy the story at the end!
+
+  div id="typewriter"
+    ' Create a fun short story,
+    br
+    ' taking turns with a friend.
+    br
+    ' Use the keywords we provide,
+    br
+    ' and enjoy the story at the end!
 
   p
   - if user_signed_in?
@@ -12,3 +17,7 @@
     p
   - elsif current_page?(root_path)
     = render 'sign_up'
+
+  javascript:
+    new TypingText(document.getElementById("typewriter"));
+    TypingText.runAll();

@@ -95,8 +95,8 @@ footer {
   color: white;
   border: solid 1px #0076a3;
   width: 70px;
-  font-size: 12px;
-  padding: .4em .4em .4em;
+  font-size: 13px;
+  padding: 1em .4em 1em;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
@@ -107,19 +107,16 @@ footer {
   background: #0095cd;
   background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
   background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-  //filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
 }
 .button.blue:hover {
   background: #007ead;
   background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
   background: -moz-linear-gradient(top,  #0095cc,  #00678e);
-  //filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
 }
 .button.blue:active {
   color: #80bed6;
   background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
   background: -moz-linear-gradient(top,  #0078a5,  #00adee);
-  //filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
 }
 
 table{
@@ -131,7 +128,7 @@ table{
 tr{
   border-collapse: collapse;
   padding: 1px 1px 1px 1px;
-  background: #CCCCCC; /*for  non-css3 browsers */
+  background: #CCCCCC;
   background: -webkit-gradient(linear, center bottom, center top, from(#CCCCCC), color-stop(50%,#DCDCDC), to(#F3F3F3));
   background: -moz-linear-gradient(90deg, #CCCCCC, #DCDCDC, #F3F3F3);
   color: black;
@@ -140,4 +137,16 @@ tr{
 
 td.sentence{
   width:75%;
+}
+
+#typewriter {
+  //width : 400px;
+  //height : 460px;
+  //border : 1px solid #000;
+  //background-color :#ccc;
+  //padding : 5px;
+  font-family : "courier new",courier,monospace;
+  font-size : 15px;
+  color: #888888;
+  text-align: left;
 }

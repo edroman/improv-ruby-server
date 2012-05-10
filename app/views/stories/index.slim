@@ -22,15 +22,18 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
             = story.all_sentences_preview
           td.action
             - if story.my_turn?(current_user)
+              br
               = button_to 'Play', edit_story_path(story), :method => 'get', :class => 'button blue'
               br
-              = button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
+              /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
             - else
               /= button_to 'Waiting'
+              br
               = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue'
               /= button_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
               br
-              = button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
+              /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
+
 
   h1 Finished games
 
@@ -45,16 +48,16 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
             = story.all_sentences_preview
           td.action
             - if story.finished
-              = button_to 'View Story', story_path(story), :method => 'get'
-              br
-              = button_to 'Delete', story, confirm: 'Are you sure?', method: :delete
+              = button_to 'View', story_path(story), :method => 'get', :class => 'button blue'
+              /br
+              /= button_to 'Delete', story, confirm: 'Are you sure?', method: :delete
             br
 
 #fb-root
 
 javascript:
 
-  // Initialize Facbook
+  // Initialize Facebook
   window.fbAsyncInit = function() {
       FB.init({
           appId: '#{Rails.configuration.facebook_token}',

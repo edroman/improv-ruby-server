@@ -3,7 +3,7 @@ h1 Help us improve our game!
 #main_home
     = form_for(@survey) do |f|
       .field
-      = f.label "How much fun was that?"
+      = f.label "If 1 is bleh and 10 is hilarious, how much fun was that?"
       br
       = f.select(:rating, (1..10).to_a)
       p
