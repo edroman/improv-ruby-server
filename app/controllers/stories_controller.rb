@@ -157,7 +157,7 @@ class StoriesController < ApplicationController
     else
       # When user who completes the story, it should create the next story
       params[:partner] = @story.partner(current_user).id
-      redirect_to create_story_path
+      self.create
     end
   end
 end

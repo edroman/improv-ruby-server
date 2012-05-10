@@ -15,6 +15,7 @@ table
 
 = form_tag("/stories/#{@story.id}", :method => "put") do
   = label_tag "Type the next line in the story.  You must use the word '#{@story.curr_sentence.constraint}'."
+  br
   b= (@story.turn == 6) ? "Note: This is the last turn!  Now finish the story!" : ""
   br
   = text_area_tag :sentence, nil, :placeholder => "Complete the sentence here...", :rows => 3, :maxlength => 200
