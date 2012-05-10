@@ -1,30 +1,24 @@
 / TODO: Show the user the completed story and playback audio button
+/ This view is different from 'show' because it will have a 'back' button
 h1 Your finished story!
 
 #main_home
     br
     b= @story.all_sentences
     p
-
-    = form_tag("/stories/#{@story.id}/survey", :method => "get") do
-      = label_tag "How much fun was that?"
-      br
-      = select(@story, :survey_rating, (1..10).to_a)
-      p
-      br
-      = label_tag "Feedback to developer (optional):"
-      br
-      = text_area_tag :survey_comments, nil
-      p
-      br
-      = submit_tag "Continue"
-    p
-    br
     = link_to "Post on your Facebook wall", '#', :id => :post_wall
     p
     br
-    = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{show_archived_story_path(@story)}") do
+    = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do
       = image_tag 'twitter.png'
+    p
+    br
+    / If there is a completed survey already that matches this story ID and user ID, then link back to the lobby
+    - if Survey.where(:story_id => @story.id, :user_id => current_user.id).size >= 1
+      = link_to 'Back', stories_path
+    / Otherwise, create a new survey
+    - else
+      = link_to 'Continue', new_survey_path(:story_id => @story.id)
 
 #fb-root
 
@@ -71,7 +65,7 @@ javascript:
               // picture: 'http://cdn1.iconfinder.com/data/icons/softwaredemo/PNG/256x256/User1.png',
               name: 'An epic story has been created!',
               caption: 'A story I created with #{@story.partner(current_user).name} on http://improv-production.herokuapp.com',
-              description: '#{@story.all_sentences}',
+              description: '#{@story.all_sentences_preview}',
               display: 'popup'
           });
           return false;

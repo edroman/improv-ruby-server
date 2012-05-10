@@ -9,6 +9,8 @@ class Story < ActiveRecord::Base
   has_many :sentences, :dependent => :destroy
   accepts_nested_attributes_for :sentences, :allow_destroy => true
 
+  has_many :surveys, :dependent => :destroy
+
 # TODO: not working for now since initialize() is being called at other random times
 #  validates_presence_of :turn, :number
 #  after_initialize :set_defaults
@@ -190,7 +192,7 @@ class Story < ActiveRecord::Base
     def send_turn_notification(sentence)
 
       if (turn == 6)
-        line_ending = " #{get_ip}/stories/#{self.id}/show_archived"
+        line_ending = " #{get_ip}/stories/#{self.id}"
       else
         line_ending = " Your turn! #{get_ip}/stories/#{self.id}/edit"
       end

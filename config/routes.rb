@@ -51,12 +51,16 @@ Improv::Application.routes.draw do
   # Generate some default routes for our models
   #
 
+
   resources :stories do
-    get 'survey', :on => :member
     get 'nudge_partner', :on => :member
-    get 'show_archived', :on => :member
   end
-#  match "/stories/:id/nudge_partner" => "stories#nudge_partner"
+
+  # match '/create_a_story' => "stories#create", :via => :post, :as => :create_a_story
+  # post "/stories" => "stories#create", :as => :create_story
+  # match "/stories/:id/nudge_partner" => "stories#nudge_partner"
+
+  resources :surveys
 
   #
   # Omniauth routes

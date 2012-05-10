@@ -45,7 +45,7 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
             = story.all_sentences_preview
           td.action
             - if story.finished
-              = button_to 'View Story', show_archived_story_path(story), :method => 'get'
+              = button_to 'View Story', story_path(story), :method => 'get'
               br
               = button_to 'Delete', story, confirm: 'Are you sure?', method: :delete
             br

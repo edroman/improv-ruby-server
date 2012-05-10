@@ -39,11 +39,25 @@ x	invites via Facebook
 x	Give users ability to FB Share
 x	Survey user in-game
 x	Give users ability to Tweet story
+x	Bugfix: crash after surveying user
+	Bugfix: both users should be surveyed
 	Bugfix: Senences are being added to beginning of story rather than end
 	Bugfix: 500 error when Janet logs in -- waiting on her
 	Bugfix: Invitation dialog box doesn't work and turns white
 	Ability to play with random opponent
-	Facebook share link in view goes to the archived URL
+	"Show story" view has link to create an account if you're not a current user
+	Invites (email, SMS)
+	Add phone number after user logs in
+		Not necessary in final product - can grab number from native interface and/or use regular push notifications
+	Repopulate form when user has line rejected
+	Use render rather than redirect on stories_controller.update() and have it display the error
+	Fix facebook chrome javascript stuff
+?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
+		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
+	
+Ed medium-term:
+Supporting Cyrus/Janet on Rails/Git/Node
+Continue to bug fix and add features to server
 	Proper push notifications via Facebook
 		Note that after people are registered, we will STILL need some sort of notification system.
 		It looks like you need to be a Canvas app in order to issue a Request.
@@ -59,23 +73,12 @@ x	Give users ability to Tweet story
 			Can we create an HTML5 website but have it look appropriate on a native iOS screen (i.e. not cluttered with the Facebook banner, etc)?
 			Can we issue Requests from an HTML5 website? (yes)
 			Can we issue Requests from a native app?
-	"Share" button (shares this game on Facebook wall, see Draw Something)
-	Push notifications for turns (email)
-	Invites (email, SMS)
-	Add phone number after user logs in
-		Not necessary in final product - can grab number from native interface and/or use regular push notifications
-	Style errors on homepage
-	Repopulate form when user has line rejected
-	Use render rather than redirect on stories_controller.update() and have it display the error
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
-	Fix facebook chrome javascript stuff
-?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
-		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
-	
-Ed medium-term:
-Supporting Cyrus/Janet on Rails/Git/Node
-Continue to bug fix and add features to server
+	Style errors on homepage
+	"Share" button (shares this game on Facebook wall, see Draw Something)
+	Push notifications for turns (email)
+	Look into whether Draw Something allows partners-in-waiting to create new pictures from turn 1 if there's a restart of the game
 	Tweeting stories should direct viewers to our website where they can view story -- anyone should be able to view even if not signed in
 	Play audio for story
 	Auto-create current games with anyone you're Facebook friends with or perhaps you invited to the game

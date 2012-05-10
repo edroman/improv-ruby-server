@@ -2,7 +2,7 @@
 class StoriesController < ApplicationController
 
   # Make sure the user is logged in via Devise before doing any operation
-  before_filter :authenticate_user!, :except => [:show_archived]
+  before_filter :authenticate_user!, :except => [:show]
 
   # GET /stories
   # Lobby, showing list of current games
@@ -22,17 +22,6 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.slim
-      format.json { render json: @story }
-    end
-  end
-
-  # GET /stories/1/show_archived
-  # TODO: Show the user the completed story and playback audio button
-  def show_archived
-    @story = Story.find(params[:id])
-
-    respond_to do |format|
-      format.html # show_archived.slim
       format.json { render json: @story }
     end
   end
@@ -141,23 +130,5 @@ class StoriesController < ApplicationController
     @story.nudge_partner
     flash[:notice] = "You nudged your partner!"
     redirect_to stories_path
-  end
-
-  # GET /stories/1/survey
-  def survey
-    @story = Story.find(params[:id])
-    @story.survey_comments = params[:survey_comments]
-    @story.survey_rating = params[:survey_rating]
-    @story.save
-
-    unfinished_story = Story.find_unfinished_by_partner(current_user, @story.partner(current_user).id)
-    if unfinished_story
-      # When partner views story, the next story has already been made
-      redirect_to edit_story_path(unfinished_story)
-    else
-      # When user who completes the story, it should create the next story
-      params[:partner] = @story.partner(current_user).id
-      self.create
-    end
   end
 end
