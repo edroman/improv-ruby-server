@@ -4,6 +4,7 @@ html
     meta content="width=(device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1.0;)user-scalable=1;" name="viewport"
     meta content="yes" name="apple-mobile-web-app-capable"
     meta content="black-translucent" names="apple-mobile-web-app-status-bar-style"
+    = javascript_include_tag "TypingText"
 
     title
       = yield :title
@@ -20,7 +21,6 @@ html
         content_inner
           = yield
           = render :partial => 'layouts/flash', :locals => { :flash => flash }
-
 
     = render 'layouts/footer'
 javascript:
