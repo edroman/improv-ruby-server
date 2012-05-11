@@ -7,12 +7,13 @@
     br
     br
     .field
-      =' f.label :partner
-      = collection_select :partner, nil, User.all_except(current_user), :id, :name
-      br
-
-    br
-    br
+      = f.label "Partner: "
+      / Show a drop-down iterating over all users except the current user.  The "name" of those users appear, and their IDs are
+      / the chosen values.  They are returned to the controller as params[:partner_id].  nil is the base object since we want
+      / the base object to be empty so we don't have something like params[XXX][:partner_id]
+      = collection_select nil, :partner_id, User.all_except(current_user), :id, :name
     .actions
       = f.submit 'Create Story'
-
+  p
+  br
+  = button_to 'Play With Random Partner', stories_path(:partner_id => User.all_except(current_user).first(:offset => rand(User.count-1)).id), :method => 'post'

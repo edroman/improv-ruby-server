@@ -80,6 +80,7 @@ class Story < ActiveRecord::Base
     # Set sentence to that text and save it
     sentence = sentences.find_by_turn(self.turn)
     sentence.body = sentence_text
+    puts "Saving Sentence for turn #{sentence.turn}: #{sentence.body}"
     if (!sentence.save)
       sentence.errors.full_messages.each do |msg|
         errors.add :base, msg

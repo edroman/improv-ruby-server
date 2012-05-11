@@ -40,12 +40,10 @@ x	Give users ability to FB Share
 x	Survey user in-game
 x	Give users ability to Tweet story
 x	Bugfix: crash after surveying user
-	Bugfix: both users should be surveyed
+x	Bugfix: both users should be surveyed
 	Bugfix: Senences are being added to beginning of story rather than end
-	Bugfix: 500 error when Janet logs in -- waiting on her
-	Bugfix: Invitation dialog box doesn't work and turns white
-	Ability to play with random opponent
-	"Show story" view has link to create an account if you're not a current user
+x	Ability to play with random opponent
+	Random opponent is not yourself
 	Invites (email, SMS)
 	Add phone number after user logs in
 		Not necessary in final product - can grab number from native interface and/or use regular push notifications
@@ -58,6 +56,8 @@ x	Bugfix: crash after surveying user
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Bugfix: FB Invitation dialog box doesn't work and turns white
+	"Show story" view has link to create an account if you're not a current user
 	Proper push notifications via Facebook
 		Note that after people are registered, we will STILL need some sort of notification system.
 		It looks like you need to be a Canvas app in order to issue a Request.

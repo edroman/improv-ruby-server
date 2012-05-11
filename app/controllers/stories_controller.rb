@@ -60,14 +60,14 @@ class StoriesController < ApplicationController
     # if a story already exists for this team, then create an error
     # TODO: move to model for validation
     # TODO: respond_to json too, and optimize this better
-    if Story.find_unfinished_by_partner(current_user, params[:partner][0].to_i)
+    if Story.find_unfinished_by_partner(current_user, params[:partner].to_i)
       redirect_to stories_path, :notice => "You already have an unfinished story with that partner -- finish that one first!"
       return
     end
 
     @story = Story.new(params[:story])
     @story.users[0] = current_user
-    @story.users[1] = User.find_by_id(params[:partner])
+    @story.users[1] = User.find_by_id(params[:partner_id])
     success = @story.save
 
     respond_to do |format|
