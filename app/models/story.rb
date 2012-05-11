@@ -200,7 +200,7 @@ class Story < ActiveRecord::Base
 
       if turn == 1
         # Send an SMS that 'I created a new story' if its turn 1
-        line = "#{curr_playing_user.first_name} wants to make a story with you!"
+        line = "#{curr_playing_user.first_name} wants to create a story with you!"
         if line.length + " \"#{self.all_sentences}\"".length + line_ending.length <= 160
           line += " \"#{self.all_sentences}\""
         elsif line.length + " \"#{self.intro}\"".length + line_ending.length <= 160

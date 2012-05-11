@@ -77,7 +77,8 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if success
-        format.html { redirect_to "/stories/#{@story.id}/edit", notice: 'Story was successfully created.' }
+        #format.html { redirect_to "/stories/#{@story.id}/edit", notice: 'Story was successfully created.' }
+        format.html { redirect_to "/stories/#{@story.id}/edit" }
         format.json { render json: @story, status: :created, location: @story }
       else
         format.html { render action: "new" }
@@ -108,7 +109,8 @@ class StoriesController < ApplicationController
 
           format.html { redirect_to story_path(@story) }
         else
-          format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
+          #format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
+          format.html { redirect_to stories_path }
           format.json { head :ok }
         end
       else
@@ -133,7 +135,7 @@ class StoriesController < ApplicationController
   def nudge_partner
     @story = Story.find(params[:id])
     @story.nudge_partner
-    flash[:notice] = "You nudged your partner!"
+    flash[:notice] = "We sent a gentle nudge to your partner. Hopefully they get the hint."
     redirect_to stories_path
   end
 end
