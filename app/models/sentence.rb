@@ -8,6 +8,7 @@ class Sentence < ActiveRecord::Base
     # TODO: the error is not being propagated up.  story.curr_sentence doesn't check in-memory models with errors!
     if (self.body && (self.body.length < 0 || !self.body.downcase.match(self.constraint.downcase)))
       errors.add :sentence, "must use the word #{self.constraint}!"
+      return :sentence
     end
 end
 

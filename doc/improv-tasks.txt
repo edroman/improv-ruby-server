@@ -41,9 +41,9 @@ x	Survey user in-game
 x	Give users ability to Tweet story
 x	Bugfix: crash after surveying user
 x	Bugfix: both users should be surveyed
-	Bugfix: Senences are being added to beginning of story rather than end
 x	Ability to play with random opponent
-	Random opponent is not yourself
+	Random opponent feature does not create duplicate games with same player
+	Bugfix: Sentences are being added to beginning of story rather than end
 	Invites (email, SMS)
 	Add phone number after user logs in
 		Not necessary in final product - can grab number from native interface and/or use regular push notifications

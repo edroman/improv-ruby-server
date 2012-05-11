@@ -67,7 +67,12 @@ class StoriesController < ApplicationController
 
     @story = Story.new(params[:story])
     @story.users[0] = current_user
-    @story.users[1] = User.find_by_id(params[:partner_id])
+
+    if (params[:random_partner] == "true")
+      @story.users[1] = User.all_except(current_user).first(:offset => rand(User.count-1))
+    else
+      @story.users[1] = User.find_by_id(params[:partner_id])
+    end
     success = @story.save
 
     respond_to do |format|
