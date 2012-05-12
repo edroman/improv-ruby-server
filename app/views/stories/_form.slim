@@ -15,7 +15,7 @@ table
 = render :partial => "error_messages", :locals => { :resource => @story }
 
 = form_tag("/stories/#{@story.id}", :method => "put") do
-  = label_tag "Type the next line in the story. You must use the word '#{@story.curr_sentence.constraint}'."
+  = label_tag "Type the next line in the story. You must use the word '#{@story.curr_sentence.constraint.phrase}'."
   br
   b= (@story.turn == 6) ? "Note: This is the last turn so finish the story!" : ""
   br

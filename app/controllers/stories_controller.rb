@@ -9,6 +9,13 @@ class StoriesController < ApplicationController
   def index
     @stories = current_user.stories
 
+    @finished_count = 0
+    @unfinished_count = 0
+    @stories.each do |story|
+      @finished_count += 1 if story.finished
+      @unfinished_count += 1 if !story.finished
+    end
+
     respond_to do |format|
       format.html # index.slim
       format.json { render json: @stories }
@@ -68,7 +75,7 @@ class StoriesController < ApplicationController
     @story = Story.new(params[:story])
     @story.users[0] = current_user
 
-    if (params[:random_partner] == "true")
+    if (params[:random_partner] == "1")
       @story.users[1] = User.all_except(current_user).first(:offset => rand(User.count-1))
     else
       @story.users[1] = User.find_by_id(params[:partner_id])

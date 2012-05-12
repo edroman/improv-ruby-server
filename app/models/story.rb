@@ -112,9 +112,10 @@ class Story < ActiveRecord::Base
   # Create sentences which depend on this record's id that is database generated
   def init_after_save
     # Select intro and random constraints
-    # TODO: optimize this performance, since it loads entire table
-    nouns = Noun.all.sample(2)
-    verbs = Verb.all.sample(3)
+    # TODO: Make this more generic
+    subjects = Constraint.joins(:constraint_category).where('constraints.active = ? and constraint_categories.value = ?', true, 'Subject').sample(1)
+    nouns = Constraint.joins(:constraint_category).where('constraints.active = ? and constraint_categories.value = ?', true, 'Noun').sample(2)
+    verbs = Constraint.joins(:constraint_category).where('constraints.active = ? and constraint_categories.value = ?', true, 'Verb').sample(3)
     initial_constraint = nil
     (1..6).each do |n|
       sentence = Sentence.new
@@ -123,13 +124,15 @@ class Story < ActiveRecord::Base
 
       # Set constraints
       case n
-        when 1..2
-          sentence.constraint = nouns[n-1].name
-          initial_constraint = nouns[n-1].name if (n == 1)
+        when 1
+          sentence.constraint_id = subjects[n-1].id
+          initial_constraint = subjects[n-1] if (n == 1)
+        when 2
+          sentence.constraint_id = nouns[n-1].id
         when 3..5
-          sentence.constraint = verbs[n-1-2].name
+          sentence.constraint_id = verbs[n-1-2].id
         when 6
-          sentence.constraint = initial_constraint
+          sentence.constraint_id = initial_constraint.id
       end
       sentence.save
     end

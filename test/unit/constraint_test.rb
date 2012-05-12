@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VerbTest < ActiveSupport::TestCase
+class ConstraintTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

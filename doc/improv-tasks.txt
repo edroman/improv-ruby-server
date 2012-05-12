@@ -42,12 +42,16 @@ x	Give users ability to Tweet story
 x	Bugfix: crash after surveying user
 x	Bugfix: both users should be surveyed
 x	Ability to play with random opponent
-	Random opponent feature does not create duplicate games with same player
+x	Improvement on constraints
+x		Add new constraints via admin interface
+x		Use generic Constraints.
+x		Constraints can be flagged as "inactive"
+x		Modify line 116 of story.rb
 	Bugfix: Sentences are being added to beginning of story rather than end
-	Invites (email, SMS)
-	Add phone number after user logs in
-		Not necessary in final product - can grab number from native interface and/or use regular push notifications
+		Can't reproduce
 	Repopulate form when user has line rejected
+	Similar improvements on Intros
+	Random opponent feature does not create duplicate games with same player
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Fix facebook chrome javascript stuff
 ?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
@@ -56,6 +60,10 @@ x	Ability to play with random opponent
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Add phone number after user logs in
+		Not necessary in final product - can grab number from native interface and/or use regular push notifications
+	Invites - Email and SMS
+		Should be done via native iPhone API
 	Bugfix: FB Invitation dialog box doesn't work and turns white
 	"Show story" view has link to create an account if you're not a current user
 	Proper push notifications via Facebook

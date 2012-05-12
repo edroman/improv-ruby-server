@@ -1,4 +1,5 @@
 class InvitesController < ApplicationController
+=begin
   def new
     # TODO: grab user_token
 
@@ -11,6 +12,8 @@ class InvitesController < ApplicationController
       puts friend[:name] + ": " + (friend[:email] ? friend[:email] : "") + (friend[:phone] ? friend[:phone] : "")
     end
   end
+=end
+
 
   def create
   end

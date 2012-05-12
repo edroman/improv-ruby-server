@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510012004) do
+ActiveRecord::Schema.define(:version => 20120512165918) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,21 +46,30 @@ ActiveRecord::Schema.define(:version => 20120510012004) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "constraint_categories", :force => true do |t|
+    t.string   "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "active"
+  end
+
+  create_table "constraints", :force => true do |t|
+    t.string   "phrase"
+    t.integer  "constraint_category_id", :limit => 255
+    t.boolean  "active",                                :default => true, :null => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
+  end
+
   create_table "intros", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "nouns", :force => true do |t|
-    t.text     "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "sentences", :force => true do |t|
     t.text     "body"
-    t.text     "constraint"
+    t.integer  "constraint_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "story_id"
@@ -108,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20120510012004) do
     t.string   "last_sign_in_ip"
     t.string   "twitter_token"
     t.string   "twitter_secret"
+    t.boolean  "random_partner"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -116,12 +126,6 @@ ActiveRecord::Schema.define(:version => 20120510012004) do
   create_table "users_stories", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "story_id"
-  end
-
-  create_table "verbs", :force => true do |t|
-    t.text     "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
 end
