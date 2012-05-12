@@ -29,7 +29,7 @@ header {
   width: 100%;
   font-size: 14px;
   max-width: $width-iphone;
-  color: #05E9FF;
+  color: #00adee;
   padding-top: 8px;
   padding-bottom: 8px;
   background: #707070; /*for  non-css3 browsers */
@@ -37,11 +37,11 @@ header {
   background: -moz-linear-gradient(90deg, #707070, #888888, #B8B8B8);
   a {
     padding: 0em 2em;
-    color: #05E9FF;
+    color: #00adee;
     &:visited {
-      color: #05E9FF; }
+      color: #00adee; }
     &:hover {
-      color: #05E9FF;
+      color: #00adee;
        } }
 
 }
