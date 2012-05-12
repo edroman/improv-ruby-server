@@ -62,25 +62,8 @@ footer {
 }
 
 .button{
-  //display:inline-block;
-  //outline:none;
-  //cursor: pointer;
   width: $interior-iphone;
   text-align: center;
-  //text-decoration: none;
-  //font: 12px/100% Arial, Helvetica, sans-serif;
-  //padding: .5em 2em .55em;
-  //text-shadow: 0 1px 1px rgba(0,0,0,.3);
-  //-webkit-border-radius: .5em;
-  //-moz-border-radius: .5em;
-  //border-radius: .5em;
-  //-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-  //-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-  //box-shadow: 0 1px 2px rgba(0,0,0,.2);
-  //background-color: #05E9FF;
-  //border: 1px solid #05E9FF;
-  //color: #000;
-
 }
 .button:hover {
   text-decoration: none;
@@ -94,9 +77,6 @@ footer {
 .button.blue {
   color: white;
   border: solid 1px #0076a3;
-  width: 70px;
-  font-size: 13px;
-  padding: 1em .4em 1em;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
@@ -107,6 +87,11 @@ footer {
   background: #0095cd;
   background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
   background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+  width: $interior-iphone;
+  &.small{
+    width: 70px;
+    font-size: 13px;
+    padding: 1em .4em 1em;}
 }
 .button.blue:hover {
   background: #007ead;
