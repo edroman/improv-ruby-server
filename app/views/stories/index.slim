@@ -4,9 +4,9 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
 
 #main_home
   p
-  = button_to 'Start a new game!', new_story_path, :method => 'get', :class => 'button'
+  = button_to 'Start a new game!', new_story_path, :method => 'get', :class => 'button blue'
   p
-  / = button_to "Invite friends to play with you!", '#', :id => :invite_friends, :class => 'button'
+  / = button_to "Invite friends to play with you!", '#', :id => :invite_friends, :class => 'button blue'
   / p
 
   - if @unfinished_count > 0
@@ -24,16 +24,16 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
             td.action
               - if story.my_turn?(current_user)
                 br
-                = button_to 'Play', edit_story_path(story), :method => 'get', :class => 'button blue'
-                br
-                /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
+                = button_to 'Play', edit_story_path(story), :method => 'get', :class => 'button blue small'
+                /br
+                /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
               - else
                 /= button_to 'Waiting'
                 br
-                = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue'
+                = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue small'
                 /= button_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
                 br
-                /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue'
+                /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
 
 
   - if @finished_count > 0
@@ -51,10 +51,10 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
             td.action
               - if story.finished
                 br
-                = button_to 'View', story_path(story), :method => 'get', :class => 'button blue'
+                = button_to 'View', story_path(story), :method => 'get', :class => 'button blue small'
                 /br
                 /= button_to 'Delete', story, confirm: 'Are you sure?', method: :delete
-              br
+              /br
 
 #fb-root
 
