@@ -47,9 +47,8 @@ x		Add new constraints via admin interface
 x		Use generic Constraints.
 x		Constraints can be flagged as "inactive"
 x		Modify line 116 of story.rb
-	Bugfix: Sentences are being added to beginning of story rather than end
-		Can't reproduce
-	Repopulate form when user has line rejected
+x	Bugfix: Sentences are being added to beginning of story rather than end
+x	Repopulate form when user has line rejected
 	Similar improvements on Intros
 	Random opponent feature does not create duplicate games with same player
 	Use render rather than redirect on stories_controller.update() and have it display the error
