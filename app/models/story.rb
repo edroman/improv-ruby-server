@@ -62,9 +62,13 @@ class Story < ActiveRecord::Base
   def all_sentences
     body_text = self.intro
 
-    self.sentences.each do |sentence|
-      body_text += "  #{sentence.body}"
+    (1..6).each do |curr_turn|
+      body_text += "  #{self.sentences.where(:turn => curr_turn)[0].body}"
     end
+
+#    self.sentences.each do |sentence|
+#      body_text += "  #{sentence.body}"
+#    end
 
     return body_text
   end
