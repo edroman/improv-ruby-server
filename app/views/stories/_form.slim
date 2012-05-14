@@ -22,7 +22,7 @@ table
   br
   b= (@story.turn == 6) ? "Note: This is the last turn so finish the story!" : ""
   br
-  = text_area_tag :sentence, nil, :placeholder => "Complete the sentence here...", :rows => 3, :maxlength => 200
+  = text_area_tag :sentence, params[:sentence], :placeholder => "Complete the sentence here...", :rows => 3, :maxlength => 200
   br
   br
   = submit_tag "Add Sentence", :class => 'button blue'
