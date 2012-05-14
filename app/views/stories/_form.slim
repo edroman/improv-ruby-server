@@ -2,6 +2,9 @@
 
 h1 Game #{@story.number} with #{@story.partner(current_user).first_name}
 
+progress {:max => "100", :value => "60"}
+
+
 div id="typewriter"
   ' Turn #{@story.turn} of 6
 br
@@ -22,7 +25,7 @@ table
   = text_area_tag :sentence, nil, :placeholder => "Complete the sentence here...", :rows => 3, :maxlength => 200
   br
   br
-  = submit_tag "Add Sentence"
+  = submit_tag "Add Sentence", :class => 'button blue'
 
 javascript:
   new TypingText(document.getElementById("typewriter"));
