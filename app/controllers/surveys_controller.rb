@@ -1,6 +1,9 @@
 # Manages surveys for user experience so developer can get feedback
 class SurveysController < ApplicationController
 
+  # TODO: This is a security issue, but was the only way I could figure out how to allow HTTP DELETE to work via cURL since there's no authenticity tokens
+  skip_before_filter :verify_authenticity_token
+
   # Make sure the user is logged in via Devise before doing any operation
   before_filter :authenticate_user!, :except => [:edit]
 

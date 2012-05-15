@@ -1,6 +1,9 @@
 # Manages stories -- creating new ones, adding lines to current ones, deleting, and viewing completed story w/audio
 class StoriesController < ApplicationController
 
+  # TODO: This is a security issue, but was the only way I could figure out how to allow HTTP DELETE to work via cURL since there's no authenticity tokens
+  skip_before_filter :verify_authenticity_token
+
   # Make sure the user is logged in via Devise before doing any operation
   before_filter :authenticate_user!, :except => [:show]
 
@@ -15,33 +18,18 @@ class StoriesController < ApplicationController
       @finished_count += 1 if story.finished
       @unfinished_count += 1 if !story.finished
     end
-
-    respond_to do |format|
-      format.html # index.slim
-      format.json { render json: @stories }
-    end
   end
 
   # GET /stories/1
   # TODO: Show the user the completed story and playback audio button
   def show
     @story = Story.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.slim
-      format.json { render json: @story }
-    end
   end
 
   # GET /stories/new
   # Displays a drop-down box where user can select a partner who has already registered, and make a new story.
   def new
     @story = Story.new
-
-    respond_to do |format|
-      format.html # new.slim
-      format.json { render json: @story }
-    end
   end
 
   # GET /stories/1/edit
@@ -49,11 +37,10 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
 
     if (@story.finished)
-      # TODO: json
       render "show"
     end
 
-    # TODO: should this use "render" instead, and how do we respond via JSON?
+    # TODO: should this use "render" instead?
     if (@story.curr_playing_user.id != current_user.id)
       redirect_to stories_url
       return
@@ -131,11 +118,7 @@ class StoriesController < ApplicationController
   def destroy
     @story = Story.find(params[:id])
     @story.destroy
-
-    respond_to do |format|
-      format.html { redirect_to stories_url }
-      format.json { head :ok }
-    end
+    redirect_to stories_url
   end
 
   # GET /stories/1/nudge_partner

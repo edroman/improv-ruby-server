@@ -49,7 +49,8 @@ x		Constraints can be flagged as "inactive"
 x		Modify line 116 of story.rb
 x	Bugfix: Sentences are being added to beginning of story rather than end
 x	Repopulate form when user has line rejected
-	Similar improvements on Intros
+x	Create RESTful API
+	Data-driven Intros
 	Random opponent feature does not create duplicate games with same player
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Fix facebook chrome javascript stuff
@@ -59,10 +60,12 @@ x	Repopulate form when user has line rejected
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
-	Add phone number after user logs in
-		Not necessary in final product - can grab number from native interface and/or use regular push notifications
+	index.rabl.json should separate completed from incompleted stories and should contain nudgable data
+	Go through TODOs in code
+	Add phone number after user adds a line to the story
+		Eventually will grab number from native interface and/or use regular push notifications
 	Invites - Email and SMS
-		Should be done via native iPhone API
+		Eventually will be done via native iPhone API
 	Bugfix: FB Invitation dialog box doesn't work and turns white
 	"Show story" view has link to create an account if you're not a current user
 	Proper push notifications via Facebook

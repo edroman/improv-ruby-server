@@ -1,0 +1,42 @@
+JSON RESTful API for our game
+-----------------------------
+
+Sign up:
+	curl -X POST http://localhost:3000/users -d 'user[first_name]=Bob' -d 'user[email]=bob@bob.com' -d 'user[phone]=512-773-5555' -d 'user[password]=admin' -d 'user[password_confirmation]=admin'
+	Upon success you will be redirected
+
+Login (saves to cookie):
+	curl -X POST http://localhost:3000/users/sign_in.json -d 'user[email]=edward.w.roman@gmail.com' -d 'user[password]=admin' -c cookie.txt
+
+Lobby - view all stories:
+	curl -b cookie.txt -X GET http://localhost:3000/stories.json
+	The stories that are on "turn 7" are complete.
+	Other stories are current.
+
+View a single historical story:
+	curl -b cookie.txt -X GET http://localhost:3000/stories/1.json
+
+Create a story with a specific partner:
+	curl -b cookie.txt -X POST http://localhost:3000/stories -d "partner_id=1"
+	The response will always be a "redirect"
+
+Create a story with a random partner:	
+	curl -b cookie.txt -X POST http://localhost:3000/stories -d "random_partner=1"
+	The response will always be a "redirect"
+
+Edit a story:
+	curl -b cookie.txt -X GET http://localhost:3000/stories/2/edit.json
+	The response will be the same as a "view" request if the story is complete.
+	The response will be the current editable story data if it's the user's turn and the story is incomplete.
+	The response will be a "redirect" back to the lobby if it's not the user's turn and the story is incomplete.  You can ignore the redirect if that's the case.
+
+Nudge partner:
+	curl -b cookie.txt -X GET http://localhost:3000/stories/2/nudge_partner.json
+	The response will always be a "redirect" back to the lobby which you can ignore.
+
+Create survey:
+	curl -b cookie.txt -X POST http://localhost:3000/surveys -d "survey[rating]=5" -d "survey[comments]=bleh" -d "survey[story_id]=4"
+	Upon success, the response will always be a "redirect"
+
+Delete a story:
+	curl -v -b cookie.txt -X DELETE http://localhost:3000/stories/2.json
