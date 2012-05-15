@@ -19,7 +19,11 @@ ActiveAdmin.register Story do
     column :sentences do |story|
       story.all_sentences_preview
     end
-    column :surveys
+    column 'Surveys' do |story|
+      story.surveys.map { |survey|
+        link_to survey.comments, admin_survey_path(survey)
+      }.join("<br/>").html_safe
+    end
     column :curr_playing_user
     column :curr_waiting_user
     column :created_at
@@ -34,10 +38,21 @@ ActiveAdmin.register Story do
       row :sentences do |story|
         story.all_sentences
       end
-      row :users do
-        story.users.collect{|t| t.name}.join(', ')
+      row 'Sentences' do |story|
+        story.sentences.map { |sentence|
+          link_to sentence.body, admin_sentence_path(sentence)
+        }.join("<br/>").html_safe
       end
-      row :surveys
+      row 'Users' do |story|
+        story.users.map { |user|
+          link_to user.name, admin_user_path(user)
+        }.join("<br/>").html_safe
+      end
+      row 'Surveys' do |story|
+        story.surveys.map { |survey|
+          link_to survey.comments, admin_survey_path(survey)
+        }.join("<br/>").html_safe
+      end
       row :curr_playing_user
       row :curr_waiting_user
     end

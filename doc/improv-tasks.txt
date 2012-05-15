@@ -60,6 +60,8 @@ x	Create RESTful API
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Get rid of the format.json/html code
+	Errors should return as JSON not HTML for JSON requests
 	index.rabl.json should separate completed from incompleted stories and should contain nudgable data
 	Go through TODOs in code
 	Add phone number after user adds a line to the story
