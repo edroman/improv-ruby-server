@@ -50,19 +50,21 @@ x		Modify line 116 of story.rb
 x	Bugfix: Sentences are being added to beginning of story rather than end
 x	Repopulate form when user has line rejected
 x	Create RESTful API
+	Heroku staging should use proper environment variable
 	Fix users[] array issue
 	Get rid of extra spacing in story
 	Upgrade Facebook + play game system
 		Require Facebook for login, disable regular path
 		Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
-		Select box of opponents should only be your Facebook friends
+		List of potential partners should only be your Facebook friends
 		Add phone number after user adds a line to the story
 			Eventually will grab number from native interface and/or use regular push notifications
 		Bugfix: FB Invitation dialog box doesn't work and turns white
-	"Share" button (shares this game on Facebook wall, see Draw Something)
+		URL shortener for efficient tweets
+		"Share" button (shares this game on Facebook wall, see Draw Something)
+		Track events for each of these
 	Data-driven Intros
 	Fix facebook chrome javascript stuff
-	Create shortened URL
 	
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
