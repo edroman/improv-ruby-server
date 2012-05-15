@@ -50,25 +50,35 @@ x		Modify line 116 of story.rb
 x	Bugfix: Sentences are being added to beginning of story rather than end
 x	Repopulate form when user has line rejected
 x	Create RESTful API
+	Fix users[] array issue
+	Get rid of extra spacing in story
+	Upgrade Facebook + play game system
+		Require Facebook for login, disable regular path
+		Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
+		Select box of opponents should only be your Facebook friends
+		Add phone number after user adds a line to the story
+			Eventually will grab number from native interface and/or use regular push notifications
+		Bugfix: FB Invitation dialog box doesn't work and turns white
+	"Share" button (shares this game on Facebook wall, see Draw Something)
 	Data-driven Intros
-	Random opponent feature does not create duplicate games with same player
-	Use render rather than redirect on stories_controller.update() and have it display the error
 	Fix facebook chrome javascript stuff
-?	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
-		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
+	Create shortened URL
 	
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Voting entry point:
+		Displays current story that got tweeted/shared
+		Options after voting are to vote on another story (randomly) or to make your own story
+	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
+		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
+	Use render rather than redirect on stories_controller.update() and have it display the error
 	Get rid of the format.json/html code
 	Errors should return as JSON not HTML for JSON requests
 	index.rabl.json should separate completed from incompleted stories and should contain nudgable data
 	Go through TODOs in code
-	Add phone number after user adds a line to the story
-		Eventually will grab number from native interface and/or use regular push notifications
 	Invites - Email and SMS
 		Eventually will be done via native iPhone API
-	Bugfix: FB Invitation dialog box doesn't work and turns white
 	"Show story" view has link to create an account if you're not a current user
 	Proper push notifications via Facebook
 		Note that after people are registered, we will STILL need some sort of notification system.
@@ -88,7 +98,6 @@ Continue to bug fix and add features to server
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
 	Style errors on homepage
-	"Share" button (shares this game on Facebook wall, see Draw Something)
 	Push notifications for turns (email)
 	Look into whether Draw Something allows partners-in-waiting to create new pictures from turn 1 if there's a restart of the game
 	Tweeting stories should direct viewers to our website where they can view story -- anyone should be able to view even if not signed in
@@ -110,8 +119,6 @@ Continue to bug fix and add features to server
 		facebook_user.friends
 	Figure out how to code things so that Janet can A/B test emails + SMSes
 	Better validations & tests
-	Add staging environment
-	Alerts in case of issues with server (Airbrake)
 	Continue w/Project Management
 	Facebook payments or other payments
 	TODO: Others based on Cyrus' prototype and Janet's customer feedback
