@@ -5,9 +5,17 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
 #main_home
   p
   = button_to 'Start a new game!', new_story_path, :method => 'get', :class => 'button blue'
-  p
-  / = button_to "Invite friends to play with you!", '#', :id => :invite_friends, :class => 'button blue'
   / p
+  / = button_tag "Share this game on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
+  / p
+  / = button_to "Invite friends to play with you!", new_invite_path, :method => 'get', :class => 'button blue'
+  / p
+  / = button_tag "Invite friends to play with you!", :id => :message_friends, :class => 'button blue'
+  / p
+  / = button_tag "Invite friends to play with you!", :id => :post_to_friend_feed, :class => 'button blue'
+  / p
+  = button_tag "Invite friends to play with you!", :id => :batch_post_to_friend_feed, :class => 'button blue'
+  p
 
   - if @unfinished_count > 0
     h1 Current games
@@ -62,11 +70,12 @@ javascript:
 
   // Initialize Facebook
   window.fbAsyncInit = function() {
+      FB.Flash.hasMinVersion = function () { return false; };
       FB.init({
           appId: '#{Rails.configuration.facebook_token}',
           status: true,
           cookie: false,
-          channelUrl: '//localhost:3000/channel.html',
+          channelUrl: '//edro.no-ip.org:3000/channel.html',
           oauth: true
       });
       FB.Event.subscribe('auth.statusChange', handleStatusChange);
@@ -93,13 +102,130 @@ javascript:
   // All API calls go here
   $(document).ready(function () {
 
-      // Invite your friends
+      // Request invite your friends.  Only for Canvas apps.
       $("#invite_friends").click(function(){
           FB.ui({
               method: 'apprequests',
-              message: '#{current_user.name} has invited you to create a story!',
+              message: '#{current_user.name} has invited you to create a story together!',
               display: 'popup'
           });
+      });
+
+      // Message invite your friends.  Not supported on mobile.
+      $("#message_friends").click(function(){
+          var obj = {
+            method: 'send',
+            name: '#{current_user.name} has invited you to create a story together!',
+            link: 'http://www.ATallTale.com',
+            // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
+            // redirect_uri: 'http://edro.no-ip.org:3000/blah',
+            show_error: 'true',
+            display: 'popup'
+          };
+
+          // Useful for doing stuff after we get a callback
+          function callback(response) {
+            // alert("callback!");
+          }
+
+          FB.ui(obj, callback);
+      });
+
+      $("#post_to_my_feed").click(function(){
+
+          var obj = {
+            method: 'feed',
+            name: 'Who wants to make a story with me?',
+            link: 'http://www.ATallTale.com',
+            caption: 'foo',
+            description: 'bar'
+            // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
+            // redirect_uri: 'http://edro.no-ip.org:3000/blah',
+          };
+
+          // Useful for doing stuff after we get a callback
+          function callback(response) {
+            document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+          }
+
+          FB.ui(obj, callback);
+      });
+
+      $("#post_to_friend_feed").click(function(){
+
+          var obj = {
+            method: 'feed',
+            name: '#{current_user.name} has invited you to create a story together!',
+            link: 'http://www.ATallTale.com',
+            to: '221293',
+            caption: 'foo',
+            description: 'bar'
+            // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
+            // redirect_uri: 'http://edro.no-ip.org:3000/blah',
+          };
+
+          // Useful for doing stuff after we get a callback
+          function callback(response) {
+            document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+          }
+
+          FB.ui(obj, callback);
+      });
+
+      $("#batch_post_to_friend_feed").click(function(){
+
+          // Useful for doing stuff after we get a callback
+          function callback(response) {
+            if (!response) {
+              console.log("No response!");
+            }
+            else if (response.error) {
+              console.log("Error!  Response object:");
+              console.log(response);
+            } else {
+              // Iterate through each Response
+              for(var i=0,l=response.length; i<l; i++) {
+                // If we have set 'omit_response_on_success' to true in the Request, the Response value will be null, so continue to the next iteration
+                if(response[i] === null) continue;
+
+                // Else we are expecting a Response Body Object in JSON, so decode this
+                var responseBody = JSON.parse(response[i].body);
+
+                // If the Response Body includes an Error Object, handle the Error
+                if(responseBody.error) {
+                  // do something useful here
+                  console.log(responseBody.error.message);
+                }
+                // Else handle the data Object
+                else {
+                  // do something useful here
+                }
+              }
+            }
+          }
+
+          console.log(FB.getAuthResponse().accessToken);
+
+          FB.api(
+            "/",
+            "POST",
+            {
+              access_token: FB.getAuthResponse().accessToken,
+              batch:[
+                {
+                  "method":"POST",
+                  "relative_url":"/221293/feed",
+                  "body":"name=#{current_user.name} has invited you to create a story together!&link=http://www.ATallTale.com&caption=foo&description=bar"
+                },
+                {
+                  "method":"POST",
+                  "relative_url":"/janetzhou/feed",
+                  "body":"name=#{current_user.name} has invited you to create a story together!&link=http://www.ATallTale.com&caption=foo&description=bar"
+                }
+              ]
+            },
+            callback
+          );
       });
   });
 

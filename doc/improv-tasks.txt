@@ -52,17 +52,21 @@ x	Repopulate form when user has line rejected
 x	Create RESTful API
 x	Heroku staging should use proper environment variable
 x	Fix users[] array issue
-	Get rid of extra spacing in story
+x	Get rid of extra spacing in story
 	Upgrade Facebook + play game system
-		Require Facebook for login, disable regular path
-		Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
+x		Require Facebook for login, disable regular path
+		Either:
+			A) Show list of friends/faces, and populate batch request multi-wall post with that
+			B) See whether I can get rid of the Canvas frame.  If so, temporarily convert app to Canvas, since 
 		List of potential partners should only be your Facebook friends
 		Add phone number after user adds a line to the story
 			Eventually will grab number from native interface and/or use regular push notifications
-		Bugfix: FB Invitation dialog box doesn't work and turns white
-		URL shortener for efficient tweets
 		"Share" button (shares this game on Facebook wall, see Draw Something)
+		Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
+		URL shortener for efficient tweets
 		Track events for each of these
+	Create some local environment variables to select which facebook_token, facebook_secret to use.  Create 1 app for each of us via no-ip.org.
+	Fix URL for channel.html
 	Data-driven Intros
 	Fix facebook chrome javascript stuff
 	
@@ -82,21 +86,6 @@ Continue to bug fix and add features to server
 	Invites - Email and SMS
 		Eventually will be done via native iPhone API
 	"Show story" view has link to create an account if you're not a current user
-	Proper push notifications via Facebook
-		Note that after people are registered, we will STILL need some sort of notification system.
-		It looks like you need to be a Canvas app in order to issue a Request.
-		This means we can ONLY use Facebook credits as our exclusive payment system.
-		It also means that we'll likely encounter issues because Apple might yank our application from the AppStore because they aren't receiving any revenue.
-		Note: Draw Something doesn't do invites, instead they have people post on each others' walls as invites, one-at-a-time
-		This is likely because it's not a canvas app -- only canvas apps can do Facebook invites.
-		Look into whether we can get their email or phone number and invite that way, so we can have an 'invite all' button
-		Highlight uses your iPhone contact list and not Facebook.
-		There's nothing wrong with being a Canvas app temporarily for growth, then switching.
-		Note: If we make a Hybrid app, we'll have the choice of issuing Requests through a native interface or web interface.
-		Big questions (assuming we use a Canvas app):
-			Can we create an HTML5 website but have it look appropriate on a native iOS screen (i.e. not cluttered with the Facebook banner, etc)?
-			Can we issue Requests from an HTML5 website? (yes)
-			Can we issue Requests from a native app?
 	Think about how we want to deal with SMS sending errors
 	Toggle SMS notification field
 	Style errors on homepage
@@ -126,6 +115,8 @@ Continue to bug fix and add features to server
 	TODO: Others based on Cyrus' prototype and Janet's customer feedback
 	Highlight words that opponent used
 	Improv tournaments should let you compare to friends on scores
+	Look into FB auto logout
+		http://stackoverflow.com/questions/5233560/possible-to-find-out-whether-a-user-is-logged-into-facebook-over-javascript-api
 Reach out to improv community and get feedback + get them to promote in their newsletters, students, etc to be beta customers
 Help recruit a Big Data expert
 Form advisory board

@@ -1,0 +1,60 @@
+html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml"
+
+/ TODO: Make this load your friends list from the server-side, and then display those users via clickboxes.  User then sends messages to multiple friends in-mass via JS or URL.
+
+h1 Invite Friends
+
+#main_home
+
+  = button_to "Invite friends to play with you!", '#', :id => :invite_friends, :class => 'button blue', :method => :get
+  p
+
+#fb-root
+
+javascript:
+
+  // Initialize Facebook
+  window.fbAsyncInit = function() {
+      FB.init({
+          appId: '#{Rails.configuration.facebook_token}',
+          status: true,
+          cookie: false,
+          channelUrl: '//localhost:3000/channel.html',
+          oauth: true
+      });
+      FB.Event.subscribe('auth.statusChange', handleStatusChange);
+  };
+
+  // Load the SDK Asynchronously
+  (function(d) {
+      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+  // For debugging - once we are logged in and authorized
+  function handleStatusChange(response) {
+      document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+      if (response.authResponse) {
+          // Could theoretically use this for debugging
+      }
+  }
+
+  // All API calls go here
+  $(document).ready(function () {
+
+      // Invite your friends
+      $("#invite_friends").click(function(){
+          FB.ui({
+            method: 'send',
+            name: '#{current_user.name} has invited you to create a story!',
+            link: 'http://improv-production.herokuapp.com',
+            to: '1140855468',
+            display: 'popup'
+          });
+      });
+  });
+

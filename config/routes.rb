@@ -1,13 +1,5 @@
 Improv::Application.routes.draw do
 
-  get "invites/new"
-
-  get "invites/create"
-
-  get "invite/new"
-
-  get "invite/create"
-
   #
   # ActiveAdmin routes.
   #
@@ -61,6 +53,8 @@ Improv::Application.routes.draw do
   # match "/stories/:id/nudge_partner" => "stories#nudge_partner"
 
   resources :surveys
+
+  resources :invites
 
   #
   # Omniauth routes
