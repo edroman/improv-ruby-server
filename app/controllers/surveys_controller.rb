@@ -26,7 +26,7 @@ class SurveysController < ApplicationController
     @survey.user_id = current_user.id
     @survey.save
 
-    unfinished_story = Story.find_unfinished_by_partner(current_user, @survey.story.partner(current_user).id)
+    unfinished_story = Story.find_unfinished_by_partner(current_user, @survey.story.partner_of(current_user).id)
     # If this is the 2nd survey to be filled out, then there's already a new story in progress, so edit that one
     if unfinished_story
       redirect_to edit_story_path(unfinished_story) and return
@@ -34,7 +34,7 @@ class SurveysController < ApplicationController
       # Otherwise make a new story
 
       # redirect_to create_a_story_path(:partner => @survey.story.partner(current_user).id) and return
-      params[:partner] = @survey.story.partner(current_user).id
+      params[:partner] = @survey.story.partner_of(current_user).id
 
       # if a story already exists for this team, then create an error
       # TODO: move to model for validation

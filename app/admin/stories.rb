@@ -43,11 +43,6 @@ ActiveAdmin.register Story do
           link_to sentence.body, admin_sentence_path(sentence)
         }.join("<br/>").html_safe
       end
-      row 'Users' do |story|
-        story.users.map { |user|
-          link_to user.name, admin_user_path(user)
-        }.join("<br/>").html_safe
-      end
       row 'Surveys' do |story|
         story.surveys.map { |survey|
           link_to survey.comments, admin_survey_path(survey)

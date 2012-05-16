@@ -1,6 +1,6 @@
 / This form is for users to play the game and submit new sentences
 
-h1 Game #{@story.number} with #{@story.partner(current_user).first_name}
+h1 Game #{@story.number} with #{@story.partner_of(current_user).first_name}
 
 progress {:max => "100", :value => "60"}
 

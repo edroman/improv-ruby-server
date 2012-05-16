@@ -31,15 +31,6 @@ class SentencesController < ApplicationController
     respond_to do |format|
       if success && @story.update_attributes(params[:story])
         if @story.finished
-          # Make new story
-          # TODO: Do we check success of save?
-          #new_story = Story.new(params[:story])
-          #new_story.users[0] = current_user
-          #new_story.users[1] = @story.partner(current_user)
-          #new_story.save
-          # TODO: json
-          #format.html { redirect_to "/stories/#{new_story.id}/edit", notice: 'Here is your next story!' }
-
           format.html { redirect_to story_path(@story) }
         else
           format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }

@@ -19,8 +19,10 @@ ActiveAdmin.register User do
       row :email
       row :phone
       row :password
-      row :stories do
-        user.stories.collect{|t| t.name}.join(', ')
+      row 'Stories' do |user|
+        user.stories.map { |story|
+          link_to story.all_sentences_preview, admin_story_path(story)
+        }.join("<br/>").html_safe
       end
     end
     active_admin_comments

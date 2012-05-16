@@ -60,14 +60,23 @@ class StoriesController < ApplicationController
     end
 
     @story = Story.new(params[:story])
-    @story.users[0] = current_user
+    @story.save
+
+    @story.players[0] = Player.create
+    @story.players[0].story_id = @story.id
+    @story.players[0].player_number = 0
+    @story.players[1] = Player.create
+    @story.players[1].story_id = @story.id
+    @story.players[1].player_number = 1
+
+    @story.players[0].user_id = current_user.id
 
     if (params[:random_partner] == "1")
-      @story.users[1] = User.all_except(current_user).first(:offset => rand(User.count-1))
+      @story.players[1].user_id = User.all_except(current_user).first(:offset => rand(User.count-1)).id
     else
-      @story.users[1] = User.find_by_id(params[:partner_id])
+      @story.players[1].user_id = User.find_by_id(params[:partner_id]).id
     end
-    success = @story.save
+    success = @story.save && @story.players[0].save && @story.players[1].save
 
     respond_to do |format|
       if success
@@ -96,7 +105,7 @@ class StoriesController < ApplicationController
           # TODO: Do we check success of save?
           #new_story = Story.new(params[:story])
           #new_story.users[0] = current_user
-          #new_story.users[1] = @story.partner(current_user)
+          #new_story.users[1] = @story.partner_of(current_user)
           #new_story.save
           # TODO: json
           #format.html { redirect_to "/stories/#{new_story.id}/edit", notice: 'Here is your next story!' }

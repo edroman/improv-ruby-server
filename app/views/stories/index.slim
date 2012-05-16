@@ -18,7 +18,7 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
         - if !story.finished
           tr
             td.sentence
-              b Game #{story.number} with #{story.partner(current_user).first_name}
+              b Game #{story.number} with #{story.partner_of(current_user).first_name}
               br
               = story.all_sentences_preview
             td.action
@@ -31,7 +31,7 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
                 /= button_to 'Waiting'
                 br
                 = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue small'
-                /= button_to "Nudge #{story.partner(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
+                /= button_to "Nudge #{story.partner_of(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
                 br
                 /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
 
@@ -45,7 +45,7 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
         - if story.finished
           tr
             td.sentence
-              b Game #{story.number} with #{story.partner(current_user).first_name}
+              b Game #{story.number} with #{story.partner_of(current_user).first_name}
               br
               = story.all_sentences_preview
             td.action

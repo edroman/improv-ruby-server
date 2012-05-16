@@ -2,8 +2,9 @@ require 'test/unit'
 require 'twilio-ruby'
 
 class Story < ActiveRecord::Base
-  # users[0] is the person who created the story and adds the first sentence
-  has_and_belongs_to_many :users, :join_table => :users_stories    # many-to-many
+  # many-to-many.
+  has_many :players, :dependent => :destroy
+  has_many :users, :through => :players
   accepts_nested_attributes_for :users, :allow_destroy => true
 
   has_many :sentences, :dependent => :destroy
@@ -21,7 +22,7 @@ class Story < ActiveRecord::Base
   # finds the unfinished story currently being worked on by a certain team of users
   def Story.find_unfinished_by_partner(user, partner_id)
     user.stories.each do |my_story|
-      if (my_story.partner(user).id == partner_id && !my_story.finished)
+      if (my_story.partner_of(user).id == partner_id && !my_story.finished)
         return my_story
       end
     end
@@ -30,23 +31,40 @@ class Story < ActiveRecord::Base
   end
 
   def name
-    "Story \##{number} [#{self.users[0].first_name} + #{self.users[1].first_name}] #{self.all_sentences}"
+    "Story \##{number} [#{creator.first_name} + #{partner.first_name}] #{self.all_sentences}"
   end
 
   def name=(attributes)
   end
 
   def my_turn?(user)
-    result = (self.turn % 2 == 1) ? (self.users[0].id == user.id) : (self.users[1].id == user.id)
+    result = (self.turn % 2 == 1) ? (creator.id == user.id) : (partner.id == user.id)
     return result
   end
 
-  def curr_waiting_user
-    self.users[self.turn % 2]
+  # the user who created the game
+  def creator
+    self.players.find_by_player_number(0).user
   end
 
+  # the second player of the game
+  def partner
+    self.players.find_by_player_number(1).user
+  end
+
+  # returns the partner for the specified user
+  def partner_of(user)
+    creator.email == user.email ? partner : creator
+  end
+
+  # Returns the user who is waiting for the other person to take his turn
+  def curr_waiting_user
+    self.players.find_by_player_number(self.turn % 2).user
+  end
+
+  # Returns the user whose turn it is
   def curr_playing_user
-    self.users[(self.turn+1) % 2]
+    self.players.find_by_player_number((self.turn+1) % 2).user
   end
 
   def finished
@@ -63,7 +81,8 @@ class Story < ActiveRecord::Base
     body_text = self.intro
 
     (1..6).each do |curr_turn|
-      body_text += "  #{self.sentences.where(:turn => curr_turn)[0].body}"
+      sentence = self.sentences.where(:turn => curr_turn)[0].body
+      body_text += "  #{sentence}" if sentence
     end
 
 #    self.sentences.each do |sentence|
@@ -99,11 +118,6 @@ class Story < ActiveRecord::Base
     send_turn_notification(sentence.body)
     self.turn += 1
     return true
-  end
-
-  # returns the partner for the user specified of this story
-  def partner(user)
-    users[0].email == user.email ? users[1] : users[0]
   end
 
   # Finish initializing this object

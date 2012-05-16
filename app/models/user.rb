@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model (devise)
   attr_accessible :first_name, :phone, :email, :password, :password_confirmation, :remember_me
 
-  has_and_belongs_to_many :stories, :join_table => :users_stories			# many-to-many.  TODO: figure out how to do cascading delete with HABTM
-
+  has_many :players, :dependent => :destroy
+  has_many :stories, :through => :players			# many-to-many.  TODO: figure out how to do cascading delete with HABTM
   accepts_nested_attributes_for :stories, :allow_destroy => true
 
   validates_presence_of :first_name, :email

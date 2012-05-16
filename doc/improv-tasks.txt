@@ -50,8 +50,8 @@ x		Modify line 116 of story.rb
 x	Bugfix: Sentences are being added to beginning of story rather than end
 x	Repopulate form when user has line rejected
 x	Create RESTful API
-	Heroku staging should use proper environment variable
-	Fix users[] array issue
+x	Heroku staging should use proper environment variable
+x	Fix users[] array issue
 	Get rid of extra spacing in story
 	Upgrade Facebook + play game system
 		Require Facebook for login, disable regular path
