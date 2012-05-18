@@ -3,6 +3,8 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
 / Lobby, showing list of current games
 
 #main_home
+  -if user_signed_in?
+    | Hello, #{current_user.first_name}!
   p
   = button_to 'Start a new game!', new_story_path, :method => 'get', :class => 'button blue'
   p
