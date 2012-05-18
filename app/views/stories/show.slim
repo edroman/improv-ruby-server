@@ -61,12 +61,12 @@ javascript:
       $('#post_wall').click(function () {
           FB.ui({
               method: 'feed',
-              link: 'http://apps.facebook.com/#{Rails.configuration.facebook_token}/',
-              // picture: 'http://cdn1.iconfinder.com/data/icons/softwaredemo/PNG/256x256/User1.png',
+              link: 'http://www.ATallTale.com',
+              // picture: 'http://images.suite101.com/564964_com_map_symbol.png',
               name: 'An epic story has been created!',
               caption: 'A story I created with #{@story.partner_of(current_user).name} on http://www.ATallTale.com',
               description: '#{@story.all_sentences_preview}',
-              display: 'popup'
+              // display: 'popup'
           });
           return false;
       });
