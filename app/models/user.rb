@@ -22,15 +22,6 @@ class User < ActiveRecord::Base
   def name=(attributes)
   end
 
-  def self.find_for_oauth(auth, signed_in_resource=nil)
-    data = auth.extra.raw_info
-    if user = self.find_by_email(data.email)
-      user
-    else # Create a user with a stub password.
-      self.create!(:first_name => data.name, :email => data.email, :password => Devise.friendly_token[0,20])
-    end
-  end
-
   before_validation :downcase_email
   before_validation :format_phone
 

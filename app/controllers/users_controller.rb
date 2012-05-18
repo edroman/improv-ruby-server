@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   # POST /user
   def create
     @user = User.new(params[:user])
+    @user.facebook_token = session["devise.facebook_data"]['credentials']['token']
+    @user.facebook_uid = session["devise.facebook_data"]['uid']
 
     respond_to do |format|
       if @user.save

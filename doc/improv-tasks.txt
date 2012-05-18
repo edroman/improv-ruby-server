@@ -56,23 +56,26 @@ x	Get rid of extra spacing in story
 	Upgrade Facebook + play game system
 x		Require Facebook for login, disable regular path
 		Either:
-			A) Show list of friends/faces, and populate batch request multi-wall post with that
-			B) See whether I can get rid of the Canvas frame.  If so, temporarily convert app to Canvas, since 
+x			A) Show list of friends/faces, and populate batch request multi-wall post with that
+			B) See whether I can get rid of the Canvas frame.  If so, temporarily convert app to Canvas
 		List of potential partners should only be your Facebook friends
 		Add phone number after user adds a line to the story
 			Eventually will grab number from native interface and/or use regular push notifications
-		"Share" button (shares this game on Facebook wall, see Draw Something)
+x		"Share" button (shares this game on Facebook wall, see Draw Something)
 		Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
 		URL shortener for efficient tweets
 		Track events for each of these
-	Create some local environment variables to select which facebook_token, facebook_secret to use.  Create 1 app for each of us via no-ip.org.
-	Fix URL for channel.html
-	Data-driven Intros
-	Fix facebook chrome javascript stuff
+		Change all "first_name" to "name"
+	Test idea of users selecting constraint from 6 choices or inputting their own
+	Test idea of users rating each other's sentence to keep them engaged
 	
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Create some local environment variables to select which facebook_token, facebook_secret to use.  Create 1 app for each of us via no-ip.org.
+	Fix URL for channel.html
+	Data-driven Intros
+	Fix facebook chrome javascript stuff
 	Voting entry point:
 		Displays current story that got tweeted/shared
 		Options after voting are to vote on another story (randomly) or to make your own story
@@ -90,6 +93,7 @@ Continue to bug fix and add features to server
 	Toggle SMS notification field
 	Style errors on homepage
 	Push notifications for turns (email)
+	Consider using authenticated Facebook referrals (http://developers.facebook.com/docs/opengraph/authentication/)
 	Look into whether Draw Something allows partners-in-waiting to create new pictures from turn 1 if there's a restart of the game
 	Tweeting stories should direct viewers to our website where they can view story -- anyone should be able to view even if not signed in
 	Play audio for story

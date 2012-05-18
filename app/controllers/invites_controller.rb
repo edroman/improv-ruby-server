@@ -1,19 +1,16 @@
 class InvitesController < ApplicationController
-=begin
-  def new
-    # TODO: grab user_token
-
+  def index
     # TODO: Use api-read.facebook.com for this
-    friends = FbGraph::Query.new(
-        'select name, email, phone from user where uid in (select uid2 from friend where uid1=me())'
-    ).fetch(user_token)
+    @friends = FbGraph::Query.new(
+        'select name, uid, pic_square from user where uid in (select uid2 from friend where uid1=me())'
+    ).fetch(current_user.facebook_token)
 
-    friends.each do |friend|
-      puts friend[:name] + ": " + (friend[:email] ? friend[:email] : "") + (friend[:phone] ? friend[:phone] : "")
-    end
+    @friends.sort! { |a,b| a[:name] <=> b[:name] }
+
+    # @friends.each do |friend|
+    #   puts "#{friend[:name]} : #{friend[:uid]}"
+    # end
   end
-=end
-
 
   def create
   end

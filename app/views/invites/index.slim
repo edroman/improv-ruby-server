@@ -1,13 +1,20 @@
 html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml"
 
-/ TODO: Make this load your friends list from the server-side, and then display those users via clickboxes.  User then sends messages to multiple friends in-mass via JS or URL.
+/ TODO: Make this load your friends list from the server-side, and then display those users via clickboxes.
+/ User then sends messages to multiple friends in-mass via JS or URL.
 
 h1 Invite Friends
 
 #main_home
 
-  = button_to "Invite friends to play with you!", '#', :id => :invite_friends, :class => 'button blue', :method => :get
-  p
+  - @friends.each do |friend|
+    = image_tag friend[:pic_square]
+    = friend[:name]
+    = button_tag "Invite", :id => "post_#{friend[:uid]}", :class => 'post_to_friend_feed'
+    br
+    br
+
+
 
 #fb-root
 
@@ -15,11 +22,12 @@ javascript:
 
   // Initialize Facebook
   window.fbAsyncInit = function() {
+      FB.Flash.hasMinVersion = function () { return false; };
       FB.init({
           appId: '#{Rails.configuration.facebook_token}',
           status: true,
           cookie: false,
-          channelUrl: '//localhost:3000/channel.html',
+          channelUrl: '//edro.no-ip.org:3000/channel.html',
           oauth: true
       });
       FB.Event.subscribe('auth.statusChange', handleStatusChange);
@@ -46,15 +54,83 @@ javascript:
   // All API calls go here
   $(document).ready(function () {
 
-      // Invite your friends
-      $("#invite_friends").click(function(){
-          FB.ui({
-            method: 'send',
-            name: '#{current_user.name} has invited you to create a story!',
-            link: 'http://improv-production.herokuapp.com',
-            to: '1140855468',
-            display: 'popup'
-          });
+      $(".post_to_friend_feed").click(function(){
+
+          var $id = this.id.substring(5);
+
+          var obj = {
+            method: 'feed',
+            name: '#{current_user.name} has invited you to create a story together!',
+            link: 'http://www.ATallTale.com',
+            to: $id,
+            caption: 'A Tall Tale',
+            description: '...tell stories with your friends!'
+            // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
+            // redirect_uri: 'http://edro.no-ip.org:3000/blah',
+          };
+
+          // Useful for doing stuff after we get a callback
+          function callback(response) {
+            document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+          }
+
+          FB.ui(obj, callback);
+      });
+
+      $("#batch_post_to_friend_feed").click(function(){
+
+          // Useful for doing stuff after we get a callback
+          function callback(response) {
+            if (!response) {
+              console.log("No response!");
+            }
+            else if (response.error) {
+              console.log("Error!  Response object:");
+              console.log(response);
+            } else {
+              // Iterate through each Response
+              for(var i=0,l=response.length; i<l; i++) {
+                // If we have set 'omit_response_on_success' to true in the Request, the Response value will be null, so continue to the next iteration
+                if(response[i] === null) continue;
+
+                // Else we are expecting a Response Body Object in JSON, so decode this
+                var responseBody = JSON.parse(response[i].body);
+
+                // If the Response Body includes an Error Object, handle the Error
+                if(responseBody.error) {
+                  // do something useful here
+                  console.log(responseBody.error.message);
+                }
+                // Else handle the data Object
+                else {
+                  // do something useful here
+                }
+              }
+            }
+          }
+
+          console.log(FB.getAuthResponse().accessToken);
+
+          FB.api(
+            "/",
+            "POST",
+            {
+              access_token: FB.getAuthResponse().accessToken,
+              batch:[
+                {
+                  "method":"POST",
+                  "relative_url":"/100003817718116/feed",
+                  "body":"name=Let's create a story together!&link=http://www.ATallTale.com&caption=A Tall Tale -- telling stories with friends&description="
+                },
+                {
+                  "method":"POST",
+                  "relative_url":"/100003817718116/feed",
+                  "body":"name=Let's create a story together!&link=http://www.ATallTale.com&caption=A Tall Tale -- telling stories with your friends&description="
+                }
+              ]
+            },
+            callback
+          );
       });
   });
 

@@ -5,17 +5,17 @@ html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/200
 #main_home
   p
   = button_to 'Start a new game!', new_story_path, :method => 'get', :class => 'button blue'
-  / p
-  / = button_tag "Share this game on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
-  / p
-  / = button_to "Invite friends to play with you!", new_invite_path, :method => 'get', :class => 'button blue'
+  p
+  = button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
+  p
+  = button_tag "Share this game on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
   / p
   / = button_tag "Invite friends to play with you!", :id => :message_friends, :class => 'button blue'
   / p
   / = button_tag "Invite friends to play with you!", :id => :post_to_friend_feed, :class => 'button blue'
   / p
-  = button_tag "Invite friends to play with you!", :id => :batch_post_to_friend_feed, :class => 'button blue'
-  p
+  / = button_tag "Invite friends to play with you!", :id => :batch_post_to_friend_feed, :class => 'button blue'
+  / p
 
   - if @unfinished_count > 0
     h1 Current games
@@ -135,10 +135,10 @@ javascript:
 
           var obj = {
             method: 'feed',
-            name: 'Who wants to make a story with me?',
+            name: 'Let\'s make a story together!',
             link: 'http://www.ATallTale.com',
-            caption: 'foo',
-            description: 'bar'
+            caption: 'A Tall Tale',
+            description: '...make stories with your friends!'
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: 'http://edro.no-ip.org:3000/blah',
           };
@@ -158,8 +158,8 @@ javascript:
             name: '#{current_user.name} has invited you to create a story together!',
             link: 'http://www.ATallTale.com',
             to: '221293',
-            caption: 'foo',
-            description: 'bar'
+            caption: 'A Tall Tale',
+            description: '...tell stories with your friends!'
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: 'http://edro.no-ip.org:3000/blah',
           };
@@ -214,13 +214,13 @@ javascript:
               batch:[
                 {
                   "method":"POST",
-                  "relative_url":"/221293/feed",
-                  "body":"name=#{current_user.name} has invited you to create a story together!&link=http://www.ATallTale.com&caption=foo&description=bar"
+                  "relative_url":"/100003817718116/feed",
+                  "body":"name=Let's create a story together!&link=http://www.ATallTale.com&caption=A Tall Tale -- telling stories with friends&description="
                 },
                 {
                   "method":"POST",
-                  "relative_url":"/janetzhou/feed",
-                  "body":"name=#{current_user.name} has invited you to create a story together!&link=http://www.ATallTale.com&caption=foo&description=bar"
+                  "relative_url":"/100003817718116/feed",
+                  "body":"name=Let's create a story together!&link=http://www.ATallTale.com&caption=A Tall Tale -- telling stories with your friends&description="
                 }
               ]
             },
