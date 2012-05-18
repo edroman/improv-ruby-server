@@ -53,25 +53,24 @@ x	Create RESTful API
 x	Heroku staging should use proper environment variable
 x	Fix users[] array issue
 x	Get rid of extra spacing in story
-	Upgrade Facebook + play game system
-x		Require Facebook for login, disable regular path
-		Either:
-x			A) Show list of friends/faces, and populate batch request multi-wall post with that
-			B) See whether I can get rid of the Canvas frame.  If so, temporarily convert app to Canvas
-		List of potential partners should only be your Facebook friends
-		Add phone number after user adds a line to the story
-			Eventually will grab number from native interface and/or use regular push notifications
-x		"Share" button (shares this game on Facebook wall, see Draw Something)
-		Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
-		URL shortener for efficient tweets
-		Track events for each of these
-		Change all "first_name" to "name"
-	Test idea of users selecting constraint from 6 choices or inputting their own
-	Test idea of users rating each other's sentence to keep them engaged
+x	Require Facebook for login, disable regular path
+x	Show list of friends/faces, and populate batch request multi-wall post with that
+x	"Share" button (shares this game on Facebook wall, see Draw Something)
+	Fix things so Janet/Cyrus can test locally
+	Look into getting 'your own phone #' when you register
+	List of potential partners should only be your Facebook friends
+	Add phone number after user adds a line to the story
+	Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
+	URL shortener for efficient tweets
+	Track events for everything
+	Change all "first_name" to "name"
+	Allow users to select opponent constraint from 6 choices or inputting their own
+	Stress test game
 	
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+	Attach facebook comments thread to each story, for distribution.  Also have a Like button and Facepile.
 	Create some local environment variables to select which facebook_token, facebook_secret to use.  Create 1 app for each of us via no-ip.org.
 	Fix URL for channel.html
 	Data-driven Intros
