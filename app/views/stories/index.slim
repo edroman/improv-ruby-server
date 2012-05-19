@@ -73,7 +73,7 @@ javascript:
           appId: '#{Rails.configuration.facebook_token}',
           status: true,
           cookie: false,
-          channelUrl: '//edro.no-ip.org:3000/channel.html',
+          channelUrl: '//#{APP_CONFIG['server_host']}/channel.html',
           oauth: true
       });
       FB.Event.subscribe('auth.statusChange', handleStatusChange);
