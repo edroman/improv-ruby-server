@@ -45,9 +45,19 @@ class SurveysController < ApplicationController
       end
 
       @story = Story.new(params[:story])
-      @story.users[0] = current_user
-      @story.users[1] = User.find_by_id(params[:partner])
-      success = @story.save
+      @story.save
+
+      @story.players[0] = Player.create
+      @story.players[0].story_id = @story.id
+      @story.players[0].player_number = 0
+      @story.players[1] = Player.create
+      @story.players[1].story_id = @story.id
+      @story.players[1].player_number = 1
+
+      @story.players[0].user_id = current_user.id
+
+      @story.players[1].user_id = User.find_by_id(params[:partner]).id
+      success = @story.save && @story.players[0].save && @story.players[1].save
 
       respond_to do |format|
         if success

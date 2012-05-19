@@ -28,7 +28,7 @@ javascript:
           appId: '#{Rails.configuration.facebook_token}',
           status: true,
           cookie: false,
-          channelUrl: '//localhost:3000/channel.html',
+          channelUrl: '//#{APP_CONFIG['server_host']}/channel.html',
           oauth: true
       });
       FB.Event.subscribe('auth.statusChange', handleStatusChange);
@@ -59,10 +59,10 @@ javascript:
       $('#post_wall').click(function () {
           FB.ui({
               method: 'feed',
-              link: 'http://www.ATallTale.com',
+              link: 'http://www.ALittleTale.com',
               // picture: 'http://images.suite101.com/564964_com_map_symbol.png',
               name: 'An epic story has been created!',
-              caption: 'A story I created with #{@story.partner_of(current_user).name} on http://www.ATallTale.com',
+              caption: 'A story I created with #{@story.partner_of(current_user).name} on http://www.ALittleTale.com',
               description: '#{@story.all_sentences_preview}',
               // display: 'popup'
           });

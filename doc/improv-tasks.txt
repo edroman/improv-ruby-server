@@ -56,7 +56,7 @@ x	Get rid of extra spacing in story
 x	Require Facebook for login, disable regular path
 x	Show list of friends/faces, and populate batch request multi-wall post with that
 x	"Share" button (shares this game on Facebook wall, see Draw Something)
-	Fix things so Janet/Cyrus can test locally
+x	Fix things so Janet/Cyrus can test locally
 	Look into getting 'your own phone #' when you register
 	List of potential partners should only be your Facebook friends
 	Add phone number after user adds a line to the story
