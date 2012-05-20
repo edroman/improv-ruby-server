@@ -92,7 +92,7 @@ footer {
     width: 70px;
     font-size: 13px;
     padding: 1em .4em 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0em;
   }
 }
 .button.blue:hover {
@@ -128,10 +128,17 @@ td.sentence{
 
 td.picture{
   width:20%;
+  vertical-align: center;
 }
 
 td.name{
   width:55%;
+  vertical-align: center;
+}
+
+td.action{
+  width:25%;
+  vertical-align: center;
 }
 
 #typewriter {
