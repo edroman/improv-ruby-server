@@ -19,7 +19,7 @@
     h1 Current games
 
     table
-      tr
+      /tr
       - @stories.each do |story|
         - if !story.finished
           tr
@@ -38,7 +38,7 @@
                 br
                 = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue small'
                 /= button_to "Nudge #{story.partner_of(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
-                br
+                /br
                 /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
 
 
@@ -46,7 +46,7 @@
     h1 Finished games
 
     table
-      tr
+      /tr
       - @stories.each do |story|
         - if story.finished
           tr
