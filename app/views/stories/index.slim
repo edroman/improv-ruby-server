@@ -28,13 +28,13 @@
               = story.all_sentences_preview
             td.action
               - if story.my_turn?(current_user)
-                br
+
                 = button_to 'Play', edit_story_path(story), :method => 'get', :class => 'button blue small'
                 /br
                 /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
               - else
                 /= button_to 'Waiting'
-                br
+
                 = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue small'
                 /= button_to "Nudge #{story.partner_of(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
                 /br
