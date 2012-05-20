@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518081037) do
+ActiveRecord::Schema.define(:version => 20120520151427) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -106,17 +106,17 @@ ActiveRecord::Schema.define(:version => 20120518081037) do
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.text     "phone"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
     t.string   "provider"
     t.string   "facebook_token"
     t.boolean  "sms_notification"
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",                  :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(:version => 20120518081037) do
     t.string   "twitter_token"
     t.string   "twitter_secret"
     t.boolean  "random_partner"
-    t.integer  "facebook_uid"
+    t.integer  "facebook_uid",           :limit => 8
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
