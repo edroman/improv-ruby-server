@@ -19,7 +19,6 @@
     h1 Current games
 
     table
-      /tr
       - @stories.each do |story|
         - if !story.finished
           tr
@@ -46,7 +45,6 @@
     h1 Finished games
 
     table
-      /tr
       - @stories.each do |story|
         - if story.finished
           tr

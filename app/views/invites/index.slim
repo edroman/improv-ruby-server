@@ -7,16 +7,14 @@ h1 Invite Friends
 
 #main_home
 
-  /- form_tag friend[:name], :method => 'get' do
-    p
-      = text_field_tag :search, params[:search]
-      = submit_tag "Search", :name => nil
   table
-    /tr
     - @friends.each do |friend|
       tr
-        td.sentence
-          =' image_tag friend[:pic_square]
+        td.picture
+          p
+          = image_tag friend[:pic_square]
+        td.name
+          p
           = friend[:name]
         td.action
           = button_tag "Invite", :id => "post_#{friend[:uid]}", :class => 'button blue small post_to_friend_feed'
