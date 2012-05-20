@@ -1,6 +1,11 @@
 header
   .inner_container
-    = link_to 'Home', root_path
+  ul#menu
+
     -if user_signed_in?
-      /| Hello, #{current_user.first_name}!
-      = link_to 'Sign out', destroy_user_session_path, :method => :delete
+      li#active
+        a.drop href='#' Hello, #{current_user.first_name}!
+        .dropdown_1column.align_right
+          = link_to 'Sign out', destroy_user_session_path, :method => :delete
+    li
+      = link_to 'Home', root_path

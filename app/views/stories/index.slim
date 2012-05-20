@@ -1,13 +1,11 @@
 / Lobby, showing list of current games
 
 #main_home
-  -if user_signed_in?
-    | Hello, #{current_user.first_name}!
-  p
+  br
   = button_to 'Start a new game!', new_story_path, :method => 'get', :class => 'button blue'
-  p
+  br
   = button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
-  p
+  br
   = button_tag "Share this game on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
   / p
   / = button_tag "Invite friends to play with you!", :id => :message_friends, :class => 'button blue'
