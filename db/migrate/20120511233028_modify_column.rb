@@ -1,6 +1,6 @@
 class ModifyColumn < ActiveRecord::Migration
   def change
-    change_column :constraints, :part_of_speech, :integer
-    rename_column :constraints, :part_of_speech, :category_id
+    remove_column :constraints, :part_of_speech
+    add_column :constraints, :category_id, :integer
   end
 end
