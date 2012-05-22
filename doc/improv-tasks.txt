@@ -1,12 +1,14 @@
 Ed short-term (next 2 weeks):
-x Play with Node.js some more
+x Experiment with Node.js
 x Help figure out a name for the game (nameboy.com, etc).  Research iPhone game name best practices
+x Train team on git, Rails, and HAML
 x Be available for support on git, rails, HAML, etc
 x Get 2 people into beta test
 x Misc tasks that come up that I haven't estimated
-Project management - oversee Pivotal, keep project moving forward, track tasks and prioritizations, keep team up-to-date on things
+x Project management - oversee Pivotal, keep project moving forward, track tasks and prioritizations, keep team up-to-date on things
+
 Bugs/features:
-x	New CSS doesn't show up in Heroku
+x	Fix: New CSS doesn't show up in Heroku
 x	Admin login now allows for proper logins
 x	Switch HAML to Slim
 x	Dont send password reset email when admin users are created in database
