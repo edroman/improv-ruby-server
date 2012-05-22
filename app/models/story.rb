@@ -202,7 +202,7 @@ class Story < ActiveRecord::Base
     end
 
     def send_facebook_notification(from_user, to_user, msg)
-      return if !to_user.token
+      return if !to_user.facebook_token
 
       # user = FbGraph::User.new('me', :access_token => session[:omniauth]["credentials"]["token"])
       # user.fetch
