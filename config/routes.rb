@@ -54,7 +54,7 @@ Improv::Application.routes.draw do
 
   resources :surveys
 
-  resources :invites
+  resources :invites, :only => :index
 
   #
   # Omniauth routes
