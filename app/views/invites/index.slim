@@ -10,8 +10,9 @@ h1 Invite Friends
   table
     - @friends.each do |friend|
       tr
-        td.sentence
+        td.picture
           = image_tag friend[:pic_square]
+        td.name
           = friend[:name]
         td.action
           = button_tag "Invite", :id => "post_#{friend[:uid]}", :class => 'button blue small post_to_friend_feed'
