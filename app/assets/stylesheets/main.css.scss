@@ -91,7 +91,9 @@ footer {
   &.small{
     width: 70px;
     font-size: 13px;
-    padding: 1em .4em 1em;}
+    padding: 1em .4em 1em;
+    margin-bottom: 0em;
+  }
 }
 .button.blue:hover {
   background: #007ead;
@@ -122,6 +124,20 @@ tr{
 
 td.sentence{
   width:75%;
+}
+
+td.picture{
+  width:20%;
+  vertical-align: middle;
+}
+
+td.name{
+  width:55%;
+  vertical-align: middle;
+}
+
+td.action{
+  vertical-align: middle;
 }
 
 #typewriter {
