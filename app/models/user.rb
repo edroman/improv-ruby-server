@@ -29,14 +29,14 @@ class User < ActiveRecord::Base
   def available_partners
     # TODO: Use api-read.facebook.com for this
 
-    # Find all uids of all my FB friends
+    # Ask Facebook for all uids of all my FB friends
     fb_friend_list = FbGraph::Query.new('select uid from user where uid in (select uid2 from friend where uid1=me())').fetch(self.facebook_token)
-
-    # Find all user accounts who have a facebook UID in that list
     fb_uid_list = Array.new
     fb_friend_list.each do |friend|
       fb_uid_list.push friend[:uid]
     end
+
+    # Find all user accounts who have a facebook UID in that list
     fb_friend_partners = User.where('facebook_uid in (?)', fb_uid_list).all
 
     # Find all superuser test accounts if we're a super user
@@ -54,11 +54,11 @@ class User < ActiveRecord::Base
     super_user_partners.delete_if do |super_user_partner|
       dupe = false
       unfinished_partners.each do |unfinished_partner|
-        dupe = true if (unfinished_partner && super_user_partner && unfinished_partner.facebook_uid == super_user_partner.facebook_uid)
+        dupe = true if (unfinished_partner && super_user_partner && unfinished_partner.id == super_user_partner.id)
       end
 
       # Don't allow yourself to be a superuser partner
-      dupe = true if (super_user_partner.facebook_uid == self.facebook_uid)
+      dupe = true if (super_user_partner.id == self.id)
 
       dupe
     end
@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
     fb_friend_partners.delete_if do |fb_friend_partner|
       dupe = false
       unfinished_partners.each do |unfinished_partner|
-        dupe = true if (unfinished_partner && fb_friend_partner && unfinished_partner.facebook_uid == fb_friend_partner.facebook_uid)
+        dupe = true if (unfinished_partner && fb_friend_partner && unfinished_partner.id == fb_friend_partner.id)
       end
       dupe
     end
@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
     super_user_partners.delete_if do |super_user_partner|
       dupe = false
       fb_friend_partners.each do |friend_partner|
-        dupe = true if (super_user_partner.facebook_uid == friend_partner.facebook_uid || super_user_partner.facebook_uid == self.facebook_uid)
+        dupe = true if (super_user_partner.id == friend_partner.id || super_user_partner.id == self.id)
       end
       dupe
     end

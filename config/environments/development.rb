@@ -32,8 +32,8 @@ Improv::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # For Devise OmniAuth
-  config.facebook_token = '250634021702621'
-  config.facebook_secret = '5132fb812f464e4a2c300fb5c20db10d'
-  config.twitter_token = '8S6LQuYk1M5n5wL5eFC70A'
-  config.twitter_secret = '5k4mjLxQclaBtU6BIeBrleZ8FmjfyCaa9eWBUuJ3EwU'
+  config.facebook_token = ENV["DEV_FACEBOOK_TOKEN"]
+  config.facebook_secret = ENV["DEV_FACEBOOK_SECRET"]
+  config.twitter_token = ENV["DEV_TWITTER_TOKEN"]
+  config.twitter_secret = ENV["DEV_TWITTER_SECRET"]
 end
