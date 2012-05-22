@@ -11,6 +11,8 @@ ActiveAdmin.register User do
     column :phone
     column :password
     column :super_user
+    column :facebook_uid
+    column :sms_notification
     default_actions
   end
 
@@ -21,6 +23,11 @@ ActiveAdmin.register User do
       row :phone
       row :password
       row :super_user
+      row :facebook_uid
+      row :facebook_token
+      row :twitter_token
+      row :twitter_secret
+      row :sms_notification
       row 'Stories' do |user|
         user.stories.map { |story|
           link_to story.all_sentences_preview, admin_story_path(story)
