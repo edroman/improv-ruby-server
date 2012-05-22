@@ -12,14 +12,14 @@ AdminUser.create(:email => 'janetz@gmail.com', :password => 'admin', :password_c
 AdminUser.create(:email => 'acylum@gmail.com', :password => 'admin', :password_confirmation => 'admin')
 
 # Base seed users for testing
-User.create(first_name: 'Ed', email: 'edward.w.roman@gmail.com', phone: '+1 512-773-5555', password: 'admin')
-User.create(first_name: 'Janet', email: 'janetz@gmail.com', phone: '+1 650-766-0778', password: 'admin')
-User.create(first_name: 'Cyrus', email: 'acylum@gmail.com', phone: '+1 512-423-1532', password: 'admin')
+User.create(first_name: 'Ed', email: 'edward.w.roman@gmail.com', phone: '+1 512-773-5555', password: 'admin', facebook_uid: 1530982589, super_user: true)
+User.create(first_name: 'Janet', email: 'janetz@gmail.com', phone: '+1 650-766-0778', password: 'admin', facebook_uid: 221293, super_user: true)
+User.create(first_name: 'Cyrus', email: 'acylum@gmail.com', phone: '+1 512-423-1532', password: 'admin', facebook_uid: 1140855468, super_user: true)
 
 # For SMS testing
-User.create(first_name: 'Ed Test', email: 'ed@ghostfiregames.com', phone: '+1 512-773-5555', password: 'admin')
-User.create(first_name: 'Janet Test', email: 'janet@improvtest.com', phone: '+1 650-766-0778', password: 'admin')
-User.create(first_name: 'Cyrus Test', email: 'cyrus@improvtest.com', phone: '+1 512-423-1532', password: 'admin')
+User.create(first_name: 'Ed Test', email: 'ed@ghostfiregames.com', phone: '+1 512-773-5555', password: 'admin', super_user: true)
+User.create(first_name: 'Janet Test', email: 'janet@improvtest.com', phone: '+1 650-766-0778', password: 'admin', super_user: true)
+User.create(first_name: 'Cyrus Test', email: 'cyrus@improvtest.com', phone: '+1 512-423-1532', password: 'admin', super_user: true)
 
 subject = ConstraintCategory.create(value: 'Subject', active: true)
 noun = ConstraintCategory.create(value: 'Noun', active: true)

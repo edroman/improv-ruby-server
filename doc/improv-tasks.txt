@@ -58,9 +58,9 @@ x	Show list of friends/faces, and populate batch request multi-wall post with th
 x	"Share" button (shares this game on Facebook wall, see Draw Something)
 x	Fix things so Janet/Cyrus can test locally
 x	Look into getting 'your own phone #' when you register
-	List of potential partners should only be your Facebook friends
+x	List of potential partners should only be your Facebook friends, unless you're a "super user"
+	List of potential partners should not involve duplicates
 	Add phone number after user adds a line to the story
-	"Super users" should be able to manually select an opponent
 	Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
 	URL shortener for efficient tweets
 	Track events for everything

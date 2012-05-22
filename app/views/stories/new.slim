@@ -2,19 +2,23 @@
 / to the controller which makes a new game.
 
 #main_home
-  = form_for @story do |f|
-    = render :partial => "error_messages", :locals => { :resource => @story }
-    br
-    br
-    .field
-      = f.label "Partner: "
-      / Show a drop-down iterating over all users except the current user.  The "name" of those users appear, and their IDs are
-      / the chosen values.  They are returned to the controller as params[:partner_id].  nil is the base object since we want
-      / the base object to be empty so we don't have something like params[XXX][:partner_id]
-      = collection_select nil, :partner_id, User.all_except(current_user), :id, :name
-    br
-    .actions
-      = f.submit 'Create Story', :class => 'button blue'
-  p
+  = button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
   br
+  - available_partners = current_user.available_partners
+  - if available_partners.size > 0
+    = form_for @story do |f|
+      = render :partial => "error_messages", :locals => { :resource => @story }
+      br
+      br
+      .field
+        = f.label "Partner: "
+        / Show a drop-down iterating over all users except the current user.  The "name" of those users appear, and their IDs are
+        / the chosen values.  They are returned to the controller as params[:partner_id].  nil is the base object since we want
+        / the base object to be empty so we don't have something like params[XXX][:partner_id]
+        = collection_select nil, :partner_id, available_partners, :id, :name
+      br
+      .actions
+        = f.submit 'Create Story', :class => 'button blue'
+    p
+    br
   = button_to 'Play With Random Partner', stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'

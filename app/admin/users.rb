@@ -10,6 +10,7 @@ ActiveAdmin.register User do
     column :email
     column :phone
     column :password
+    column :super_user
     default_actions
   end
 
@@ -19,6 +20,7 @@ ActiveAdmin.register User do
       row :email
       row :phone
       row :password
+      row :super_user
       row 'Stories' do |user|
         user.stories.map { |story|
           link_to story.all_sentences_preview, admin_story_path(story)

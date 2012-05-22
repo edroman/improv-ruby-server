@@ -1,4 +1,4 @@
-Test Facebook Accounts for improv-development (uses localhost appID):
+Test Facebook Accounts for ed-improv-development (uses edro.no-ip.org appID):
 	Bobdev Localhost:
 	{"id":"100003798817693",
 	"access_token":"AAADj80fVC90BAP3PqonGwnYNMYLjYDHYvALQcl5YCXRXXfNw4FVgBTFZC8eXzZCXNC50Ur4UAE0bVc936VMusaRm1c81aZCrZBUNG6z0LGakVjTpZCuVT",
@@ -13,7 +13,7 @@ Test Facebook Accounts for improv-development (uses localhost appID):
 	"email":"e.dwardwroman@gmail.com",
 	"password":"improv"}
 
-Test Facebook Accounts for improv-production (uses heroku appID):
+Test Facebook Accounts for improv-production (uses production appID):
 	
 	Bobpro Live:
 	{"id":"100003803411928",
@@ -29,7 +29,7 @@ Test Facebook Accounts for improv-production (uses heroku appID):
 	"email":"edw.ardwroman@gmail.com",
 	"password":"improv"}
 
-improv-staging:
+Test Facebook Accounts for improv-staging: (uses staging appID):
 
 	{"id":"100003838792789",
 	"access_token":"AAACDExoc68oBAEBfaasS2fY6peVRu9Q7pNdDCW1eAaLIuGIJ12beZB30JFhOgsIPOqqZAW36NWN7adiSjNOSEe0CmjGO2UssBrcyNjT4zCGsa0vBXU",
