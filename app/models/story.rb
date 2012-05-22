@@ -185,8 +185,7 @@ class Story < ActiveRecord::Base
         return "http://#{APP_CONFIG['server_host']}"
       # local - can't just hardcode localhost, since other machines on local network can't access this one, so need code
       else
-        require 'socket'
-        return "http://#{Socket.gethostname}:#{APP_CONFIG['local_port']}"
+        return "http://#{ENV['DEV_MACHINE']}"
       end
     end
 

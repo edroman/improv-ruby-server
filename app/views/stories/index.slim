@@ -112,7 +112,7 @@ javascript:
             name: '#{current_user.name} has invited you to create a story together!',
             link: 'http://www.ALittleTale.com',
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
-            // redirect_uri: 'http://edro.no-ip.org:3000/blah',
+            // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
             show_error: 'true',
             display: 'popup'
           };
@@ -134,7 +134,7 @@ javascript:
             caption: 'A Little Tale',
             description: '...make stories with your friends!'
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
-            // redirect_uri: 'http://edro.no-ip.org:3000/blah',
+            // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
 
           // Useful for doing stuff after we get a callback
@@ -155,7 +155,7 @@ javascript:
             caption: 'A Little Tale',
             description: '...tell stories with your friends!'
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
-            // redirect_uri: 'http://edro.no-ip.org:3000/blah',
+            // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
 
           // Useful for doing stuff after we get a callback

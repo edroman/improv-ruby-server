@@ -63,7 +63,7 @@ x	Look into getting 'your own phone #' when you register
 x	List of potential partners should only be your Facebook friends, unless you're a "super user"
 	Random games should not create duplicate games with friends
 	Add phone number after user adds a line to the story
-	Random opponents should not include users flagged as "omit_from_random" and should not create duplicate games
+	Flag test accounts.  Random opponents should not include test accounts.
 	URL shortener for efficient tweets
 	Track events for everything
 	Change all "first_name" to "name"
@@ -73,6 +73,22 @@ x	List of potential partners should only be your Facebook friends, unless you're
 Ed medium-term:
 Supporting Cyrus/Janet on Rails/Git/Node
 Continue to bug fix and add features to server
+Not sure:
+	Invites - Email and SMS
+		Eventually will be done via native iPhone API
+	Toggle SMS notification field
+	Style errors on homepage
+	Push notifications for turns (email)
+	Consider using authenticated Facebook referrals (http://developers.facebook.com/docs/opengraph/authentication/)
+	Play audio for story
+	Reset password should take you to homepage not custom sign-in form
+	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
+	Noun/verb logic should be data-driven
+	Facebook payments for web
+	Improv tournaments should let you compare to friends on scores
+	Build-out a tournament system
+Will do:
+	Fix TODOs in code
 	Attach facebook comments thread to each story, for distribution.  Also have a Like button and Facepile.
 	Create some local environment variables to select which facebook_token, facebook_secret to use.  Create 1 app for each of us via no-ip.org.
 	Fix URL for channel.html
@@ -81,52 +97,29 @@ Continue to bug fix and add features to server
 	Voting entry point:
 		Displays current story that got tweeted/shared
 		Options after voting are to vote on another story (randomly) or to make your own story
-	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet
-		Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem
+	Create a script to both push to heroku, bundle exec rake assets:precompile, and update the heroku database in one shot for Cyrus/Janet (Issue: gem bundler issue that hasn't been resolved, can't locate heroku gem)
 	Use render rather than redirect on stories_controller.update() and have it display the error
 	Get rid of the format.json/html code
 	Errors should return as JSON not HTML for JSON requests
 	index.rabl.json should separate completed from incompleted stories and should contain nudgable data
-	Go through TODOs in code
-	Invites - Email and SMS
-		Eventually will be done via native iPhone API
 	"Show story" view has link to create an account if you're not a current user
 	Think about how we want to deal with SMS sending errors
-	Toggle SMS notification field
-	Style errors on homepage
-	Push notifications for turns (email)
-	Consider using authenticated Facebook referrals (http://developers.facebook.com/docs/opengraph/authentication/)
 	Look into whether Draw Something allows partners-in-waiting to create new pictures from turn 1 if there's a restart of the game
 	Tweeting stories should direct viewers to our website where they can view story -- anyone should be able to view even if not signed in
-	Play audio for story
 	Auto-create current games with anyone you're Facebook friends with or perhaps you invited to the game
-	Use basis for twitter authentication to associate twitter account with current account so you can tweet stories
-	Reset password should take you to homepage not custom sign-in form
 	"Edit" screen is disabled when inactive player tries to Edit after turn 6 but before active player starts new game
-	Don't let users pick other users from list if they've started a story already
 	Reminder notifications in case people haven't finished their story in a few days (toggle-able)
 	Confirm the paradigm I'm using for dealing with sentence errors is correct by asking the SourceNinja guys
 	Use EventMachine or similar to background task sending SMSes
-	When user signs in, they go directly to the game they had a link from
-	Think about whether we need a game #.  Potentially fix listing on /stories and /stories/1/edit.  Perhaps we have users try to earn badges/levels by completing lots of stories?
-	List archived stories separately from current stories
-	Integrate KISSMetrics or roll-our-own metrics
-	Change out JavaScript Facebook invite system to use our own system
-		facebook_user = FbGraph::User.new('me', :access_token => access_token['credentials']['token']).fetch
-		facebook_user.friends
-	Figure out how to code things so that Janet can A/B test emails + SMSes
-	Better validations & tests
-	Continue w/Project Management
-	Facebook payments or other payments
-	TODO: Others based on Cyrus' prototype and Janet's customer feedback
+	Form advisory board
+	Generate draft agreement between us
+	Handle company formation docs, legal/tax issues, and other misc infrastructure
+	Better validations
+	Add RSpec tests
 	Highlight words that opponent used
-	Improv tournaments should let you compare to friends on scores
-	Look into FB auto logout
-		http://stackoverflow.com/questions/5233560/possible-to-find-out-whether-a-user-is-logged-into-facebook-over-javascript-api
-Reach out to improv community and get feedback + get them to promote in their newsletters, students, etc to be beta customers
-Help recruit a Big Data expert
-Form advisory board
-Handle company formation docs, legal issues, and other misc infrastructure
+	Look into FB auto logout - http://stackoverflow.com/questions/5233560/possible-to-find-out-whether-a-user-is-logged-into-facebook-over-javascript-api
+	Reach out to improv community and get feedback + get them to promote in their newsletters, students, etc to be beta customers
+	Help recruit a Big Data expert
 
 Ed long-term:
 Continue to bug fix and add features to server:

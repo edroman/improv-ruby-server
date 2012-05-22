@@ -1,13 +1,10 @@
 development:
-  server_host: edro.no-ip.org:3000
-  #server_host: janetz.no-ip.org:3000
+  # server_host comes from .zshrc DEV_MACHINE
   sms_source: +1 415-683-7001
   twilio_account_sid: ACb4e49a389d204006b1a4d4addfa4b83f
   twilio_auth_token: a5edb8a5c61e37b3e2b052d3a44e025c
 
 test:
-  server_host: edro.no-ip.org:3000
-  #server_host: janetz.no-ip.org:3000
   sms_source: +1 415-683-7001
   twilio_account_sid: ACb4e49a389d204006b1a4d4addfa4b83f
   twilio_auth_token: a5edb8a5c61e37b3e2b052d3a44e025c
