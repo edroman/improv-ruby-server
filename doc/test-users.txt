@@ -13,7 +13,7 @@ Test Facebook Accounts for ed-improv-development (uses edro.no-ip.org appID):
 	"email":"e.dwardwroman@gmail.com",
 	"password":"improv"}
 
-Test Facebook Accounts for improv-production (uses production appID):
+Test Facebook Accounts for production (uses production appID):
 	
 	Bobpro Live:
 	{"id":"100003803411928",
