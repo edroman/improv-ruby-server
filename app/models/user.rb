@@ -40,7 +40,10 @@ class User < ActiveRecord::Base
     fb_friend_partners = User.where('facebook_uid in (?)', fb_uid_list).all
 
     # Find all superuser test accounts if we're a super user
-    super_user_partners = User.find_all_by_super_user(true) if self.super_user
+    super_user_partners = Array.new
+    if self.super_user
+      super_user_partners = User.find_all_by_super_user(true)
+    end
 
     # Find all my current unfinished game partners
     unfinished_partners = Array.new
