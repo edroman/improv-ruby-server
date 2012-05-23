@@ -108,6 +108,15 @@ class User < ActiveRecord::Base
   before_validation :downcase_email
   before_validation :format_phone
 
+  # Allows for blank passwords
+  def valid_password?(password)
+    begin
+      super(password)
+    rescue BCrypt::Errors::InvalidHash
+      return false
+    end
+  end
+
   private
 
   def downcase_email

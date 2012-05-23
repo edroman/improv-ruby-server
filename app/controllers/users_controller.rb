@@ -46,6 +46,36 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /user/1/add_phone
+  def add_phone
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
+    @user = current_user
+  end
+
+  # PUT /user/1/update_phone
+  def update_phone
+    # TODO: should this use "render" instead, and how do we respond via JSON?
+    if (!current_user)
+      redirect_to root_url
+      return
+    end
+
+    @user = current_user
+    @user.phone = params[:phone]
+    success = @user.save
+
+    if success
+        redirect_to stories_path
+    else
+        render action: "add_phone"
+    end
+  end
+
   # PUT /user
   def update
     # TODO: should this use "render" instead, and how do we respond via JSON?
@@ -58,13 +88,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.xml { head :ok }
-        format.json { head :ok }
+          redirect_to @user, notice: 'User was successfully updated.'
       else
-        format.html { render action: "edit" }
-        format.xml { render xml: @user.errors, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+          render action: "edit"
       end
     end
   end

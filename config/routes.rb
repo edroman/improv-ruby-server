@@ -23,6 +23,9 @@ Improv::Application.routes.draw do
   # For capturing when users signin via twitter/facebook so we can prepare (e.g. store current URL)
   match "/store_and_redirect" => "application#store_and_redirect", :as => :store_and_redirect
 
+  match "/users/:id/add_phone" => "users#add_phone", :as => :add_phone
+  match "/users/:id/update_phone" => "users#update_phone", :as => :update_phone
+
   #
   # Devise routes
   #

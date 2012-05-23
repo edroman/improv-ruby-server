@@ -111,6 +111,8 @@ class StoriesController < ApplicationController
           #format.html { redirect_to "/stories/#{new_story.id}/edit", notice: 'Here is your next story!' }
 
           format.html { redirect_to story_path(@story) }
+        elsif !current_user.phone || current_user.phone.length == 0
+          format.html { redirect_to add_phone_path(:id => current_user.id) }
         else
           #format.html { redirect_to stories_path, notice: 'Story was successfully updated.' }
           format.html { redirect_to stories_path }

@@ -1,0 +1,35 @@
+#main_home
+  br
+  | Enter your phone number to get a text when it's your turn.
+  p
+  | We promise to never spam you.
+  p
+  | You can disable these whenever you want.
+  p
+
+
+  = render :partial => "error_messages", :locals => { :resource => @current_user }
+
+  = form_tag(update_phone_path(@current_user), :method => :put) do
+    = label_tag :phone
+    br
+    = phone_field_tag :phone
+    br
+    br
+    = submit_tag "Update", :class => 'button blue'
+  br
+  = link_to "Skip this step", stories_path
+
+
+  /
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :phone
+        br
+        = f.phone_field :phone
+      = f.hidden_field :from_add_phone, :value => "true"
+      .actions
+        = f.submit "Update"
+  /  p
+  /  = link_to "Skip this step", stories_path
