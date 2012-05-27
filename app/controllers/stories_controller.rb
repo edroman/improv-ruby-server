@@ -72,11 +72,15 @@ class StoriesController < ApplicationController
     @story.players[0].user_id = current_user.id
 
     if (params[:random_partner] == "1")
-      @story.players[1].user_id = User.all_except(current_user).first(:offset => rand(User.count-1)).id
+      results = User.all_except(current_user).where(:omit_from_random => false)
+      @story.players[1].user_id = results.first(:offset => rand(results.size)).id
+      # @story.players[1].user_id = User.all_except(current_user).first(:offset => rand(User.count-1)).id
     else
       @story.players[1].user_id = User.find_by_id(params[:partner_id]).id
     end
-    success = @story.save && @story.players[0].save && @story.players[1].save
+    success = @story.save
+    success &= @story.players[0].save
+    success &= @story.players[1].save
 
     respond_to do |format|
       if success
