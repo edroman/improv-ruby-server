@@ -23,7 +23,7 @@ class Sentence < ActiveRecord::Base
     index = body.downcase.index(constraint.phrase.downcase)
     return body if index == nil
 
-    new_body = body
+    new_body = body.clone
     new_body.insert index + constraint.phrase.length, '</strong>'
     new_body.insert index, '<strong>'
     return new_body

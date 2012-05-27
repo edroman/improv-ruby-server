@@ -51,6 +51,34 @@ javascript:
       }
   }
 
+  var myResponse;
+
+  // Useful for doing stuff after we get a callback
+  function callback(response) {
+    if (response) {
+      // For debugging - can query myResponse via JavaScript console
+      myResponse = response;
+
+
+      if (response.post_id) {
+        alert('Post was published.');
+      }
+      else {
+        // Else we are expecting a Response Body Object in JSON, so decode this
+        var responseBody = JSON.parse(response.body);
+
+        // If the Response Body includes an Error Object, handle the Error
+        if(responseBody.error) {
+          alert(responseBody.error.message);
+        }
+        // Else handle the data Object
+        else {
+          alert('Post was not published.');
+        }
+      }
+    }
+  }
+
   // All API calls go here
   $(document).ready(function () {
 
@@ -70,10 +98,6 @@ javascript:
           };
 
           // Useful for doing stuff after we get a callback
-          function callback(response) {
-            document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-          }
-
           FB.ui(obj, callback);
       });
 
