@@ -4,7 +4,7 @@ h1 Your finished story!
 
 #main_home
 
-    = @story.all_sentences
+    == @story.all_sentences_formatted
     p
     = link_to "Post on your Facebook wall", '#', :id => :post_wall
     p

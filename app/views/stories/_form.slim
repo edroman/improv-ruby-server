@@ -11,7 +11,7 @@ table
   td
     b Our story so far:
     br
-    = @story.all_sentences
+    == @story.all_sentences_formatted
     p
 
 = render :partial => "error_messages", :locals => { :resource => @story }

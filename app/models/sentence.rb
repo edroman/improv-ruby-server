@@ -15,7 +15,19 @@ class Sentence < ActiveRecord::Base
       errors.add :sentence, "must use the word #{self.constraint.phrase}!"
       return :sentence
     end
-end
+  end
+
+  # Adds ASCII art *asterisks* around constraint within sentence
+  def body_formatted
+    return "" if body == nil || body == ""
+    index = body.downcase.index(constraint.phrase.downcase)
+    return body if index == nil
+
+    new_body = body
+    new_body.insert index + constraint.phrase.length, '</strong>'
+    new_body.insert index, '<strong>'
+    return new_body
+  end
 
   def body=(body)
     self[:body] = body

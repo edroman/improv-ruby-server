@@ -1,5 +1,6 @@
 require 'test/unit'
 require 'twilio-ruby'
+# require 'RedCloth'
 
 class Story < ActiveRecord::Base
   # many-to-many.
@@ -85,11 +86,19 @@ class Story < ActiveRecord::Base
       body_text += "  #{sentence}" if sentence
     end
 
-#    self.sentences.each do |sentence|
-#      body_text += "  #{sentence.body}"
-#    end
+    return body_text
+  end
+
+  def all_sentences_formatted
+    body_text = self.intro
+
+    (1..6).each do |curr_turn|
+      sentence = self.sentences.where(:turn => curr_turn)[0].body_formatted
+      body_text += "  #{sentence}" if sentence
+    end
 
     return body_text
+    # return RedCloth.new(body_text).to_html
   end
 
   def all_sentences_preview

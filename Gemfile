@@ -58,6 +58,9 @@ gem 'meta_search', '>= 1.1.0.pre'
 
 gem 'awesome_print'
 
+# For transforming ascii art like *hi* into rich text via HTML
+# gem 'RedCloth'
+
 gem 'rabl'
 gem 'yajl-ruby', require: 'yajl'
 
