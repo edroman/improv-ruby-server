@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /user/edit
+  # GET /users/edit
   def edit
     # TODO: should this use "render" instead, and how do we respond via JSON?
     if (!current_user)

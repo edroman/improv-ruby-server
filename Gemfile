@@ -34,8 +34,10 @@ gem 'twitter'
 # Slim for views
 gem 'slim'
 
-# Airbrake for notifying us of when exceptions occur on heroku
-gem 'airbrake'
+group :production do
+  # Airbrake for notifying us of when exceptions occur on heroku
+  gem 'airbrake'
+end
 
 # Twilio for SMS notifications
 gem 'twilio-ruby'
