@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   # attr_accessible :first_name, :phone, :email, :password, :password_confirmation, :remember_me, :facebook_uid, :super_user
   # attr_protected
 
+  has_many :votes, :dependent => :destroy
+  accepts_nested_attributes_for :votes, :allow_destroy => true
+
   has_many :players, :dependent => :destroy
   has_many :stories, :through => :players			# many-to-many.  TODO: figure out how to do cascading delete with HABTM
   accepts_nested_attributes_for :stories, :allow_destroy => true

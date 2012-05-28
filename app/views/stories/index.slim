@@ -6,7 +6,9 @@
   br
   = button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
   br
-  = button_tag "Share this game on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
+  = button_to "Edit Account", edit_user_path, :class => 'button blue'
+  br
+  = button_tag "Share this on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
   / p
   / = button_tag "Invite friends to play with you!", :id => :message_friends, :class => 'button blue'
   / p
@@ -59,8 +61,6 @@
                 /br
                 /= button_to 'Delete', story, confirm: 'Are you sure?', method: :delete
               /br
-  br
-  = link_to "Edit Account", edit_user_path
 
 javascript:
 
