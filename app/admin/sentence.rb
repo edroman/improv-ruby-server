@@ -12,6 +12,7 @@ ActiveAdmin.register Sentence do
     column :constraint
     column :story
     column :turn
+    column :feedback
     column :created_at
     column :updated_at
     default_actions
@@ -23,6 +24,7 @@ ActiveAdmin.register Sentence do
       row :constraint
       row :story
       row :turn
+      row :feedback
       row :created_at
       row :updated_at
     end

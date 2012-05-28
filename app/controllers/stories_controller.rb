@@ -98,9 +98,17 @@ class StoriesController < ApplicationController
   # This is how users play the game -- adding sentences
   def update
     @story = Story.find(params[:id])
+    turn = @story.turn
 
     success = @story.add_sentence(params[:sentence])
-    @story.save if success
+    if success
+      @story.save
+
+      # Add feedback to previous sentence
+      sentence = @story.sentences.find_by_turn(turn)
+      sentence.feedback = params[:feedback]
+      success &= sentence.save
+    end
 
     respond_to do |format|
       if success && @story.update_attributes(params[:story])

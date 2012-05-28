@@ -13,17 +13,59 @@ table
     br
     == @story.all_sentences_formatted
     p
+- if @story.turn > 2
+  | #{@story.partner_of(current_user).first_name}'s reaction to your last sentence:
+  | &nbsp
+  b #{@story.sentences.find_by_turn(@story.turn-1).feedback}
+  p
 
 = render :partial => "error_messages", :locals => { :resource => @story }
 
 = form_tag("/stories/#{@story.id}", :method => "put") do
   = label_tag "Type the next line in the story. You must use the word '#{@story.curr_sentence.constraint.phrase}'."
   br
-  b= (@story.turn == 6) ? "Note: This is the last turn so finish the story!" : ""
+  -if @story.turn == 6
+    br
+    b Note: This is the last turn so finish the story!
+    br
   br
   = text_area_tag :sentence, params[:sentence], :placeholder => "Complete the sentence here...", :rows => 3, :maxlength => 200
   br
   br
+  - if @story.turn > 1
+    table
+        td
+          | What did you think of #{@story.partner_of(current_user).first_name}'s last sentence?
+          br
+          br
+          = radio_button_tag :feedback, "Funny!"
+          | &nbsp
+          = label_tag "Funny!"
+          br
+          = radio_button_tag :feedback, "Hilarious!"
+          | &nbsp
+          = label_tag "Hilarious!"
+          br
+          = radio_button_tag :feedback, "Surprised!"
+          | &nbsp
+          = label_tag "Surprised!"
+          br
+          = radio_button_tag :feedback, "Boring!"
+          | &nbsp
+          = label_tag "Boring!"
+          br
+          = radio_button_tag :feedback, "Lame!"
+          | &nbsp
+          = label_tag "Lame!"
+          br
+          = radio_button_tag :feedback, "Weird!"
+          | &nbsp
+          = label_tag "Weird!"
+          br
+          = radio_button_tag :feedback, "Umm... what?"
+          | &nbsp
+          = label_tag "Umm... what?"
+          br
   = submit_tag "Add Sentence", :class => 'button blue'
 
 javascript:
