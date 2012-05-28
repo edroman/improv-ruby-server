@@ -1,18 +1,25 @@
 / TODO: Show the user the completed story and playback audio button
 / This view is different from 'show' because it will have a 'back' button
-h1 Your finished story!
-
+- if current_user
+  h1
+    b All Done!
+    p
+h1 A Little Tale
 #main_home
-
-    == @story.all_sentences_formatted
-    p
-    = link_to "Post on your Facebook wall", '#', :id => :post_wall
-    p
-    br
-    = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do
-     = image_tag 'twitter.png'
-    p
-    br
+  | by #{@story.creator.name}
+  br
+  | and #{@story.partner.name}
+  p
+  == @story.all_sentences_formatted
+  p
+  = link_to "Post on your Facebook wall", '#', :id => :post_wall
+  p
+  br
+  = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do
+   = image_tag 'twitter.png'
+  p
+  br
+  - if current_user
     / If there is a completed survey already that matches this story ID and user ID, then link back to the lobby
     - if Survey.where(:story_id => @story.id, :user_id => current_user.id).size >= 1
       = link_to 'Back', stories_path
@@ -91,7 +98,7 @@ javascript:
               link: 'http://www.ALittleTale.com',
               // picture: 'http://images.suite101.com/564964_com_map_symbol.png',
               name: 'An epic story has been created!',
-              caption: 'A story I created with #{@story.partner_of(current_user).name} on http://www.ALittleTale.com',
+              caption: 'A story I created with #{current_user ? @story.partner_of(current_user).name : 'a friend'} on http://www.ALittleTale.com',
                 description: '#{@story.all_sentences_preview}',
               // display: 'popup'
             },
