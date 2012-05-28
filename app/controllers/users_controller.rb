@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     end
 
     @user = current_user
+
+    render "/users/registrations/edit"
   end
 
   # POST /user

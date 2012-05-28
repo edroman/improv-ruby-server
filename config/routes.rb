@@ -25,7 +25,7 @@ Improv::Application.routes.draw do
 
   match "/users/:id/add_phone" => "users#add_phone", :as => :add_phone
   match "/users/:id/update_phone" => "users#update_phone", :as => :update_phone
-  match "/users/:id" => "users#edit", :as => :edit
+  match "/users/registrations/edit" => "users#edit", :as => :edit_user
 
   #
   # Devise routes

@@ -199,14 +199,13 @@ class Story < ActiveRecord::Base
     end
 
     def send_sms(body, user)
+      return if !user.sms_notification || user.phone == nil || user.phone == ''
 
       # set up a client to talk to the Twilio REST API
       @client = Twilio::REST::Client.new(APP_CONFIG['twilio_account_sid'], APP_CONFIG['twilio_auth_token'])
 
-      if user.phone != nil && user.phone != ''
-        puts ("Attempting to send SMS: " + body)
-        @client.account.sms.messages.create(:from => APP_CONFIG['sms_source'], :to => "#{user.phone}", :body => body)
-      end
+      puts ("Attempting to send SMS: " + body)
+      @client.account.sms.messages.create(:from => APP_CONFIG['sms_source'], :to => "#{user.phone}", :body => body)
     end
 
     def send_facebook_notification(from_user, to_user, msg)
@@ -253,7 +252,6 @@ class Story < ActiveRecord::Base
       end
 
       line += line_ending
-      puts "SENDING SMS: \'#{line}\'"
       send_sms(line, curr_waiting_user)
 
       # TODO: Other types of notifications

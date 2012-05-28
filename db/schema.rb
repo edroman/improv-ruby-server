@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120527190917) do
+ActiveRecord::Schema.define(:version => 20120528012017) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(:version => 20120527190917) do
     t.datetime "created_at",                                             :null => false
     t.datetime "updated_at",                                             :null => false
     t.string   "facebook_token"
-    t.boolean  "sms_notification"
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",                  :default => "",    :null => false
     t.string   "reset_password_token"
@@ -125,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20120527190917) do
     t.integer  "facebook_uid",           :limit => 8
     t.boolean  "super_user",                          :default => false
     t.boolean  "omit_from_random",                    :default => false
+    t.boolean  "sms_notification",                    :default => true
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
