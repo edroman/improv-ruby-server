@@ -25,6 +25,8 @@ case Rails.env
   when "development"
     User.create(first_name: 'Bobdev Localhost', email: 'edwardwroman@gmail.com', phone: '+1 512-773-5555', password: 'admin', facebook_uid: 100003798817693, super_user: true, omit_from_random: true)
     User.create(first_name: 'Tomdev Localhost', email: 'e.dwardwroman@gmail.com', phone: '+1 512-773-5555', password: 'admin', facebook_uid: 100003817718116, super_user: true, omit_from_random: true)
+		User.create(first_name: 'Lilydev Localhost', email: 'j.anetz@gmail.com', phone: '+1 650-766-0778', password: 'admin', facebook_uid: 100003864986899, super_user: true, omit_from_random: true)
+    User.create(first_name: 'Jendev Localhost', email: 'ja.netz@gmail.com', phone: '+1 650-766-0778', password: 'admin', facebook_uid: 100003921072046, super_user: true, omit_from_random: true)
   when "production"
     User.create(first_name: 'Bobpro Live', email: 'ed.wardwroman@gmail.com', phone: '+1 512-773-5555', password: 'admin', facebook_uid: 100003803411928, super_user: true, omit_from_random: true)
     User.create(first_name: 'Tompro Live', email: 'edw.ardwroman@gmail.com', phone: '+1 512-773-5555', password: 'admin', facebook_uid: 100003813282240, super_user: true, omit_from_random: true)
