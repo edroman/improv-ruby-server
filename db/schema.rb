@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(:version => 20120528063503) do
 
   create_table "constraints", :force => true do |t|
     t.string   "phrase"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.integer  "constraint_category_id"
-    t.boolean  "active",                 :default => true, :null => false
+    t.integer  "constraint_category_id", :limit => 255
+    t.boolean  "active",                                :default => true, :null => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
   end
 
   create_table "intros", :force => true do |t|

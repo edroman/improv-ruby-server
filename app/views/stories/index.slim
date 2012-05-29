@@ -1,14 +1,17 @@
 / Lobby, showing list of current games
 
 #main_home
+  - if @unfinished_count == 0 && @finished_count == 0
+    p Nobody wants to be a newbie. Get started on your first little tale and we promise to stop calling you that!
+
   br
-  = button_to 'Start a new game!', new_story_path, :method => 'get', :class => 'button blue'
-  br
-  = button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
+  = button_to 'Start a New Game', new_story_path, :method => 'get', :class => 'button blue'
+  /br
+  /= button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
   br
   = button_to "Edit Account", edit_user_path, :class => 'button blue'
-  br
-  = button_tag "Share this on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
+  /br
+  /= button_tag "Share this on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
   / p
   / = button_tag "Invite friends to play with you!", :id => :message_friends, :class => 'button blue'
   / p
