@@ -2,23 +2,28 @@
 / to the controller which makes a new game.
 
 #main_home
-  = button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
-  br
+
   - available_partners = current_user.available_partners
   - if available_partners.size > 0
     = form_for @story do |f|
       = render :partial => "error_messages", :locals => { :resource => @story }
       br
-      br
       .field
-        = f.label "Partner: "
+        = f.label "Partner in crime: "
         / Show a drop-down iterating over all users except the current user.  The "name" of those users appear, and their IDs are
         / the chosen values.  They are returned to the controller as params[:partner_id].  nil is the base object since we want
         / the base object to be empty so we don't have something like params[XXX][:partner_id]
         = collection_select nil, :partner_id, available_partners, :id, :name
       br
       .actions
-        = f.submit 'Create Story', :class => 'button blue'
-    p
-    br
-  = button_to 'Play With Random Partner', stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
+        = f.submit 'Create Story with Partner!', :class => 'button blue'
+
+  - if available_partners.size == 0
+    p Well aren't you the early bird? Since none of your friends are here yet, invite a friend (or two) or be adventurous and play with a random partner.
+  br
+
+  = button_to "Let Me Play Now!", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
+  br
+  = button_to "Invite Friends Via My Wall", invites_path, :method => 'get', :class => 'button blue'
+  br
+  = button_to "Invite a Specific Friend", invites_path, :method => 'get', :class => 'button blue'
