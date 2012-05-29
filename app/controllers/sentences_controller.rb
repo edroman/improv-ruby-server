@@ -1,8 +1,8 @@
 # Manages sentences
 class SentencesController < ApplicationController
 
-  # Make sure the user is logged in via Devise before doing any operation
-  before_filter :authenticate_user!
+  # Make sure the user is logged in before doing any operation
+  before_filter :check_authentication
 
   # GET /sentences/1/edit
   def edit

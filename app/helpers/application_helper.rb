@@ -9,4 +9,10 @@ module ApplicationHelper
       return "http://#{APP_CONFIG['server_host']}"
     end
   end
+
+  # Stores current page (used by views).  Works with application_controller.rb::after_sign_in_path_for
+  def store_location
+    session[:resource_return_to] = request.fullpath
+  end
+
 end

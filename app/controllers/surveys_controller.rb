@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   # Make sure the user is logged in via Devise before doing any operation
-  before_filter :authenticate_user!, :except => [:edit]
+  before_filter :check_authentication, :except => [:edit]
 
   # GET /surveys/new
   # Creates a new survey based on a particular story.
