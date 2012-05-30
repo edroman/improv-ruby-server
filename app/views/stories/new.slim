@@ -9,7 +9,7 @@
       = render :partial => "error_messages", :locals => { :resource => @story }
       br
       .field
-        = f.label "Partner in crime: "
+        = f.label "Partner: "
         / Show a drop-down iterating over all users except the current user.  The "name" of those users appear, and their IDs are
         / the chosen values.  They are returned to the controller as params[:partner_id].  nil is the base object since we want
         / the base object to be empty so we don't have something like params[XXX][:partner_id]
@@ -22,8 +22,8 @@
     p Well aren't you the early bird? Since none of your friends are here yet, invite a friend (or two) or be adventurous and play with a random partner.
   br
 
-  = button_to "Let Me Play Now!", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
+  = button_to "Play With Random Partner", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
   br
-  = button_to "Invite Friends Via My Wall", invites_path, :method => 'get', :class => 'button blue'
+  = button_to "Share on My Wall", invites_path, :method => 'get', :class => 'button blue'
   br
-  = button_to "Invite a Specific Friend", invites_path, :method => 'get', :class => 'button blue'
+  = button_to "Invite a Friend", invites_path, :method => 'get', :class => 'button blue'
