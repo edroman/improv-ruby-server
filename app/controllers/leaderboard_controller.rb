@@ -10,7 +10,6 @@ class LeaderboardController < ApplicationController
   # GET /leaderboard
   # Shows the leaderboard
   def index
-    @leaderboard = Story.where('turn > 6 and votes_count > 0').leaderboard.all
   end
 
 end
