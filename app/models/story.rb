@@ -10,6 +10,7 @@ class Story < ActiveRecord::Base
 
   has_many :votes, :dependent => :destroy
   accepts_nested_attributes_for :votes, :allow_destroy => true
+  scope :leaderboard, :order => "votes_count DESC"
 
   has_many :sentences, :dependent => :destroy
   accepts_nested_attributes_for :sentences, :allow_destroy => true

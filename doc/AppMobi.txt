@@ -1,0 +1,53 @@
+Do you support continuous integration with new versions to circumvent app store?
+	Every time you do a live update you want to also push a version to apple so they can distribute the game with the total content
+	Updates are OK via Apple store as long as its not absurd
+	Graphic updates are easy too
+
+Can you give us free test accounts?
+	Email Tyler@AppMobi.com with Cyrus' account to give him free testing services
+
+Do you host our "downloadable" code?  How does that mesh with Rails/Heroku?
+	HostMobi -- hosts our app, we don't host it.  They just host the JavaScript and images, etc in a bundle
+	AppLab is (he believes) open source.  They are 4-months out of date from the latest version
+
+Is it realistic for us to write to your open source API given that its behind?
+	They don't recommend it -- they handle a lot of things for us
+		Integrated build system (cloud based)
+		PushMobi push messaging
+		OneTouch Universal -- in-app payments that are cross platform
+		Live Updates
+		Analytics (StatsMobi)
+		PlayMobi (achievements, badges) including analytics
+		some more too..
+
+When do you plan to support all native hooks?
+	file I/O
+	access your contacts
+	push notifications
+	Facebook authentication
+	native GUI features
+
+Is there hooks for us to extend your product without resorting to open source?
+	Yes -- "plug-ins" are the way to do that
+
+If you don't yet support all native hooks, then will we be dead-in-the-water if we need those features?
+	They have a QA team that works on the forums and fixes bugs
+
+What is frequency of updates to build system?
+	Every couple of weeks
+	They're moving towards mid-summer having more functionality with more platforms supported
+
+How many customers are live and in production?
+	40,000-50,000 developers
+	"Plethora" of peple in iOS/Android
+	4,000 apps completed.  10 apps/day are being completed.
+
+What is the financial arrangement between us and you for additional features?
+	New financial model being announced in 1-week
+
+How fast is your UI compared to native?  Compared to competitors?
+How extensive is your docs?
+Can you give us existing customers we can speak with?
+What kind of support and priority can you give us?
+What is the timeline for Android version?
+

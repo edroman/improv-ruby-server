@@ -1,0 +1,25 @@
+/ Shows list of top voted stories
+
+#main_home
+  h1
+    | Leaderboard
+  table
+    - if @leaderboard.size == 0
+      | The leaderboard is currently empty!
+    - else
+      - @leaderboard.each_with_index do |story, index|
+          tr
+            td.sentence
+              b
+                = "##{index+1}: #{story.votes_count} Votes"
+              br
+              br
+              = story.all_sentences_preview
+              br
+              br
+              = "by #{story.creator.name}"
+              br
+              = "and #{story.partner.name}"
+            td.action
+              = button_to "View", story_path(story.id), :method => 'get', :class => 'button blue small'
+

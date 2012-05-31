@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528063503) do
+ActiveRecord::Schema.define(:version => 20120530201557) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(:version => 20120528063503) do
 
   create_table "constraints", :force => true do |t|
     t.string   "phrase"
-    t.integer  "constraint_category_id", :limit => 255
-    t.boolean  "active",                                :default => true, :null => false
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "constraint_category_id"
+    t.boolean  "active",                 :default => true, :null => false
   end
 
   create_table "intros", :force => true do |t|
@@ -89,10 +89,11 @@ ActiveRecord::Schema.define(:version => 20120528063503) do
 
   create_table "stories", :force => true do |t|
     t.integer  "number"
-    t.integer  "turn",       :default => 1
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "turn",        :default => 1
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.text     "intro"
+    t.integer  "votes_count", :default => 0
   end
 
   create_table "surveys", :force => true do |t|

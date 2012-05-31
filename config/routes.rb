@@ -58,7 +58,7 @@ Improv::Application.routes.draw do
 
   resources :surveys
   resources :votes
-
+  resources :leaderboard, :only => :index
   resources :invites, :only => :index
 
   #
