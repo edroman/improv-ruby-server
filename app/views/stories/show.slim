@@ -23,7 +23,7 @@ h1 A Little Tale
   = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do
    = image_tag 'twitter.png'
   p
-  = button_to "Post on your Facebook wall", '#', :id => :post_wall, :class => 'button blue'
+  = button_to "Share on my Facebook Wall", '#', :id => :post_wall, :class => 'button blue'
   p
   - if current_user && (current_user.id == @story.creator.id || current_user.id == @story.partner.id)
     / If there is a completed survey already that matches this story ID and user ID, then link back to the lobby
