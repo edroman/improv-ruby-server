@@ -17,7 +17,7 @@ h1 A Little Tale
   - if current_user && (current_user.id == @story.creator.id || current_user.id == @story.partner.id)
     | Awesome story!
     p
-    | Now get your friends to vote for it -- the stories with the most votes win prizes!
+    | Get your friends to vote for it -- the stories with the most votes win prizes!
     br
     p
   = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do

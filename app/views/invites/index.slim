@@ -96,9 +96,10 @@ javascript:
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
-
+          window.scrollTo(0, 1);
           // Useful for doing stuff after we get a callback
           FB.ui(obj, callback);
+
       });
 
       $("#batch_post_to_friend_feed").click(function(){
