@@ -210,7 +210,8 @@ td.action{
   outline:0;
   text-decoration:none;
   text-shadow: 1px 1px 1px #000;
-  padding-bottom: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 #menu li:hover a {
@@ -231,7 +232,7 @@ td.action{
   position:absolute;
   left:-999em; /* Hides the drop down */
   text-align:center;
-  padding:0px 0px 5px 0px;
+  padding:3px 0px 3px 0px;
   border:1px solid #777777;
   border-top:none;
   width: 100%;
@@ -245,6 +246,7 @@ td.action{
   -moz-border-radius: 0px 5px 5px 5px;
   -webkit-border-radius: 0px 5px 5px 5px;
   border-radius: 0px 5px 5px 5px;
+
 }
 
 #menu li:hover .dropdown_1column,

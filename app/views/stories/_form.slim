@@ -38,7 +38,8 @@ table
           | What did you think of #{@story.partner_of(current_user).first_name}'s last sentence?
           br
           br
-          = radio_button_tag :feedback, "Funny!"
+          /= radio_button_tag :feedback, "Funny!" 😄
+          = radio_button_tag :feedback, 😄
           | &nbsp
           = label_tag "Funny!"
           br
