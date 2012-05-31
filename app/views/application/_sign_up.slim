@@ -5,22 +5,22 @@ section.sign_up
   p
   p We only use facebook to pair you with friends. We will not post to your wall or send messages without your permission.
   /
-    b
-      | New users - #{link_to 'Click here to register!', new_user_registration_path}
-    p
-    p Existing users sign-in via email:
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      = devise_error_messages!
-      .field
-        = f.email_field :email, :placeholder => "email address", :class => "input"
-      .field
-        = f.password_field :password, :placeholder => "password", :class => "input"
-      .field
-        =' f.check_box :remember_me, {checked: true}
-        =' f.label :remember_me
-      .actions
-        = f.submit 'Login', :class => 'button blue'
-    p
-    br
-    =' link_to "Forgot your password?", new_password_path(resource_name)
-    p
+  b
+    | New users - #{link_to 'Click here to register!', new_user_registration_path}
+  p
+  p Existing users sign-in via email:
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    = devise_error_messages!
+    .field
+      = f.email_field :email, :placeholder => "email address", :class => "input"
+    .field
+      = f.password_field :password, :placeholder => "password", :class => "input"
+    .field
+      =' f.check_box :remember_me, {checked: true}
+      =' f.label :remember_me
+    .actions
+      = f.submit 'Login', :class => 'button blue'
+  p
+  br
+  =' link_to "Forgot your password?", new_password_path(resource_name)
+  p
