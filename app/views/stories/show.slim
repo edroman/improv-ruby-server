@@ -23,7 +23,7 @@ h1 A Little Tale
   = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do
    = image_tag 'twitter.png'
   p
-  = button_to "Post on your Facebook wall", '#', :id => :post_wall
+  = button_to "Post on your Facebook wall", '#', :id => :post_wall, :class => 'button blue'
   p
   - if current_user && (current_user.id == @story.creator.id || current_user.id == @story.partner.id)
     / If there is a completed survey already that matches this story ID and user ID, then link back to the lobby
@@ -35,10 +35,10 @@ h1 A Little Tale
   / If there's no votes for this story by this user yet...
   - elsif !current_user
     - store_location
-    = button_to 'Sign-in to vote for this story!', omniauth_authorize_path(resource_name, "facebook")
+    = button_to 'Sign-in to vote for this story!', omniauth_authorize_path(resource_name, "facebook"), :class => 'button blue'
   - elsif Vote.where(:story_id => @story.id, :user_id => current_user.id).size == 0
     / User logged in: Users who are not story inventors should be able to vote on story
-    = button_to 'Vote this for story-of-the-week!', votes_path(:story_id => @story.id), :method => :post
+    = button_to 'Vote this for story-of-the-week!', votes_path(:story_id => @story.id), :method => :post, :class => 'button blue'
 javascript:
 
   // Initialize Facbook
