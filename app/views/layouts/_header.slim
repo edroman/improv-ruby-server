@@ -6,6 +6,7 @@ header
       li#active
         a.drop href='#' Hello, #{current_user.first_name}!
         .dropdown_1column.align_right
-          = link_to 'Sign out', destroy_user_session_path, :method => :delete
+          = link_to 'Edit Account', edit_user_path
+          = link_to 'Sign Out', destroy_user_session_path, :method => :delete
     li
       = link_to 'Home', root_path

@@ -210,6 +210,7 @@ td.action{
   outline:0;
   text-decoration:none;
   text-shadow: 1px 1px 1px #000;
+  padding-bottom: 5px;
 }
 
 #menu li:hover a {
@@ -230,7 +231,7 @@ td.action{
   position:absolute;
   left:-999em; /* Hides the drop down */
   text-align:center;
-  padding:10px 0px 10px 0px;
+  padding:0px 0px 5px 0px;
   border:1px solid #777777;
   border-top:none;
   width: 100%;
