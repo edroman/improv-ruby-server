@@ -23,9 +23,8 @@
   br
 
   = button_to "Play With Random Partner", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
-  /br
-  /= button_tag "Share on my Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
   br
-    = button_to "Share on my Facebook Wall", '#', :id => :post_to_my_feed, :class => 'button blue'
-  /br
+  = button_tag "Share on my Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
+  br
+  br
   = button_to "Invite a Friend", invites_path, :method => 'get', :class => 'button blue'
