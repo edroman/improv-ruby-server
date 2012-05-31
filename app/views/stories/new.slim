@@ -21,10 +21,187 @@
   - if available_partners.size == 0
     p Well aren't you the early bird? Since none of your friends are here yet, invite a friend (or two) or be adventurous and play with a random partner.
   br
-
   = button_to "Play With Random Partner", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
   br
   = button_tag "Share on my Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
   br
   br
   = button_to "Invite a Friend", invites_path, :method => 'get', :class => 'button blue'
+
+
+
+javascript:
+
+ // Initialize Facebook
+  window.fbAsyncInit = function() {
+      FB.Flash.hasMinVersion = function () { return false; };
+      FB.init({
+          appId: '#{Rails.configuration.facebook_token}',
+          status: true,
+          cookie: false,
+          channelUrl: '//#{APP_CONFIG['server_host']}/channel.html',
+          oauth: true
+      });
+      FB.Event.subscribe('auth.statusChange', handleStatusChange);
+  };
+
+    // Load the SDK Asynchronously
+    (function(d) {
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+
+    // For debugging - once we are logged in and authorized
+    function handleStatusChange(response) {
+        document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+        if (response.authResponse) {
+            // Could theoretically use this for debugging
+        }
+    }
+
+    var myResponse;
+
+    // Useful for doing stuff after we get a callback
+    function callback(response) {
+      if (response) {
+        // For debugging - can query myResponse via JavaScript console
+        myResponse = response;
+
+
+        if (response.post_id) {
+          alert('Post was published.');
+        }
+        else {
+          // Else we are expecting a Response Body Object in JSON, so decode this
+          var responseBody = JSON.parse(response.body);
+
+          // If the Response Body includes an Error Object, handle the Error
+          if(responseBody.error) {
+            alert(responseBody.error.message);
+          }
+          // Else handle the data Object
+          else {
+            alert('Post was not published.');
+          }
+        }
+      }
+    }
+
+  // All API calls go here
+  $(document).ready(function () {
+
+      // Request invite your friends.  Only for Canvas apps.
+      $("#invite_friends").click(function(){
+          FB.ui({
+              method: 'apprequests',
+              message: '#{current_user.name} has invited you to create a story together!',
+              display: 'popup'
+          });
+      });
+
+      // Message invite your friends.  Not supported on mobile.
+      $("#message_friends").click(function(){
+          var obj = {
+            method: 'send',
+            name: '#{current_user.name} has invited you to create a story together!',
+            link: 'http://www.ALittleTale.com',
+            // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
+            // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
+            show_error: 'true',
+            display: 'popup'
+          };
+
+          FB.ui(obj, callback);
+      });
+
+      $("#post_to_my_feed").click(function(){
+
+          var obj = {
+            method: 'feed',
+            name: 'Let\'s make a story together!',
+            link: 'http://www.ALittleTale.com',
+            caption: 'A Little Tale',
+            description: '...make stories with your friends!'
+            // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
+            // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
+          };
+
+          FB.ui(obj, callback);
+      });
+
+      $("#post_to_friend_feed").click(function(){
+
+          var obj = {
+            method: 'feed',
+            name: '#{current_user.name} has invited you to create a story together!',
+            link: 'http://www.ALittleTale.com',
+            to: '221293',
+            caption: 'A Little Tale',
+            description: '...tell stories with your friends!'
+            // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
+            // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
+          };
+
+          FB.ui(obj, callback);
+      });
+
+      $("#batch_post_to_friend_feed").click(function(){
+
+          // Useful for doing stuff after we get a callback
+          function batchcallback(response) {
+            if (!response) {
+              console.log("No response!");
+            }
+            else if (response.error) {
+              console.log("Error!  Response object:");
+              console.log(response);
+            } else {
+              // Iterate through each Response
+              for(var i=0,l=response.length; i<l; i++) {
+                // If we have set 'omit_response_on_success' to true in the Request, the Response value will be null, so continue to the next iteration
+                if(response[i] === null) continue;
+
+                // Else we are expecting a Response Body Object in JSON, so decode this
+                var responseBody = JSON.parse(response[i].body);
+
+                // If the Response Body includes an Error Object, handle the Error
+                if(responseBody.error) {
+                  // do something useful here
+                  console.log(responseBody.error.message);
+                }
+                // Else handle the data Object
+                else {
+                  // do something useful here
+                }
+              }
+            }
+          }
+
+          console.log(FB.getAuthResponse().accessToken);
+
+          FB.api(
+            "/",
+            "POST",
+            {
+              access_token: FB.getAuthResponse().accessToken,
+              batch:[
+                {
+                  "method":"POST",
+                  "relative_url":"/100003817718116/feed",
+                  "body":"name=Let's create a story together!&link=http://www.ALittleTale.com&caption=A Little Tale -- telling stories with friends&description="
+                },
+                {
+                  "method":"POST",
+                  "relative_url":"/100003817718116/feed",
+                  "body":"name=Let's create a story together!&link=http://www.ALittleTale.com&caption=A Little Tale -- telling stories with your friends&description="
+                }
+              ]
+            },
+            batchcallback
+          );
+      });
+  });
