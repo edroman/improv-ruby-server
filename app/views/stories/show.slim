@@ -6,18 +6,14 @@
     p
 h1 A Little Tale
 #main_home
-  | by #{@story.creator.name}
-  br
-  | and #{@story.partner.name}
+  | by #{@story.creator.name} and #{@story.partner.name}
   p
   table
     td
       == @story.all_sentences_formatted
   p
   - if current_user && (current_user.id == @story.creator.id || current_user.id == @story.partner.id)
-    | Awesome story!
-    p
-    | Get your friends to vote for it -- the stories with the most votes win prizes!
+    | Share your story -- the stories with the most votes win prizes!
     br
     p
   = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do
