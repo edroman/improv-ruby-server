@@ -1,6 +1,6 @@
 / Shows list of top voted stories
 
-#main_home
+
   h1
     | Leaderboard
   table
@@ -19,9 +19,10 @@
                 /= "##{index+1}: #{story.votes_count} Votes"
               br
               = story.all_sentences_preview
-              br
 
             td.action
               = "#{story.votes_count} Votes"
+              br
               = button_to "View", story_path(story.id), :method => 'get', :class => 'button blue small'
 
+/#main_home
