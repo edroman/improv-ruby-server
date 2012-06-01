@@ -35,7 +35,7 @@ table
         td
           | What did you think of #{@story.partner_of(current_user).first_name}'s last sentence?
           br
-          = select_tag :feedback, options_for_select(["","Funny!","Hilarious!","Surprised!","Boring!","Lame!","Weird!","Umm...What?"],"")
+          = select_tag :feedback, options_for_select(["Funny!","Hilarious!","Surprised!","Boring!","Lame!","Weird!","Umm...What?"],"Funny!")
           /
             br
             = radio_button_tag :feedback, "Funny!"
