@@ -17,15 +17,23 @@ class Sentence < ActiveRecord::Base
     end
   end
 
-  # Adds ASCII art *asterisks* around constraint within sentence
+  # Adds bold formatting around constraint within sentence
   def body_formatted
     return "" if body == nil || body == ""
-    index = body.downcase.index(constraint.phrase.downcase)
-    return body if index == nil
+    start_pos = body.downcase.index(constraint.phrase.downcase)
+    return body if start_pos == nil
+
+    end_pos = start_pos + constraint.phrase.length
+
+    # Increment end_pos until we've reached the end of the current word (due to pluralization issues) or reached the end of the body
+    until end_pos == body.length || /[^A-Za-z]/.match(body[end_pos])
+      end_pos += 1
+    end
+
 
     new_body = body.clone
-    new_body.insert index + constraint.phrase.length, '</strong>'
-    new_body.insert index, '<strong>'
+    new_body.insert end_pos, '</strong>'
+    new_body.insert start_pos, '<strong>'
     return new_body
   end
 
