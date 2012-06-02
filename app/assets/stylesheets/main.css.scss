@@ -8,8 +8,13 @@ $interior-iphone:$width-iphone - 2*$padding-iphone;
 #main_home{
   padding-left: $padding-iphone;
   padding-right: $padding-iphone;
-  padding-bottom: 0;
+  padding-bottom: 0px;
   max-width: $interior-iphone;
+}
+
+#main_wide{
+  padding: 0px 0px 0px 0px;
+  max-width: $width-iphone;
 }
 
 h2{
@@ -135,6 +140,16 @@ td.picture{
 td.name{
   width:55%;
   vertical-align: middle;
+}
+
+td.leader_no{
+  width:10%;
+  vertical-align: text-top;
+  font-size:18px;
+}
+
+td.leader_story{
+  width:70%;
 }
 
 td.action{

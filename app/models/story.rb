@@ -106,7 +106,8 @@ class Story < ActiveRecord::Base
   end
 
   def all_sentences_preview
-    smart_truncate(all_sentences.gsub(/['"]/, ''), { :words => 20 } ) + '...'
+    #smart_truncate(all_sentences.gsub(/['"]/, ''), { :words => 20 } ) + '...'
+    smart_truncate(all_sentences.gsub(/['"]/, ''), { :words => 20 } )
   end
 
   def add_sentence(sentence_text)

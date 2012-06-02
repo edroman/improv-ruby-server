@@ -1,6 +1,6 @@
 / Shows list of top voted stories
 
-#main_home
+#main_wide
   h1
     | Leaderboard
   br
@@ -13,17 +13,18 @@
     - else
       - @leaderboard.each_with_index do |story, index|
           tr
-            td.sentence
+            td.leader_no
               b
-                = "##{index+1}: #{story.votes_count} Votes"
-              br
+                = "##{index+1}"
+            td.leader_story
+              b
+                = "by #{story.creator.name} and #{story.partner.name}"
+                /= "##{index+1}: #{story.votes_count} Votes"
               br
               = story.all_sentences_preview
-              br
-              br
-              = "by #{story.creator.name}"
-              br
-              = "and #{story.partner.name}"
+
             td.action
+              = "#{story.votes_count} Votes"
+              br
               = button_to "View", story_path(story.id), :method => 'get', :class => 'button blue small'
 

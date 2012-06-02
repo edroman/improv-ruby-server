@@ -19,7 +19,7 @@
         = f.submit 'Create Story with Partner!', :class => 'button blue'
 
   - if available_partners.size == 0
-    p Well aren't you the early bird? Since none of your friends are here yet, invite a friend (or two) or be adventurous and play with a random partner.
+    p Uh oh! Looks like there are no other available partners right now. Invite a friend (or two) or be adventurous and play with a random partner.
   br
   = button_to "Play With Random Partner", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
   br
