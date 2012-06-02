@@ -14,6 +14,9 @@ class UserOmniauthCallbacksController < Devise::OmniauthCallbacksController
     # TODO: Mass assignment vulnerability.  Secure this.
     @user.update_attributes( { :facebook_token => auth['credentials']['token'], :facebook_uid => auth['uid'] }, :without_protection => true )
 
+    # Track events via KISSMetrics
+    # KM.identify(@user.email)
+
     flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
     sign_in_and_redirect @user, :event => :authentication
 
