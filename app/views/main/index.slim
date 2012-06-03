@@ -1,13 +1,14 @@
-h1
-  b A Little Tale
+div id="typewriter"
+  h1
+    b A Little Tale
+
+#main_wide
+  = image_tag 'homepage.gif'
 
 #main_home
-  div id="typewriter"
-    ' Create a fun little tale with a friend.
-    ' Earn bragging rights and prizes for the best tales!
-
   br
-  | Check out the #{link_to 'leaderboard',leaderboard_index_path}!
+  | Check out the #{link_to 'leaderboard',leaderboard_index_path}.
+  br
   br
   - if user_signed_in?
     | Click #{link_to 'here', stories_url} to view your current games.
@@ -16,7 +17,6 @@ h1
     = render 'sign_up'
 
   p
-
 
 
   javascript:

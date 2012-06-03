@@ -1,9 +1,9 @@
 section.sign_up
+  p Sign in to start playing with your friends!
   p
   = link_to omniauth_authorize_path(resource_name, "facebook") do
     = image_tag 'facebook.png'
   p
-  p We only use facebook to pair you with friends. We will not post to your wall or send messages without your permission.
   /
     b
       | New users - #{link_to 'Click here to register!', new_user_registration_path}
