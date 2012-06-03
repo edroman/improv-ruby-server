@@ -31,7 +31,8 @@ html prefix="og: http://ogp.me/ns#"
   body
     #fb-root
     container
-      = render 'layouts/header'
+      - if user_signed_in?
+        = render 'layouts/header'
       content
         content_inner
           = yield

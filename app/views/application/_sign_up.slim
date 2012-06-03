@@ -1,6 +1,7 @@
 section.sign_up
-  p Sign in to start playing with your friends!
-  p
+  | Start playing with your friends!
+  br
+  br
   = link_to omniauth_authorize_path(resource_name, "facebook") do
     = image_tag 'facebook.png'
   p
