@@ -1,9 +1,10 @@
 section.sign_up
-  | Start playing with your friends!
+  b Sign in to start playing!
   br
   br
+  =' image_tag 'arrow.gif'
   = link_to omniauth_authorize_path(resource_name, "facebook") do
-    = image_tag 'facebook.png'
+    = image_tag 'facebook.jpg'
   p
   /
     b

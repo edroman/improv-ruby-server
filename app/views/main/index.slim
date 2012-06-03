@@ -1,23 +1,20 @@
-div id="typewriter"
-  h1
-    b A Little Tale
+/div id="typewriter"
+h1
+  b A Little Tale
 
 #main_wide
   = image_tag 'homepage.gif'
 
 #main_home
-  br
-  | Check out the #{link_to 'leaderboard',leaderboard_index_path}
-  br
+
   br
   - if user_signed_in?
     | Click #{link_to 'here', stories_url} to view your current games.
     p
   - elsif current_page?(root_path)
     = render 'sign_up'
-
-  p
-
+    br
+    | Check out the #{link_to 'leaderboard',leaderboard_index_path}
 
   javascript:
     new TypingText(document.getElementById("typewriter"), 50);
