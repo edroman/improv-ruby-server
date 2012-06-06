@@ -1,11 +1,12 @@
 / Shows list of top voted stories
 
-#main_wide
+#main_home
   h1
     | Leaderboard
   br
   | Have your friends vote on your stories each week to make the leaderboard and win prizes!
   p
+#main_wide
   table
     - @leaderboard = Story.where('turn > 6 and votes_count > 0').leaderboard.limit(10).all
     - if @leaderboard.size == 0
