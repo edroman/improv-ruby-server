@@ -2,7 +2,7 @@
 
 #main_home
   - if @unfinished_count == 0 && @finished_count == 0
-    p Welcome Get started on your first little tale!
+    p Get started on your first little tale!
 
   br
   = button_to 'Start a New Game', new_story_path, :method => 'get', :class => 'button blue'
@@ -22,6 +22,7 @@
   / = button_tag "Invite friends to play with you!", :id => :batch_post_to_friend_feed, :class => 'button blue'
   / p
 
+#main_wide
   - if @unfinished_count > 0
     h1 Current games
 
@@ -37,15 +38,17 @@
               - if story.my_turn?(current_user)
 
                 = button_to 'Play', edit_story_path(story), :method => 'get', :class => 'button blue small'
-                /br
-                /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
+                / br
+                / = button_to 'X', story, confirm: 'Are you sure?', method: :delete
               - else
                 /= button_to 'Waiting'
 
                 = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue small'
                 /= button_to "Nudge #{story.partner_of(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
-                /br
-                /= button_to 'Give Up', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
+                /= button_to 'Delete', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
+            td.delete
+              = link_to (image_tag 'trash.gif'), story, confirm: 'Are you sure?', method: :delete
+
 
 
   - if @finished_count > 0
@@ -63,9 +66,9 @@
               - if story.finished
                 br
                 = button_to 'View', story_path(story), :method => 'get', :class => 'button blue small'
-                /br
-                /= button_to 'Delete', story, confirm: 'Are you sure?', method: :delete
-              /br
+                / br
+                /= button_to 'X', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
+              / br
 
 javascript:
 

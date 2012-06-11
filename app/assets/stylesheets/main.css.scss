@@ -81,8 +81,8 @@ footer {
 
 .button.blue {
   font-size: 14px;
-  color: white;
-  border: solid 1px #0076a3;
+  color: #fef4e9;
+  border: solid 1px #da7c0c;
   padding: 8px 1em 8px;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   -webkit-border-radius: .5em;
@@ -91,25 +91,25 @@ footer {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
-  background: #0095cd;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-  background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+  background: #f78d1d;
+  background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+  background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
   width: $interior-iphone;
   &.small{
-    width: 70px;
-    padding: 1em .4em 1em;
+    width: 60px;
+    padding: 1em .2em 1em;
     margin-bottom: 0em;
   }
 }
 .button.blue:hover {
-  background: #007ead;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
-  background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+  background: #f47c20;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+  background: -moz-linear-gradient(top,  #f88e11,  #f06015);
 }
 .button.blue:active {
-  color: #80bed6;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
-  background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+  color: #fcd3a5;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+  background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
 }
 
 table{
@@ -129,7 +129,7 @@ tr{
 }
 
 td.sentence{
-  width:75%;
+  width:70%;
 }
 
 td.picture{
@@ -153,6 +153,11 @@ td.leader_story{
 }
 
 td.action{
+  vertical-align: middle;
+}
+
+td.delete{
+  width:10%;
   vertical-align: middle;
 }
 
