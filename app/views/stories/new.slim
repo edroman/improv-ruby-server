@@ -34,7 +34,7 @@ javascript:
 
  // Initialize Facebook
   window.fbAsyncInit = function() {
-      FB.Flash.hasMinVersion = function () { return false; };
+      // FB.Flash.hasMinVersion = function () { return false; };
       FB.init({
           appId: '#{Rails.configuration.facebook_token}',
           status: true,
