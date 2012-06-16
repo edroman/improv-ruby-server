@@ -210,7 +210,13 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, Rails.configuration.facebook_token, Rails.configuration.facebook_secret, :display => 'page',
+  FACEBOOK_SETUP_PROC = lambda do |env|
+    request = Rack::Request.new(env)
+    mobile_device = request.user_agent =~ /Mobile|webOS/i
+    request.env['omniauth.strategy'].options[:display] = mobile_device ? "touch" : "page"
+  end
+
+  config.omniauth :facebook, Rails.configuration.facebook_token, Rails.configuration.facebook_secret, :setup => FACEBOOK_SETUP_PROC,
                   :scope => 'email,offline_access,publish_stream'
   config.omniauth :twitter, Rails.configuration.twitter_token, Rails.configuration.twitter_secret
 
