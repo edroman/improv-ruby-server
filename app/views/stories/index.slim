@@ -66,7 +66,7 @@
               = story.all_sentences_preview
             td.action
               - if story.finished
-                br
+                /br
                 = button_to 'View', story_path(story), :method => 'get', :class => 'button blue small'
             td.delete
               = link_to (image_tag 'trash.gif'), story, confirm: 'Are you sure?', method: :delete
