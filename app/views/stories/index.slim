@@ -31,7 +31,8 @@
         - if !story.finished
           tr
             td.sentence
-              b Game #{story.number} with #{story.partner_of(current_user).first_name}
+              /b Game #{story.number} with #{story.partner_of(current_user).first_name}
+              b Your game with #{story.partner_of(current_user).first_name}
               br
               = story.all_sentences_preview
             td.action
@@ -59,16 +60,17 @@
         - if story.finished
           tr
             td.sentence
-              b Game #{story.number} with #{story.partner_of(current_user).first_name}
+              /b Game #{story.number} with #{story.partner_of(current_user).first_name}
+              b Your game with #{story.partner_of(current_user).first_name}
               br
               = story.all_sentences_preview
             td.action
               - if story.finished
                 br
                 = button_to 'View', story_path(story), :method => 'get', :class => 'button blue small'
-                / br
-                /= button_to 'X', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
-              / br
+            td.delete
+              = link_to (image_tag 'trash.gif'), story, confirm: 'Are you sure?', method: :delete
+              br
 
 javascript:
 
