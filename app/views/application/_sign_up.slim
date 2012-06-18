@@ -9,7 +9,7 @@ section.sign_up
   br
   = link_to omniauth_authorize_path(resource_name, "facebook") do
     = image_tag 'facebook.jpg'
-  p
+  /p
 
     b
       | New users - #{link_to 'Click here to register!', new_user_registration_path}
