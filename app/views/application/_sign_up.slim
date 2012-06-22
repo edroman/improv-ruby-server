@@ -3,11 +3,15 @@ section.sign_up
   /br
   /br
   /=' image_tag 'arrow.gif'
-  /= link_to omniauth_authorize_path(resource_name, "facebook") do
-  /  = image_tag 'facebook.jpg'
+  br
+  b Sign in to play with friends!
+  br
+  br
+  = link_to omniauth_authorize_path(resource_name, "facebook") do
+    = image_tag 'facebook.jpg'
   /p
-  /
-  /  b
+
+    b
       | New users - #{link_to 'Click here to register!', new_user_registration_path}
     p
     p Existing users sign-in via email:

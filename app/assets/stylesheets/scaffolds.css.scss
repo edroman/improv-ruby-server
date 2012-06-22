@@ -13,7 +13,7 @@ html{
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: noteworthy, sans-serif;
   font-size: 14px;
   line-height: 18px;
   height: 100%;
@@ -22,14 +22,15 @@ body {
 body > #container { height: auto; min-height: 100%; }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: noteworthy, sans-serif;
   font-size: 12px;
   line-height: 14px; }
 
 h1  {
   font-size: 20px;
   text-align: center;
-  color: black;
+  font-family: noteworthy, sans-serif;
+  color: orangered;
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: $width-iphone;

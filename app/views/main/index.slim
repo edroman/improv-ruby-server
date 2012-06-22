@@ -1,8 +1,9 @@
 /div id="typewriter"
 h1
-  b A Tall Tale
+  b Fun improv comedy games!
 
 #main_wide
+  /
   = link_to omniauth_authorize_path(resource_name, "facebook") do
     = image_tag 'homepage.gif'
 
@@ -12,8 +13,8 @@ h1
     p
   - elsif current_page?(root_path)
     = render 'sign_up'
-    br
-    | Check out the #{link_to 'leaderboard',leaderboard_index_path}
+    /br
+    /| Check out the #{link_to 'leaderboard',leaderboard_index_path}
 
   javascript:
     new TypingText(document.getElementById("typewriter"), 50);
