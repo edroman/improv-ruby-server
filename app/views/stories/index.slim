@@ -2,7 +2,7 @@
 
 #main_home
   - if @unfinished_count == 0 && @finished_count == 0
-    p Get started on your first little tale!
+    p Get started on your first tale!
 
   br
   = button_to 'Start a New Game', new_story_path, :method => 'get', :class => 'button blue'
@@ -148,7 +148,7 @@ javascript:
           var obj = {
             method: 'send',
             name: '#{current_user.name} has invited you to create a story together!',
-            link: 'http://www.ALittleTale.com',
+            link: 'http://www.ATallTale.com',
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
             show_error: 'true',
@@ -163,8 +163,8 @@ javascript:
           var obj = {
             method: 'feed',
             name: 'Let\'s make a story together!',
-            link: 'http://www.ALittleTale.com',
-            caption: 'A Little Tale',
+            link: 'http://www.ATallTale.com',
+            caption: 'A Tall Tale',
             description: '...make stories with your friends!'
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
@@ -178,9 +178,9 @@ javascript:
           var obj = {
             method: 'feed',
             name: '#{current_user.name} has invited you to create a story together!',
-            link: 'http://www.ALittleTale.com',
+            link: 'http://www.ATallTale.com',
             to: '221293',
-            caption: 'A Little Tale',
+            caption: 'A Tall Tale',
             description: '...tell stories with your friends!'
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
@@ -232,12 +232,12 @@ javascript:
                 {
                   "method":"POST",
                   "relative_url":"/100003817718116/feed",
-                  "body":"name=Let's create a story together!&link=http://www.ALittleTale.com&caption=A Little Tale -- telling stories with friends&description="
+                  "body":"name=Let's create a story together!&link=http://www.ATallTale.com&caption=A Tall Tale -- telling stories with friends&description="
                 },
                 {
                   "method":"POST",
                   "relative_url":"/100003817718116/feed",
-                  "body":"name=Let's create a story together!&link=http://www.ALittleTale.com&caption=A Little Tale -- telling stories with your friends&description="
+                  "body":"name=Let's create a story together!&link=http://www.ATallTale.com&caption=A Tall Tale -- telling stories with your friends&description="
                 }
               ]
             },

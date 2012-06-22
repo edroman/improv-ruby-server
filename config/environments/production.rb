@@ -59,7 +59,7 @@ Improv::Application.configure do
   config.active_support.deprecation = :notify
 
   # For ActiveAdmin
-  config.action_mailer.default_url_options = { :host => 'alittletale.com' }
+  config.action_mailer.default_url_options = { :host => 'atalltale.com' }
 
   # For Devise OmniAuth
   config.facebook_token = '390389744334816'

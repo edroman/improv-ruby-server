@@ -16,7 +16,7 @@ staging:
   twilio_auth_token: a5edb8a5c61e37b3e2b052d3a44e025c
 
 production:
-  server_host: alittletale.com
+  server_host: atalltale.com
   sms_source: +1 415-683-7001
   twilio_account_sid: ACb4e49a389d204006b1a4d4addfa4b83f
   twilio_auth_token: a5edb8a5c61e37b3e2b052d3a44e025c

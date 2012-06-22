@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 namespace :deploy do
-  PRODUCTION_APP = 'alittletale'
+  PRODUCTION_APP = 'atalltale'
   STAGING_APP = 'improv-staging'
   ENV['SKIP_TESTS'] = "true"   # TODO: DELETE
   ENV['SKIP_BACKUP'] = "true"   # TODO: DELETE
