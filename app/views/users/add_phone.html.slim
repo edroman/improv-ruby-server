@@ -16,9 +16,9 @@
     = phone_field_tag :phone
     br
     br
-    = submit_tag "Update", :class => 'button blue'
+    = submit_tag "Update", :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Submit on Add Phone Page']);"
   br
-  = link_to "Skip this step", stories_path
+  = link_to "Skip this step", stories_path, :onclick => "_kmq.push(['record', 'Clicked Skip from Add Phone']);"
 
 
   /
@@ -33,3 +33,8 @@
         = f.submit "Update"
   /  p
   /  = link_to "Skip this step", stories_path
+
+javascript:
+  // KissMetrics tracking
+  _kmq.push(['identify', '#{@current_user.email}']);
+  _kmq.push(['record', 'Viewed Add Phone Page']);

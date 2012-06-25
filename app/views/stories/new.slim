@@ -16,17 +16,17 @@
         = collection_select nil, :partner_id, available_partners, :id, :name
       br
       .actions
-        = f.submit 'Create Story with Partner!', :class => 'button blue'
+        = f.submit 'Create Story with Partner!', :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Create With Partner from New Story']);"
 
   - if available_partners.size == 0
     p Uh oh! Looks like there are no other available partners right now. Invite a friend (or two) or be adventurous and play with a random partner.
   br
-  = button_to "Play With Random Partner", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue'
+  = button_to "Play With Random Partner", stories_path(:random_partner => 1), :method => 'post', :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Play With Random Partner from New Story']);"
   br
-  = button_tag "Share on my Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
+  = button_tag "Share on my Facebook wall", :id => :post_to_my_feed, :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Share on Wall from New Story']);"
   br
   br
-  = button_to "Invite a Friend", invites_path, :method => 'get', :class => 'button blue'
+  = button_to "Invite a Friend", invites_path, :method => 'get', :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Invite Friend from Lobby']);"
 
 
 
@@ -91,11 +91,16 @@ javascript:
       }
     }
 
+  // KissMetrics tracking
+  _kmq.push(['identify', '#{@current_user.email}']);
+  _kmq.push(['record', 'Viewed Create New Story page']);
+
   // All API calls go here
   $(document).ready(function () {
 
       // Request invite your friends.  Only for Canvas apps.
       $("#invite_friends").click(function(){
+          _kmq.push(['record', 'Clicked Invite Friend from Create New Story page']);
           FB.ui({
               method: 'apprequests',
               message: '#{current_user.name} has invited you to create a story together!',
@@ -115,6 +120,7 @@ javascript:
             display: 'popup'
           };
 
+          _kmq.push(['record', 'Clicked Message Friends from Create New Story page']);
           FB.ui(obj, callback);
       });
 
@@ -130,6 +136,7 @@ javascript:
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
 
+          _kmq.push(['record', 'Clicked Post to my Feed from Create New Story page']);
           FB.ui(obj, callback);
       });
 
@@ -146,6 +153,8 @@ javascript:
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
 
+
+          _kmq.push(['record', 'Clicked Post to Friend Feed from Create New Story page']);
           FB.ui(obj, callback);
       });
 
@@ -182,6 +191,7 @@ javascript:
           }
 
           console.log(FB.getAuthResponse().accessToken);
+          _kmq.push(['record', 'Clicked Batch Post to Friend Feed from Create New Story page']);
 
           FB.api(
             "/",

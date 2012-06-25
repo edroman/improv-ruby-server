@@ -5,4 +5,9 @@
 
     = render 'form'
     p
-    = link_to 'Back', stories_path
+    = link_to 'Back', stories_path, :onclick => "_kmq.push(['record', 'Clicked Back from Edit Story Page']);"
+
+javascript:
+  // KissMetrics tracking
+  _kmq.push(['identify', '#{@current_user.email}']);
+  _kmq.push(['record', 'Viewed Edit Story Page']);

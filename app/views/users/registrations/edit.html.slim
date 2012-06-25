@@ -38,5 +38,5 @@ h1 Account Settings
 	    = f.submit "Update", :class => 'button blue'
 	p
 	p
-	  | Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}
-	= link_to "Back", :back
+	  | Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :onclick => "_kmq.push(['record', 'Clicked Cancel Account from Account Settings']);"}
+	= link_to "Back", :back, :onclick => "_kmq.push(['record', 'Clicked Back from Account Settings']);"

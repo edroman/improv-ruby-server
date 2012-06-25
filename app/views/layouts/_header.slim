@@ -6,7 +6,7 @@ header
       li#active
         a.drop href='#' Hello, #{current_user.first_name}!
         .dropdown_1column.align_right
-          = link_to 'Edit Account', edit_user_path
-          = link_to 'Sign Out', destroy_user_session_path, :method => :delete
+          = link_to 'Edit Account', edit_user_path, :onclick => "_kmq.push(['record', 'Clicked Edit Account']);"
+          = link_to 'Sign Out', destroy_user_session_path, :method => :delete, :onclick => "_kmq.push(['record', 'Clicked Sign Out']);"
     li
-      = link_to 'Home', root_path
+      = link_to 'Home', root_path, :onclick => "_kmq.push(['record', 'Clicked Home']);"

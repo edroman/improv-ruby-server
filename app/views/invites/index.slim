@@ -79,6 +79,10 @@ javascript:
     }
   }
 
+  // KissMetrics tracking
+  _kmq.push(['identify', '#{@current_user.email}']);
+  _kmq.push(['record', 'Viewed Invite Friends page']);
+
   // All API calls go here
   $(document).ready(function () {
 
@@ -97,6 +101,7 @@ javascript:
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
           window.scrollTo(0, 1);
+          _kmq.push(['record', 'Clicked post to friend feed button from invites screen']);
           // Useful for doing stuff after we get a callback
           FB.ui(obj, callback);
 
@@ -135,6 +140,8 @@ javascript:
           }
 
           console.log(FB.getAuthResponse().accessToken);
+
+          _kmq.push(['record', 'Clicked batch post to friend feed button from invites screen']);
 
           FB.api(
             "/",

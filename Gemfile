@@ -60,6 +60,8 @@ gem 'meta_search', '>= 1.1.0.pre'
 
 gem 'awesome_print'
 
+gem 'km'
+
 # For transforming ascii art like *hi* into rich text via HTML
 # gem 'RedCloth'
 

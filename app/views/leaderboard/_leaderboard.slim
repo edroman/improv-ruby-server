@@ -28,5 +28,8 @@
             td.action
               = "#{story.votes_count} Votes"
               br
-              = button_to "View", story_path(story.id), :method => 'get', :class => 'button blue small'
+              = button_to "View", story_path(story.id), :method => 'get', :class => 'button blue small', :onclick => "_kmq.push(['record', 'Clicked View from Leaderboard']);"
 
+javascript:
+  // KissMetrics tracking
+  _kmq.push(['record', 'Viewed Leaderboard page']);

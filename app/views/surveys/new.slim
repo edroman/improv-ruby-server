@@ -16,4 +16,7 @@ h1 Help us improve our game!
       = f.hidden_field :story_id, :value => "#{params[:story_id]}"
       .actions
       br
-      = f.submit "Continue"
+      = f.submit "Continue", :onclick => "_kmq.push(['record', 'Clicked Submit Survey from Story Page']);"
+
+javascript:
+  _kmq.push(['record', 'Viewed New Survey Page']);

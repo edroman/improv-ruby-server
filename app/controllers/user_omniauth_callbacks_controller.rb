@@ -1,3 +1,5 @@
+require 'km'
+
 class UserOmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     auth = request.env["omniauth.auth"]
@@ -15,7 +17,10 @@ class UserOmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user.update_attributes( { :facebook_token => auth['credentials']['token'], :facebook_uid => auth['uid'] }, :without_protection => true )
 
     # Track events via KISSMetrics
+    # TODO: Move KM.init to app startup time
+    # KM.init("168a32e1ce0e1719613d8f52f5e716be1bcbc9bc")
     # KM.identify(@user.email)
+    # KM.record('Signup')
 
     flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
     sign_in_and_redirect @user, :event => :authentication

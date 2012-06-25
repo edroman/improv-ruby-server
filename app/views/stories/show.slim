@@ -15,7 +15,7 @@
     | Share your story -- the stories with the most votes win prizes!
     br
     p
-  = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}") do
+  = link_to store_and_redirect_path(:destination_path => omniauth_authorize_path(resource_name, 'twitter'), :return_path => request.env['PATH_INFO'], :data => "Check out the story I just made! #{get_ip}#{story_path(@story)}"), :onclick => "_kmq.push(['record', 'Tweeted Story from Show Story']);" do
    = image_tag 'twitter.png'
   p
   = button_to "Share on my Facebook Wall", '#', :id => :post_wall, :class => 'button blue'
@@ -23,17 +23,17 @@
   - if current_user && (current_user.id == @story.creator.id || current_user.id == @story.partner.id)
     / If there is a completed survey already that matches this story ID and user ID, then link back to the lobby
     - if Survey.where(:story_id => @story.id, :user_id => current_user.id).size >= 1
-      = link_to 'Back', stories_path
+      = link_to 'Back', stories_path, :onclick => "_kmq.push(['record', 'Clicked Back from Show Story']);"
     / Otherwise, create a new survey
     - else
-      = link_to 'Continue', new_survey_path(:story_id => @story.id)
+      = link_to 'Continue', new_survey_path(:story_id => @story.id), :onclick => "_kmq.push(['record', 'Clicked Continue from Show Story']);"
   / If there's no votes for this story by this user yet...
   - elsif !current_user
     - store_location
-    = button_to 'Sign-in to vote for this story!', omniauth_authorize_path(resource_name, "facebook"), :class => 'button blue'
+    = button_to 'Sign-in to vote for this story!', omniauth_authorize_path(resource_name, "facebook"), :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Sign-In To Vote from Show Story']);"
   - elsif Vote.where(:story_id => @story.id, :user_id => current_user.id).size == 0
     / User logged in: Users who are not story inventors should be able to vote on story
-    = button_to 'Vote this for story-of-the-week!', votes_path(:story_id => @story.id), :method => :post, :class => 'button blue'
+    = button_to 'Vote this for story-of-the-week!', votes_path(:story_id => @story.id), :method => :post, :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Vote from Show Story']);"
 javascript:
 
   // Initialize Facbook
@@ -94,11 +94,15 @@ javascript:
     }
   }
 
+  // KissMetrics tracking
+  _kmq.push(['record', 'Viewed Show Story Page']);
+
   // All API calls go here
   $(document).ready(function () {
 
       // Post to your wall
       $('#post_wall').click(function () {
+          _kmq.push(['record', 'Clicked Post to Wall from Show Story Page']);
           FB.ui(
             {
               method: 'feed',

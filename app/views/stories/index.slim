@@ -5,13 +5,13 @@
     p Get started on your first tale!
 
   br
-  = button_to 'Start a New Game', new_story_path, :method => 'get', :class => 'button blue'
+  = button_to 'Start a New Game', new_story_path, :method => 'get', :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Start New Game from Lobby']);"
   /br
   /= button_to "Invite friends to play with you!", invites_path, :method => 'get', :class => 'button blue'
   /br
   /= button_to "Edit Account", edit_user_path, :class => 'button blue'
   br
-  = button_to "View Leaderboard", leaderboard_index_path, :method => 'get', :class => 'button blue'
+  = button_to "View Leaderboard", leaderboard_index_path, :method => 'get', :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked View Leaderboard from Lobby']);"
   /br
   /= button_tag "Share this on your Facebook wall", :id => :post_to_my_feed, :class => 'button blue'
   / p
@@ -38,17 +38,17 @@
             td.action
               - if story.my_turn?(current_user)
 
-                = button_to 'Play', edit_story_path(story), :method => 'get', :class => 'button blue small'
+                = button_to 'Play', edit_story_path(story), :method => 'get', :class => 'button blue small', :onclick => "_kmq.push(['record', 'Clicked Play from Lobby']);"
                 / br
                 / = button_to 'X', story, confirm: 'Are you sure?', method: :delete
               - else
                 /= button_to 'Waiting'
 
-                = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue small'
+                = button_to 'Nudge', nudge_partner_story_path(story), :method => 'get', :class => 'button blue small', :onclick => "_kmq.push(['record', 'Clicked Nudge Unfinished Game from Lobby']);"
                 /= button_to "Nudge #{story.partner_of(current_user).first_name}", nudge_partner_story_path(story), :method => 'get'
                 /= button_to 'Delete', story, confirm: 'Are you sure?', method: :delete, :class => 'button blue small'
             td.delete
-              = link_to (image_tag 'trash.gif'), story, confirm: 'Are you sure?', method: :delete
+              = link_to (image_tag 'trash.gif'), story, confirm: 'Are you sure?', method: :delete, :onclick => "_kmq.push(['record', 'Clicked Delete Unfinished Game from Lobby']);"
 
 
 
@@ -67,9 +67,9 @@
             td.action
               - if story.finished
                 /br
-                = button_to 'View', story_path(story), :method => 'get', :class => 'button blue small'
+                = button_to 'View', story_path(story), :method => 'get', :class => 'button blue small', :onclick => "_kmq.push(['record', 'Clicked View Finished Game from Lobby']);"
             td.delete
-              = link_to (image_tag 'trash.gif'), story, confirm: 'Are you sure?', method: :delete
+              = link_to (image_tag 'trash.gif'), story, confirm: 'Are you sure?', method: :delete, :onclick => "_kmq.push(['record', 'Clicked Trash Finished Game from Lobby']);"
               br
 
 javascript:
@@ -133,6 +133,10 @@ javascript:
     }
   }
 
+  // KissMetrics tracking
+  _kmq.push(['identify', '#{@current_user.email}']);
+  _kmq.push(['record', 'Viewed Stories Page']);
+
   // All API calls go here
   $(document).ready(function () {
 
@@ -143,6 +147,7 @@ javascript:
               message: '#{current_user.name} has invited you to create a story together!',
               display: 'popup'
           });
+          _kmq.push(['record', 'Clicked invited friends button']);
       });
 
       // Message invite your friends.  Not supported on mobile.
@@ -156,7 +161,7 @@ javascript:
             show_error: 'true',
             display: 'popup'
           };
-
+          _kmq.push(['record', 'Clicked invited friends button']);
           FB.ui(obj, callback);
       });
 
@@ -171,7 +176,7 @@ javascript:
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
-
+          _kmq.push(['record', 'Clicked post to my feed button']);
           FB.ui(obj, callback);
       });
 
@@ -187,7 +192,7 @@ javascript:
             // useful if we want the callback to go to our site, rather than the JavaScript, so we can  log an event for inviting someone
             // redirect_uri: "http://#{ENV['DEV_MACHINE']}/blah",
           };
-
+          _kmq.push(['record', 'Clicked post to friend feed button']);
           FB.ui(obj, callback);
       });
 
@@ -224,6 +229,8 @@ javascript:
           }
 
           console.log(FB.getAuthResponse().accessToken);
+
+          _kmq.push(['record', 'Clicked batch post to friend feed button']);
 
           FB.api(
             "/",
