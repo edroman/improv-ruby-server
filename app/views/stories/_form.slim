@@ -12,7 +12,7 @@ table
     == @story.all_sentences_formatted
     p
 - if @story.turn > 2
-  | #{@story.partner_of(current_user).first_name}'s reaction to your last sentence:
+  | #{@story.partner_of(current_user).first_name}'s message to your last sentence:
   | &nbsp
   b #{@story.sentences.find_by_turn(@story.turn-1).feedback}
   p
@@ -33,38 +33,9 @@ table
   - if @story.turn > 1
     table
         td
-          | What did you think of #{@story.partner_of(current_user).first_name}'s last sentence?
+          | Optional -- Send a message to #{@story.partner_of(current_user).first_name}
           br
-          = select_tag :feedback, options_for_select(["Funny!","Hilarious!","Surprised!","Boring!","Lame!","Weird!","Umm...What?"],"Funny!")
-          /
-            br
-            = radio_button_tag :feedback, "Funny!"
-            | &nbsp
-            = label_tag "Funny!"
-            br
-            = radio_button_tag :feedback, "Hilarious!"
-            | &nbsp
-            = label_tag "Hilarious!"
-            br
-            = radio_button_tag :feedback, "Surprised!"
-            | &nbsp
-            = label_tag "Surprised!"
-            br
-            = radio_button_tag :feedback, "Boring!"
-            | &nbsp
-            = label_tag "Boring!"
-            br
-            = radio_button_tag :feedback, "Lame!"
-            | &nbsp
-            = label_tag "Lame!"
-            br
-            = radio_button_tag :feedback, "Weird!"
-            | &nbsp
-            = label_tag "Weird!"
-            br
-            = radio_button_tag :feedback, "Umm... what?"
-            | &nbsp
-            = label_tag "Umm... what?"
+          = text_area_tag :feedback, params[:feedback], :rows => 1, :maxlength => 200
           br
   = submit_tag "Add Sentence", :class => 'button blue', :onclick => "_kmq.push(['record', 'Clicked Submit from Edit Story Page']);"
 
