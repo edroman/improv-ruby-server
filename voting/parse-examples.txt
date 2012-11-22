@@ -9,3 +9,7 @@ curl -X POST \
   
 uE65hjWZVz
 jXUDuXX96g
+
+
+
+Parse.initialize("oqMegxam44o7Bnqw0osiRGEkheO9aMHm7mEGrKhb", "TzhNqjKrx2TOpvVqNEh3ppBJmcqMUkBq9AMvBjxi");

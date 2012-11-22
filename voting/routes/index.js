@@ -1,5 +1,4 @@
 var async = require('async');				// Allows waterfall cascade of async ops
-var count = 0;
 
 function parse(req, res)
 {
@@ -8,11 +7,11 @@ function parse(req, res)
 	var optionsget = {
 		host : 'api.parse.com', // here only the domain name, no http/https
 		port : 443,
-		path : '/1/classes/Story/uE65hjWZVz', // the rest of the url with parameters if needed
+		path : '/1/classes/Game', // the rest of the url with parameters if needed
 		method : 'GET',
 		headers : {
-			'X-Parse-Application-Id' : 'kxxywjgJSceZiqh5aTEie7cWLsc9MAEDruAP6BCl',
-			'X-Parse-REST-API-Key' : 'GYNuMDvkhEpxq05ZXkLWroivoAYVXmv9As1RV1U2'
+			'X-Parse-Application-Id' : 'oqMegxam44o7Bnqw0osiRGEkheO9aMHm7mEGrKhb',
+			'X-Parse-REST-API-Key' : '28QgsPQBhzLPABB4KlgEFMb3q7OM8Ya4GaDOHXER'
 		}
 	};
 	
@@ -44,7 +43,7 @@ function parse(req, res)
 			});
 		},
 		function(data, callback) {
-			res.render('index', { title: data });
+			res.render('index', { games: data });
 		}
 	]);
 
@@ -56,5 +55,4 @@ function parse(req, res)
 
 exports.index = function(req, res){
 	parse(req,res);
-//  res.render('index', { title: 'Express' });
 };
