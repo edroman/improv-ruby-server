@@ -5,3 +5,11 @@ body {
 a {
   color: #00b7ff;
 }
+leftCol {
+  width: 50%;
+  float: left;
+}
+rightCol {
+  width: 50%;
+  float: right;
+}
