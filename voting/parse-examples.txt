@@ -1,0 +1,11 @@
+curl -X POST \
+  -H "X-Parse-Application-Id: kxxywjgJSceZiqh5aTEie7cWLsc9MAEDruAP6BCl" \
+  -H "X-Parse-REST-API-Key: GYNuMDvkhEpxq05ZXkLWroivoAYVXmv9As1RV1U2" \
+  -H "Content-Type: application/json" \
+  -d '{"player1Name" : "Ed Roman","player2Name" : "Brian Soule","story" : "In a land lost forever, Batman rules supreme."}' \
+  https://api.parse.com/1/classes/Story
+  
+  
+  
+uE65hjWZVz
+jXUDuXX96g
