@@ -7,18 +7,5 @@
 # Ignore cookies
 cookie.txt
 
-# Ignore bundler config
-/.bundle
-
-# Ignore the default SQLite database.
-/db/*.sqlite3
-
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
-
-# Ignore workspace files
-/.idea
-/.idea/*
-/.idea/workspace.xml
-/.idea/improv.iml
+# Ignore node modules
+/voting/node_modules/*
