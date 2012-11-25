@@ -17,7 +17,15 @@ block content
 	leftCol
 		b
 			u Most Recent Stories
-		p= games
+		- games.each( function(game) {
+			br
+			br
+			b By #{game.get("creator").id} and #{game.get("invitee").id}
+			br
+			- game.turns.each( function(turn) {
+			= turn.get("turn");
+			- });
+		- });
 	rightCol
 		b
 			u Highest Voted Stories

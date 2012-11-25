@@ -20,16 +20,15 @@ function parse(req, res)
 	var Games = Parse.Collection.extend(
 	{
 		model: Game,
-		query: new Parse.Query("Game")
 	});
 	
 	// Instantiate the game tree
-	var games = new Games();
+	var gameList = new Games();
 
 	async.waterfall([
 		// 1) Find all games
 		function(callback) {
-			games.fetch(
+			gameList.fetch(
 			{
 				success:
 					function(games)
@@ -38,7 +37,6 @@ function parse(req, res)
 						games.each( function(game)
 						{
 							// Find all turns related to this game
-							console.log("Game ID: " + game.id);
 							game.turns = new Parse.Query("Turn").equalTo("Game", game).collection();
 							game.turns.fetch(
 							{
@@ -46,20 +44,18 @@ function parse(req, res)
 									function(turns)
 									{
 										// For each turn...
-										var i = 0;
 										turns.each( function(turn)
 										{
-											i = i + 1;
-											console.log(i);
-											console.log("Game ID: " + turn.get("Game").id + " Turn ID: " + turn.id)
-										
+											console.log("Game ID: " + turn.get("Game").id + " Turn ID: " + turn.id + " creator = " + game.get("creator"));
+											
+											// TODO: Async nested call to get User data
+
 											// If we've done an async call to retrieve the last turn of the last game,
 											// then invoke callback so we reply with HTTP response
-											console.log("turn = " + turn + " turns.last = " + turns.last());
-											console.log("game = " + game + " games.last = " + games.last());
 											if (turn == turns.last() && game == games.last())
 											{
-												callback(null, games);
+												console.log("callback!");
+												callback(null, gameList);
 											}
 										});
 									},
