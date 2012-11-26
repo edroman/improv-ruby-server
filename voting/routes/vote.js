@@ -4,6 +4,7 @@ Parse.initialize("oqMegxam44o7Bnqw0osiRGEkheO9aMHm7mEGrKhb", "TzhNqjKrx2TOpvVqNE
 
 /*
  * vote on a story
+ * TODO: Make a separate view for this.  Should link user to download the app.
  */
 
 exports.create = function(req, res)
@@ -16,13 +17,15 @@ exports.create = function(req, res)
 	{
 		success: function(vote)
 		{
-			console.log("Vote for " + req.params.id + " created.");
-			res.send("Congrats, you've voted for story " + req.params.id);
+			var msg = "Congrats, you've voted for story " + req.params.id;
+			console.log(msg);
+			res.render('vote', { result: msg });
 		},
 		error: function(vote, error)
 		{
-			console.log("Vote for " + req.params.id + " failed: " + error);
-			res.send("Voting failed for story " + req.params.id + " Error: " + error.code + " " + error.message);
+			var msg = "Voting failed for story " + req.params.id + " Error: " + error.code + " " + error.message;
+			console.log(msg);
+			res.render('vote', { result: msg });
 		}
 	});
 };
