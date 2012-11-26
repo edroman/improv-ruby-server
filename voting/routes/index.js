@@ -49,6 +49,7 @@ function parse(req, res)
 											console.log("Game ID: " + turn.get("Game").id + " Turn ID: " + turn.id + " creator = " + game.get("creator"));
 											
 											// TODO: Async nested call to get User data
+											// var user = game.get("creator").fetch();
 
 											// If we've done an async call to retrieve the last turn of the last game,
 											// then invoke callback so we reply with HTTP response

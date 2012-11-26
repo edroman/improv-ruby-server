@@ -25,6 +25,9 @@ block content
 			- game.turns.each( function(turn) {
 			= turn.get("turn");
 			- });
+			p
+			a(href='/vote/#{game.id}') Vote on this story!
+			p
 		- });
 	rightCol
 		b
