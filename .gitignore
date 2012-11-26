@@ -6,6 +6,3 @@
 
 # Ignore cookies
 cookie.txt
-
-# Ignore node modules
-/voting/node_modules/*
