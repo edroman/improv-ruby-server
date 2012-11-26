@@ -8,7 +8,7 @@ block content
 	leftCol
 		b
 			u Most Recent Stories
-		- games.each( function(game) {
+		- recentGames.each( function(game) {
 			br
 			br
 			b By #{game.get("creator").id} and #{game.get("invitee").id}
@@ -24,7 +24,7 @@ block content
 	rightCol
 		b
 			u Other Interesting Stories
-		- games.each( function(game) {
+		- otherGames.each( function(game) {
 			br
 			br
 			b By #{game.get("creator").id} and #{game.get("invitee").id}

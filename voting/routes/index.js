@@ -23,47 +23,89 @@ function parse(req, res)
 	});
 	
 	// Instantiate the game tree
-	var gameList = new Games();
+	var recentGames = new Games();
+	var otherGames = new Games();
 
 	async.waterfall([
-		// 1) Find all games
+		// 1) Find recent games
 		function(callback) {
-			gameList.fetch(
+			recentGames.fetch(
 			{
-				success:
-					function(games)
+				success: function(games)
+				{
+					// For each game...
+					games.each( function(game)
 					{
-						// For each game...
-						games.each( function(game)
+						// Find all turns related to this game
+						game.turns = new Parse.Query("Turn").equalTo("Game", game).collection();
+						game.turns.fetch(
 						{
-							// Find all turns related to this game
-							game.turns = new Parse.Query("Turn").equalTo("Game", game).collection();
-							game.turns.fetch(
-							{
-								success:
-									function(turns)
+							success:
+								function(turns)
+								{
+									// For each turn...
+									turns.each( function(turn)
 									{
-										// For each turn...
-										turns.each( function(turn)
-										{
-											console.log("Game ID: " + turn.get("Game").id + " Turn ID: " + turn.id + " creator = " + game.get("creator"));
-											
-											// TODO: Async nested call to get User data
-											// var user = game.get("creator").fetch();
+										console.log("Game ID: " + turn.get("Game").id + " Turn ID: " + turn.id + " creator = " + game.get("creator"));
+										
+										// TODO: Async nested call to get User data
+										// var user = game.get("creator").fetch();
 
-											// If we've done an async call to retrieve the last turn of the last game,
-											// then invoke callback so we reply with HTTP response
-											if (turn == turns.last() && game == games.last())
-											{
-												console.log("callback!");
-												callback(null, gameList);
-											}
-										});
-									},
-								error: function(collection, error) { console.log(error); }
-							});
+										// If we've done an async call to retrieve the last turn of the last game,
+										// then invoke callback so we reply with HTTP response
+										if (turn == turns.last() && game == games.last())
+										{
+											console.log("callback!");
+											callback(null, recentGames);
+										}
+									});
+								},
+							error: function(collection, error) { console.log(error); }
 						});
-					},
+					});
+				},
+				error: function(collection, error) {  console.log(error); }
+			});
+		},
+
+		// 2) Find random games
+		// TODO
+		function(recentGames, callback) {
+			otherGames.fetch(
+			{
+				success: function(games)
+				{
+					// For each game...
+					games.each( function(game)
+					{
+						// Find all turns related to this game
+						game.turns = new Parse.Query("Turn").equalTo("Game", game).collection();
+						game.turns.fetch(
+						{
+							success:
+								function(turns)
+								{
+									// For each turn...
+									turns.each( function(turn)
+									{
+										console.log("Game ID: " + turn.get("Game").id + " Turn ID: " + turn.id + " creator = " + game.get("creator"));
+										
+										// TODO: Async nested call to get User data
+										// var user = game.get("creator").fetch();
+
+										// If we've done an async call to retrieve the last turn of the last game,
+										// then invoke callback so we reply with HTTP response
+										if (turn == turns.last() && game == games.last())
+										{
+											console.log("callback!");
+											callback(null, recentGames, otherGames);
+										}
+									});
+								},
+							error: function(collection, error) { console.log(error); }
+						});
+					});
+				},
 				error: function(collection, error) {  console.log(error); }
 			});
 		},
@@ -115,8 +157,8 @@ function parse(req, res)
 			});
 		},
 */
-		function(data, callback) {
-			res.render('index', { games: data });
+		function(recentGames, otherGames, callback) {
+			res.render('index', { recentGames: recentGames, otherGames: otherGames, currentUser: req.user });
 		}
 	]);
 

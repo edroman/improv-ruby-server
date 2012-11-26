@@ -55,13 +55,13 @@ exports.create = function(req, res)
 				{
 					var msg = "Congrats, you voted!";
 					console.log(msg);
-					res.render('vote', { result: msg });
+					res.render('vote', { result: msg, currentUser: req.user });
 				},
 				error: function(vote, error)
 				{
 					var msg = "Voting failed, error: " + error.code + " " + error.message;
 					console.log(msg);
-					res.render('vote', { result: msg });
+					res.render('vote', { result: msg, currentUser: req.user });
 				}
 			});
 		},
