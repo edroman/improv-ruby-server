@@ -2,6 +2,9 @@ extends layout
 
 block content
 	br
+	center
+		a(href='/leaderboard') Click here to see the leaderboard!
+		p
 	leftCol
 		b
 			u Most Recent Stories
@@ -20,5 +23,17 @@ block content
 		- });
 	rightCol
 		b
-			u Highest Voted Stories
-		p= games
+			u Other Interesting Stories
+		- games.each( function(game) {
+			br
+			br
+			b By #{game.get("creator").id} and #{game.get("invitee").id}
+			br
+			- game.turns.each( function(turn) {
+			= turn.get("turn");
+			- });
+			p #{game.get("votes")} votes
+			p
+			a(href='/vote/#{game.id}') Vote on this story!
+			p
+		- });
